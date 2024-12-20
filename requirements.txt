@@ -6,3 +6,4 @@ tf_keras
 tensorflow
 matplotlib
 seaborn
+scikit-learn==1.2.2
