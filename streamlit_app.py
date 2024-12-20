@@ -70,5 +70,5 @@ pg = st.navigation(
     }
 )
 
-st.logo("assets/navbar/logo.png")
+st.logo("assets/navabar/logo.png")
 pg.run()
