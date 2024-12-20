@@ -96,7 +96,7 @@ def _load_historical_data(historical_data_path):
 @st.cache_data
 def load_ratings(model_dir, quarter, down):
     try:
-        file_path = os.path.join(model_dir, f"/Users/kushtrivedi/Desktop/nfl-big-data-bowl-2025/assets/player_ratings/all_{quarter}_{down}_player_rating.csv")
+        file_path = os.path.join(model_dir, f"assets/data/all_{quarter}_{down}_player_rating.csv")
         return pd.read_csv(file_path)
     except FileNotFoundError:
         st.error(f"File not found for Quarter {quarter} and Down {down}.")
