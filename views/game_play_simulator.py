@@ -94,9 +94,9 @@ def _load_historical_data(historical_data_path):
         return pd.DataFrame()
     
 @st.cache_data
-def load_ratings(model_dir, quarter, down):
+def load_ratings(quarter, down):
     try:
-        file_path = os.path.join(model_dir, f"assets/data/all_{quarter}_{down}_player_rating.csv")
+        file_path = f"assets/data/all_{quarter}_{down}_player_rating.csv"
         return pd.read_csv(file_path)
     except FileNotFoundError:
         st.error(f"File not found for Quarter {quarter} and Down {down}.")
@@ -105,7 +105,7 @@ def load_ratings(model_dir, quarter, down):
 @st.cache_data
 def get_weighted_player_rating(player_df, player_names, quarter, down):
     overall_df = player_df
-    specific_df = load_ratings(model_directory,quarter, down)
+    specific_df = load_ratings(quarter, down)
 
     if specific_df.empty:
         return []
