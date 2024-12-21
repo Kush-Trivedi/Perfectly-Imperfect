@@ -1,4 +1,3 @@
-
 import os
 import json
 import base64
@@ -276,22 +275,29 @@ class NFLAdvancedPlaygroundSimulator:
         }
     
     def _load_team_names(self):
-        """Load team names based on the logo file names in the folder."""
         if not self.logo_folder.exists():
             st.error(f"Logo folder not found: {self.logo_folder}")
             return []
-        return [logo_file.stem for logo_file in self.logo_folder.glob("*.png")]
+        
+        team_names = [logo_file.stem for logo_file in self.logo_folder.glob("*.png")]
+        
+        if "NE" in team_names:
+            team_names.remove("NE")          
+            team_names.insert(0, "NE")      
+
+        if "IND" in team_names:
+            team_names.remove("IND")        
+            team_names.insert(1, "IND")  
+        
+        return team_names
 
     def get_player_rating(self, player_names):
-        """Retrieve player ratings based on player names."""
         filtered_players = self.player_df[self.player_df['displayName'].isin(player_names)]
         ratings = filtered_players['final_rating'].tolist()
         missing_players = set(player_names) - set(filtered_players['displayName'])
         if missing_players:
             st.warning(f"Ratings not found for: {', '.join(missing_players)}")
         return ratings
-
-    
     
     def calculate_off_def_proportions(self,selected_routes, categories):
         total_routes = len(selected_routes)
@@ -387,7 +393,7 @@ class NFLAdvancedPlaygroundSimulator:
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            quarter = st.selectbox("Quarter", options=[1, 2, 3, 4, 5], key="quarter")
+            quarter = st.selectbox("Quarter", options=[1, 2, 3, 4, 5],index=[1, 2, 3, 4].index(3) if 3 in [1, 2, 3, 4, 5] else 0, key="quarter")
             st.markdown(
                 """
                     <style> div[data-baseweb="segmented-control"] { } div[data-baseweb="segmented-control"] button { } </style>
@@ -395,7 +401,7 @@ class NFLAdvancedPlaygroundSimulator:
                 unsafe_allow_html=True
             )
             option_map = {0: ":material/hourglass_top: ", 1: ":material/hourglass_bottom: ", 2: ":material/more_time: "}
-            game_half = st.segmented_control( "Game Time Segment", options=option_map.keys(), format_func=lambda option: option_map[option], default=0 )
+            game_half = st.segmented_control( "Game Time Segment", options=option_map.keys(), format_func=lambda option: option_map[option], default=1)
             if game_half == 0:
                 selected_half = f"{option_map[game_half]} Half - 1"
             elif game_half == 1:
@@ -411,22 +417,22 @@ class NFLAdvancedPlaygroundSimulator:
             is_second_half = 1 if game_half == "Half2" else 0
             
         with col2:    
-            down = st.selectbox("Down", options=[1, 2, 3, 4], key="down")
-            quarter_seconds_remaining = st.slider("Seconds Remaining in a Quarter", min_value=0, max_value=900, value=420)
+            down = st.selectbox("Down", options=[1, 2, 3, 4], index=[0, 1, 2, 3].index(2) if 3 in [1, 2, 3, 4] else 0, key="down")
+            quarter_seconds_remaining = st.slider("Seconds Remaining in a Quarter", min_value=0, max_value=900,step=1, value=268)
             minutes = quarter_seconds_remaining // 60
             seconds = quarter_seconds_remaining % 60
             st.markdown(f"Time left in Qtr: **{minutes:02}:{seconds:02}** (*MM:SS*)")
             
         with col3:
-            yards_to_go = st.selectbox("Yards to Go", options=yards_to_go_options, key="yards_to_go")
-            half_seconds_remaining = st.slider("Seconds Remaining in a Half", min_value=0, max_value=1800, value=1000)
+            yards_to_go = st.selectbox("Yards to Go", options=yards_to_go_options, index=4-1 if 4 in yards_to_go_options else 0, key="yards_to_go")
+            half_seconds_remaining = st.slider("Seconds Remaining in a Half", min_value=0, max_value=1800, value=1168)
             minutes = half_seconds_remaining // 60
             seconds = half_seconds_remaining % 60
             st.markdown(f"Half time left: **{minutes:02}:{seconds:02}** (*MM:SS*)")
 
         with col4:
-            yards_to_endzone = st.selectbox("Yards to Endzone", options=yards_to_endzone_options, key="yards_endzone")
-            game_seconds_remaining = st.slider("Seconds Remaining in the Game", min_value=0, max_value=3600, value=620)
+            yards_to_endzone = st.selectbox("Yards to Endzone", options=yards_to_endzone_options,index=85-1 if 85 in yards_to_endzone_options else 0, key="yards_endzone")
+            game_seconds_remaining = st.slider("Seconds Remaining in the Game", min_value=0, max_value=3600, value=1168)
             minutes = game_seconds_remaining // 60
             seconds = game_seconds_remaining % 60
             st.markdown(f"Game time left: **{minutes:02}:{seconds:02}** (*MM:SS*)")
@@ -461,16 +467,16 @@ class NFLAdvancedPlaygroundSimulator:
             offense_col_c, offense_col_d, offense_col_e, offense_col_f = st.columns(4)
 
             with offense_col_c:
-                offense_team_name = st.selectbox("Team Name", options=self.team_names, key="offense_team_name")
+                offense_team_name = st.selectbox("Offense Team", options=self.team_names, key="offense_team_name")
 
             with offense_col_d:
-                off_score = st.number_input("Score Points", key="offense_score", min_value=0, max_value=99, step=1, format="%d")
+                off_score = st.number_input("Score Points", key="offense_score", min_value=0, max_value=99, step=1,value=13,format="%d")
 
             with offense_col_e:
                 off_timeout_remaining = st.selectbox("Timeout Left", options=[3, 2, 1])
 
             with offense_col_f:
-                offense_wp = st.number_input("Win Probability", format="%.5f")
+                offense_wp = st.number_input("Win Probability", value=0.90206, format="%.5f")
 
             selected_team_logo_path = self.logo_folder / f"{offense_team_name}.png"
             if selected_team_logo_path.exists():
@@ -487,18 +493,71 @@ class NFLAdvancedPlaygroundSimulator:
             else:
                 st.warning(f"Logo not found for team: {offense_team_name}")
 
-            offense_formation = st.selectbox("Offense Formation", options= unique_offense_formation)
+            offense_formation = st.selectbox("Offense Formation", options= unique_offense_formation, index=1)
 
-            
+            default_offense_players = [
+                "James Ferentz", "Trenton Brown", "Hunter Henry", "Kendrick Bourne",
+                "Isaiah Wynn", "Yodny Cajuste", "Jakobi Meyers", "Michael Onwenu",
+                "Mac Jones", "Rhamondre Stevenson", "Tyquan Thornton"
+            ]
+
+            default_offense_positions = [
+                "C", "T", "TE", "WR", "G",
+                "T", "WR", "G", "QB", "RB", "WR"
+            ]
+
+            default_offense_routes = [
+                "Pass Block", "Pass Block", "CORNER", "HITCH", "Pass Block",
+                "Pass Block", "IN", "Pass Block", "No Route", "OUT", "GO"
+            ]
+
             for i in range(11):
                 col_player, col_position, col_route = st.columns(3)
+                
                 with col_player:
-                    player = st.selectbox(f"Player {i + 1}", options=self.player_df['displayName'], key=f"offense_player_{i}")
-                with col_position:
-                    position = st.selectbox(f"Position", options=unique_offense_position, key=f"offense_position_{i}")
+                    player_options = self.player_df['displayName'].tolist()
                     
+                    if default_offense_players[i] in player_options:
+                        default_index_player = player_options.index(default_offense_players[i])
+                    else:
+                        default_index_player = 0  
+                        st.warning(f"Default player '{default_offense_players[i]}' for Offense Player {i + 1} not found. Defaulting to the first available player.")
+                    
+                    player = st.selectbox(
+                        f"Player {i + 1}",
+                        options=player_options,
+                        index=default_index_player,
+                        key=f"offense_player_{i}",
+                    )
+                
+                with col_position:
+                    if default_offense_positions[i] in unique_offense_position:
+                        default_index_position = unique_offense_position.index(default_offense_positions[i])
+                    else:
+                        default_index_position = 0  
+                        st.warning(f"Default position '{default_offense_positions[i]}' for Offense Player {i + 1} not found. Defaulting to the first available position.")
+                    
+                    position = st.selectbox(
+                        f"Position",
+                        options=unique_offense_position,
+                        index=default_index_position,
+                        key=f"offense_position_{i}",
+                    )
+                
                 with col_route:
-                    route = st.selectbox(f"Route", options=unique_routes, key=f"offense_route_{i}")
+                    if default_offense_routes[i] in unique_routes:
+                        default_index_route = unique_routes.index(default_offense_routes[i])
+                    else:
+                        default_index_route = 0 
+                        st.warning(f"Default route '{default_offense_routes[i]}' for Offense Player {i + 1} not found. Defaulting to the first available route.")
+                    
+                    route = st.selectbox(
+                        f"Route",
+                        options=unique_routes,
+                        index=default_index_route,
+                        key=f"offense_route_{i}",
+                    )
+
                     
                 offense_selected_players.append(player)
                 offense_selected_positions.append(position)
@@ -534,7 +593,7 @@ class NFLAdvancedPlaygroundSimulator:
             "Flat Zone Left", "Deep Zone", "Deep Third Right", 
             "HCR", "HCL", "CFL", "MAN", "HOL", "FR", "3M", "3R", "3L", 
             "2R", "2L", "FL", "Pass Rush", "4IR", "4OL", "4IL", "4OR", 
-            "DF", "PRE", "Unknown Assignment", "CFR", "Deep Run Support", 
+            "DF", "PRE", "Unknown Assignment", "CFR", "Run Support", 
             "Deep Third Right", "Flat Zone Right", "Flat Zone Left"
         ] 
         unique_defense_formation = [
@@ -552,23 +611,23 @@ class NFLAdvancedPlaygroundSimulator:
 
             with defense_col_b:
                 defesne_play_option_map = {0: ":material/conditions: Man", 1: ":material/detection_and_zone: Zone"}
-                defense_play_selection = st.pills("Coverage", options=defesne_play_option_map.keys(), format_func=lambda option: defesne_play_option_map[option], selection_mode="single", default=0, key="defense_play_selection")
+                defense_play_selection = st.pills("Coverage", options=defesne_play_option_map.keys(), format_func=lambda option: defesne_play_option_map[option], selection_mode="single", default=1, key="defense_play_selection")
                 defense_play_type = defesne_play_option_map[defense_play_selection]
                 defense_play_type = defense_play_type.split(":")[-1].strip()
 
             defense_col_c, defense_col_d, defense_col_e, defense_col_f = st.columns(4)
 
             with defense_col_c:
-                defense_team_name = st.selectbox("Team Name", options=self.team_names, key="defense_team_name")
+                defense_team_name = st.selectbox("Defense Team", options=self.team_names, index=1, key="defense_team_name")
 
             with defense_col_d:
-                def_score = st.number_input("Score Points", key="defense_score", min_value=0, max_value=99, step=1, format="%d")
+                def_score = st.number_input("Score Points", key="defense_score", min_value=0, max_value=99, step=1, value=3, format="%d")
 
             with defense_col_e:
                 def_timeout_remaining = st.selectbox("Timeout Left", options=[3,2,1],key="def_timeout")
 
             with defense_col_f:
-                defense_wp = st.number_input("Win Probablity",key="defense_wp",format="%.5f")
+                defense_wp = st.number_input("Win Probablity",key="defense_wp", value=0.09794 ,format="%.5f")
 
 
             
@@ -588,17 +647,69 @@ class NFLAdvancedPlaygroundSimulator:
                 st.warning(f"Logo not found for team: {defense_team_name}")
 
                     
-            defense_formation = st.selectbox("Defense Formation", options = unique_defense_formation)
+            defense_formation = st.selectbox("Defense Formation", options = unique_defense_formation, index=11)
             
+            default_players = [
+                "Stephon Gilmore", "Rodney McLeod", "DeForest Buckner", "Yannick Ngakoue",
+                "Ifeadi Odenigbo", "Kenny Moore", "Zaire Franklin", "Brandon Facyson",
+                "Bobby Okereke", "Kwity Paye", "Rodney Thomas"
+            ]
+
+            default_positions = [
+                "CB", "FS", "DT", "DE", "DE", "CB",
+                "OLB", "CB", "MLB", "DE", "FS"
+            ]
+
+            default_cover_assignments = [
+                "MAN", "HCR", "Pass Rush", "Pass Rush", "Pass Rush",
+                "CFL", "HCL", "3L", "CFR", "Pass Rush", "3M"
+            ]
+
             for i in range(11):
                 def_col_player, def_col_position, col_coverage = st.columns(3)
+                
                 with def_col_player:
-                    def_player = st.selectbox(f"Player {i + 1}", options=self.player_df['displayName'], key=f"defense_player_{i}")
-                with def_col_position:
-                    def_position = st.selectbox(f"Position", options=unique_defense_position, key=f"defense_position_{i}")
+                    player_options = self.player_df['displayName'].tolist()
                     
+                    if default_players[i] in player_options:
+                        default_index_player = player_options.index(default_players[i])
+                    else:
+                        default_index_player = 0  
+                    
+                    def_player = st.selectbox(
+                        f"Player {i + 1}",
+                        options=player_options,
+                        index=default_index_player,
+                        key=f"defense_player_{i}",
+                
+                    )
+                
+                with def_col_position:
+                    if default_positions[i] in unique_defense_position:
+                        default_index_position = unique_defense_position.index(default_positions[i])
+                    else:
+                        default_index_position = 0  
+                    
+                    def_position = st.selectbox(
+                        f"Position",
+                        options=unique_defense_position,
+                        index=default_index_position,
+                        key=f"defense_position_{i}",
+                   
+                    )
+                
                 with col_coverage:
-                    def_coverage = st.selectbox(f"Coverage", options=unique_coverage, key=f"defense_coverage_{i}")
+                    if default_cover_assignments[i] in unique_coverage:
+                        default_index_coverage = unique_coverage.index(default_cover_assignments[i])
+                    else:
+                        default_index_coverage = 0 
+                    
+                    def_coverage = st.selectbox(
+                        f"Coverage",
+                        options=unique_coverage,
+                        index=default_index_coverage,
+                        key=f"defense_coverage_{i}",
+                    )
                     
                 defense_selected_players.append(def_player)
                 defense_selected_positions.append(def_position)
