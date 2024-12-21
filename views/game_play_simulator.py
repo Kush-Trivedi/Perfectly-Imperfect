@@ -879,7 +879,7 @@ class NFLAdvancedPlaygroundSimulator:
             input_valid = False
 
 
-        clicked = st.button("Predict Game Play Yards", key="predict_button", use_container_width=True, type="primary")
+        clicked = st.button("Predict Game Play Scenario", key="predict_button", use_container_width=True, type="primary")
 
         if clicked and input_valid:
             st.session_state.submit_button = True
