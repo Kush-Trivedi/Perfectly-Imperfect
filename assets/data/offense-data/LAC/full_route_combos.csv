@@ -1,0 +1,325 @@
+gameId,playId,down,pass_length,offenseFormation,receiverAlignment,pass_location,yardsToGo,absoluteYardlineNumber,pff_manZone,defenseFormation,yardline_100,pff_passCoverage,routeCombo,passResult,strategy,quarter
+2022091111,232,1,short,SINGLEBACK,3x1,left,10,84,Zone,4-3 Defense,26.0,Cover-2,"OUT, GO, CROSS",C,Short Left Pass,1
+2022091111,665,1,short,SHOTGUN,2x2,right,10,50,Zone,4-3 Defense,60.0,Quarters,"IN, POST, SCREEN, FLAT, FLAT",C,Short Right Pass,1
+2022091500,233,1,short,EMPTY,3x2,left,10,30,Man,5-2 Defense,80.0,Cover-1,"OUT, HITCH, FLAT, CROSS, SLANT",C,Short Left Pass,1
+2022091500,281,1,deep,SHOTGUN,2x2,left,10,54,Zone,5-2 Defense,56.0,Quarters,"HITCH, HITCH, WHEEL, CORNER, CROSS",I,Spread Misdirection Play,1
+2022091500,424,1,deep,SHOTGUN,2x2,right,10,89,Man,Interior DL Heavy,21.0,Cover-0,"HITCH, GO, FLAT, SLANT",I,Spread Misdirection Play,1
+2022091500,627,1,short,EMPTY,3x2,right,10,52,Zone,5-2 Defense,58.0,Quarters,"HITCH, HITCH, FLAT, OUT, GO",C,Short Right Pass,1
+2022092509,432,1,short,SINGLEBACK,2x2,middle,10,25,Zone,Heavy LB Defense,85.0,Cover-2,"HITCH, HITCH, ANGLE, HITCH, FLAT",C,Singleback Balanced Short Pass,1
+2022100206,462,1,short,PISTOL,2x2,left,10,83,Zone,5-2 Defense,73.0,Cover-2,"HITCH, FLAT, GO",I,Pistol Quick Pass,1
+2022100206,786,1,short,I_FORM,2x1,right,10,74,Zone,5-2 Defense,64.0,Cover-3,"HITCH, FLAT, HITCH, HITCH, FLAT",I,Short Right Pass,1
+2022100902,208,1,short,SHOTGUN,3x1,left,10,27,Zone,Other,83.0,Quarters,"HITCH, HITCH, HITCH, FLAT, OUT",C,Short Left Pass,1
+2022100902,247,1,short,SINGLEBACK,2x2,right,10,37,Zone,Other,73.0,Cover-3,"POST, GO, GO",I,Midfield Short Pass,1
+2022100902,372,1,short,SINGLEBACK,2x2,right,10,74,Zone,Other,36.0,Cover-3,"HITCH, GO, ANGLE, HITCH, GO",I,Singleback Balanced Short Pass,1
+2022100902,1057,1,deep,SHOTGUN,3x1,right,10,54,Zone,Other,56.0,Quarters,"IN, GO, IN, GO",C,Shotgun Isolation Deep Attack,1
+2022101700,634,1,short,SINGLEBACK,3x1,left,20,91,Zone,3-4 Defense,81.0,Cover-6 Right,"GO, GO, SCREEN, GO, SCREEN",C,Short Left Pass,1
+2022101700,952,1,short,I_FORM,2x1,middle,10,92,Zone,3-4 Defense,82.0,Cover 6-Left,"CROSS, ANGLE, IN, OUT, FLAT",C,Short Middle Pass,1
+2022101700,1000,1,deep,SHOTGUN,3x1,right,10,81,Zone,3-4 Defense,71.0,Cover-3 Seam,"HITCH, IN, FLAT, CORNER, HITCH",C,Flood Concept (Intermediate Stretch),1
+2022102309,979,1,short,SINGLEBACK,3x1,left,10,59,Zone,3-4 Defense,51.0,Cover-3,"CROSS, POST, HITCH, CROSS, FLAT",I,Short Left Pass,1
+2022102309,1148,1,deep,SINGLEBACK,2x2,right,10,35,Zone,3-4 Defense,75.0,Cover-3,"CROSS, CROSS, OUT, POST, FLAT",C,First Down Play Action Deep Pass,1
+2022102309,1177,1,short,SHOTGUN,2x2,right,10,57,Zone,3-4 Defense,53.0,Cover-3,"GO, HITCH, FLAT",C,Short Right Pass,1
+2022110600,273,1,short,SHOTGUN,3x1,left,10,35,Zone,5-2 Defense,75.0,Cover-3,"GO, FLAT, FLAT, HITCH",C,Short Left Pass,1
+2022091111,76,2,short,SINGLEBACK,2x2,right,2,43,Zone,4-3 Defense,67.0,Cover-3,"CROSS, SLANT, FLAT, FLAT, OUT",C,Midfield Short Pass,1
+2022091111,142,2,short,SINGLEBACK,2x2,left,8,48,Zone,4-3 Defense,62.0,Cover-3,"OUT, IN, OUT",C,Midfield Short Pass,1
+2022091111,256,2,short,SHOTGUN,2x2,right,13,81,Zone,4-3 Defense,29.0,Cover-2,"OUT, CORNER, FLAT, GO, HITCH",C,Short Right Pass,1
+2022091111,694,2,short,SHOTGUN,2x2,right,7,53,Zone,4-3 Defense,57.0,Cover-2,"OUT, FLAT, GO, IN, HITCH",C,Short Right Pass,1
+2022091500,257,2,short,SINGLEBACK,2x2,left,1,39,Zone,5-2 Defense,71.0,Cover-3,"HITCH, FLAT, ANGLE, HITCH",C,Midfield Short Pass,1
+2022091500,369,2,short,SINGLEBACK,3x1,right,3,81,Zone,5-2 Defense,29.0,Quarters,"CORNER, CROSS, CROSS",I,Short Right Pass,1
+2022091500,446,2,short,SINGLEBACK,2x2,left,10,89,Zone,Interior DL Heavy,21.0,Quarters,"CROSS, CROSS, SCREEN, CROSS",C,Singleback Balanced Short Pass,1
+2022091500,741,2,deep,SINGLEBACK,2x2,left,3,70,Man,5-2 Defense,40.0,Cover-0,"FLAT, CORNER, CROSS, CROSS",C,Second-and-Short Deep Shot,1
+2022092509,234,2,short,SHOTGUN,3x1,left,10,50,Zone,Heavy LB Defense,60.0,Cover-2,"IN, FLAT, HITCH, HITCH, GO",C,Short Left Pass,1
+2022092509,489,2,short,SHOTGUN,2x2,middle,15,20,Zone,Heavy DE Front,90.0,Cover 6-Left,"OUT, GO, IN, FLAT, HITCH",C,Short Middle Pass,1
+2022100206,155,2,short,SHOTGUN,2x2,left,11,36,Man,5-2 Defense,26.0,Cover-1,"HITCH, OUT, SCREEN, ANGLE, CROSS",C,Short Left Pass,1
+2022100206,808,2,short,SHOTGUN,2x2,middle,10,74,Zone,5-2 Defense,64.0,Cover-3,"GO, CROSS, OUT, OUT, CROSS",C,Short Middle Pass,1
+2022100902,343,2,short,SINGLEBACK,2x2,right,9,62,Zone,Other,48.0,Quarters,"CROSS, CROSS, FLAT, SLANT, CORNER",C,Singleback Balanced Short Pass,1
+2022100902,394,2,short,SHOTGUN,2x2,left,10,74,Zone,Other,36.0,Cover-3 Seam,"HITCH, IN, GO, FLAT, OUT",C,Short Left Pass,1
+2022100902,782,2,short,I_FORM,2x1,right,4,106,Zone,Other,4.0,Cover-3,"CROSS, ANGLE, HITCH, CROSS, FLAT",I,Short Right Pass,1
+2022101700,111,2,short,JUMBO,3x1,right,2,47,Zone,3-4 Defense,37.0,Cover-3,"CROSS, CROSS, FLAT, FLAT, CORNER",I,Short Right Pass,1
+2022101700,200,2,short,SINGLEBACK,2x2,left,11,44,Zone,3-4 Defense,34.0,Cover-3 Seam,"POST, CROSS, CROSS, ANGLE, POST",I,Midfield Short Pass,1
+2022101700,658,2,short,SHOTGUN,3x1,middle,11,82,Zone,3-4 Defense,72.0,Cover 6-Left,"HITCH, CORNER, FLAT, HITCH, CORNER",I,Short Middle Pass,1
+2022101700,976,2,short,SHOTGUN,2x2,left,7,89,Zone,3-4 Defense,79.0,Cover-3 Seam,"GO, GO, GO, OUT, CROSS",C,Short Left Pass,1
+2022102309,182,2,short,SHOTGUN,2x2,right,8,71,Zone,3-4 Defense,39.0,Cover-6 Right,"POST, GO, IN, OUT, FLAT",C,Short Right Pass,1
+2022102309,734,2,short,SHOTGUN,2x2,left,8,52,Zone,3-4 Defense,58.0,Cover-3,"CROSS, GO, CROSS, CORNER, FLAT",C,Short Left Pass,1
+2022102309,955,2,short,SHOTGUN,3x1,right,9,36,Zone,3-4 Defense,74.0,Cover-6 Right,"POST, FLAT, OUT, GO, OUT",C,Short Right Pass,1
+2022102309,1001,2,short,SHOTGUN,2x2,right,10,59,Zone,3-4 Defense,51.0,Cover-3 Seam,"GO, HITCH, OUT, IN, OUT",I,Short Right Pass,1
+2022110600,302,2,short,SHOTGUN,2x2,left,9,36,Zone,5-2 Defense,74.0,Cover-3,"SLANT, CROSS, WHEEL, IN, CROSS",C,Short Left Pass,1
+2022110600,712,2,short,SHOTGUN,3x1,right,7,38,Zone,5-2 Defense,72.0,Cover-3,"SCREEN, SCREEN, HITCH, GO, FLAT",C,Short Right Pass,1
+2022091111,208,3,short,SHOTGUN,3x1,middle,8,59,Man,4-2-5 Nickel,51.0,Cover-1,"HITCH, GO, IN, OUT, HITCH",C,Short Middle Pass,1
+2022091111,280,3,short,SHOTGUN,3x1,middle,9,85,Zone,4-2-5 Nickel,25.0,Cover 6-Left,"IN, HITCH, OUT, OUT, SLANT",I,Short Middle Pass,1
+2022091500,324,3,short,SHOTGUN,2x2,right,2,62,Zone,5-2 Defense,48.0,Cover-2,"HITCH, POST, CORNER, ANGLE, IN",C,Short Right Pass,1
+2022091500,475,3,short,SHOTGUN,3x1,right,13,86,Zone,5-2 Defense,24.0,Quarters,"HITCH, HITCH, FLAT, OUT, HITCH",C,Short Right Pass,1
+2022091500,675,3,short,SHOTGUN,3x1,right,6,56,Man,5-2 Defense,54.0,Cover-1,"GO, HITCH, FLAT, HITCH, HITCH",C,Short Right Pass,1
+2022092509,258,3,short,SHOTGUN,3x1,left,7,53,Man,Heavy DE Front,57.0,Cover-1,"GO, CROSS, CROSS, IN",I,Short Left Pass,1
+2022100206,505,3,short,EMPTY,3x2,middle,12,85,Man,5-2 Defense,75.0,Cover-1,"FLAT, IN, HITCH, FLAT, HITCH",C,Short Middle Pass,1
+2022100206,832,3,short,SHOTGUN,3x1,right,6,70,Zone,5-2 Defense,60.0,Cover-2,"HITCH, GO, OUT, SCREEN, GO",C,Short Right Pass,1
+2022100902,423,3,short,SHOTGUN,2x2,right,2,82,Man,Other,28.0,Cover-1,"FLAT, SLANT, SLANT, OUT, SLANT",I,Short Right Pass,1
+2022100902,831,3,short,SHOTGUN,3x1,left,9,101,Other,Other,9.0,Red Zone,"IN, CROSS, FLAT, HITCH, CROSS",I,Short Left Pass,1
+2022101700,245,3,deep,EMPTY,3x2,right,16,49,Zone,3-4 Defense,39.0,Cover-6 Right,"HITCH, HITCH, FLAT, GO, FLAT",I,Third-and-Long Deep Attack,1
+2022101700,680,3,short,SHOTGUN,3x1,right,11,82,Zone,3-4 Defense,72.0,Cover-6 Right,"CROSS, SLANT, CROSS, SCREEN, GO",C,Short Right Pass,1
+2022102309,758,3,short,SHOTGUN,3x1,middle,7,53,Zone,5-2 Defense,57.0,Cover-6 Right,"HITCH, HITCH, FLAT, HITCH, FLAT",IN,Short Middle Pass,1
+2022110600,326,3,short,EMPTY,4x1,right,2,43,Man,Interior DL Heavy,67.0,Cover-1,"IN, HITCH, SCREEN, IN, SLANT",I,Short Right Pass,1
+2022100902,445,4,short,SHOTGUN,3x1,left,2,82,Man,Other,28.0,Cover-1,"OUT, HITCH, ANGLE, GO, HITCH",I,Short Left Pass,1
+2022101700,155,4,short,SHOTGUN,3x1,right,2,47,Zone,3-4 Defense,37.0,Cover-3,"FLAT, GO, IN, FLAT, HITCH",C,Short Right Pass,1
+2022091111,923,1,deep,SINGLEBACK,2x2,right,10,63,Zone,4-2-5 Nickel,53.0,Cover-3,"CROSS, IN, CROSS, OUT",C,First Down Play Action Deep Pass,2
+2022091111,1038,1,short,SINGLEBACK,2x2,right,1,11,Other,4-3 Defense,1.0,Goal Line,"CROSS, HITCH, FLAT, CORNER, HITCH",I,Red Zone Short Pass,2
+2022091111,1368,1,short,SHOTGUN,3x1,middle,20,100,Zone,4-3 Defense,90.0,Cover-2,"HITCH, FLAT, FLAT, HITCH, HITCH",C,Short Middle Pass,2
+2022091111,1416,1,deep,I_FORM,2x1,left,10,77,Zone,4-3 Defense,67.0,Cover-3,"POST, CROSS, OUT, GO, FLAT",C,First Down Play Action Deep Pass,2
+2022091500,1191,1,deep,SHOTGUN,3x1,right,10,77,Zone,5-2 Defense,67.0,Cover-2,"HITCH, POST, CROSS, ANGLE, GO",I,Shotgun Isolation Deep Attack,2
+2022091500,1482,1,short,SINGLEBACK,3x1,right,10,87,Zone,5-2 Defense,77.0,Cover-2,"CORNER, IN, FLAT, OUT, FLAT",C,Short Right Pass,2
+2022092509,924,1,short,SINGLEBACK,2x2,left,10,101,Zone,5-2 Defense,91.0,Cover-2,"GO, OUT, CORNER",IN,Singleback Balanced Short Pass,2
+2022092509,1096,1,short,SHOTGUN,2x2,right,10,71,Zone,5-2 Defense,61.0,Cover-3,"SCREEN, GO, FLAT, GO",I,Short Right Pass,2
+2022092509,1318,1,short,SHOTGUN,2x2,right,10,85,Zone,Heavy LB Defense,75.0,Cover-2,"GO, OUT, GO, HITCH, FLAT",C,Short Right Pass,2
+2022092509,1443,1,short,SINGLEBACK,2x2,middle,10,53,Zone,Heavy LB Defense,43.0,Cover-2,"FLAT, HITCH, FLAT, ANGLE, HITCH",C,Singleback Balanced Short Pass,2
+2022092509,1910,1,short,SHOTGUN,3x1,right,10,85,Zone,Heavy DE Front,75.0,Cover-2,"IN, CROSS, GO, SCREEN, GO",C,Short Right Pass,2
+2022092509,1964,1,short,SHOTGUN,2x2,left,15,78,Zone,Heavy DE Front,68.0,Cover-3,"HITCH, GO, FLAT, FLAT, HITCH",C,Short Left Pass,2
+2022100206,1307,1,deep,SINGLEBACK,2x2,right,10,42,Man,5-2 Defense,68.0,Cover-1,"FLAT, CROSS, SCREEN, CORNER",C,First Down Play Action Deep Pass,2
+2022100206,1410,1,short,EMPTY,3x2,left,10,88,Man,5-2 Defense,22.0,Cover-1,"CROSS, CROSS, GO, POST, GO",C,Short Left Pass,2
+2022100206,1752,1,short,SHOTGUN,3x1,left,10,42,Zone,5-2 Defense,68.0,Cover 6-Left,"HITCH, OUT, HITCH, ANGLE, GO",I,Short Left Pass,2
+2022100206,1798,1,short,EMPTY,3x2,right,10,66,Zone,5-2 Defense,44.0,Cover 6-Left,"POST, OUT, FLAT, FLAT, OUT",C,Short Right Pass,2
+2022100206,1930,1,short,SHOTGUN,2x2,middle,10,96,Zone,5-2 Defense,14.0,Quarters,"IN, IN, CORNER, ANGLE, GO",I,Short Middle Pass,2
+2022100902,1344,1,short,SHOTGUN,3x1,right,10,99,Zone,Other,89.0,Quarters,"CROSS, SCREEN, FLAT, OUT",C,Short Right Pass,2
+2022100902,1389,1,deep,SHOTGUN,2x2,right,10,82,Zone,Other,72.0,Cover-3,"GO, GO, GO, OUT, GO",I,Flood Concept (Intermediate Stretch),2
+2022100902,1453,1,short,SINGLEBACK,3x1,left,10,57,Man,Other,47.0,Cover-1,"CROSS, FLAT, POST",C,Short Left Pass,2
+2022100902,1846,1,short,SHOTGUN,2x2,left,10,84,Zone,Other,74.0,Quarters,"CORNER, HITCH, FLAT, OUT, GO",C,Short Left Pass,2
+2022101700,1114,1,deep,SHOTGUN,3x1,right,10,75,Man,3-4 Defense,35.0,Cover-1,"FLAT, GO, IN, OUT",I,Shotgun Isolation Deep Attack,2
+2022101700,1618,1,short,SHOTGUN,2x2,right,20,58,Zone,3-4 Defense,52.0,Cover-3 Seam,"IN, OUT, FLAT, CROSS, GO",C,Short Right Pass,2
+2022101700,1701,1,short,SHOTGUN,3x1,left,10,87,Zone,3-4 Defense,23.0,Cover-3 Seam,"HITCH, ANGLE, OUT, OUT, GO",C,Short Left Pass,2
+2022101700,1781,1,short,SHOTGUN,3x1,right,10,98,Man,3-4 Defense,12.0,Cover-0,"FLAT, GO, FLAT, SCREEN, SCREEN",C,Short Right Pass,2
+2022102309,1225,1,short,SINGLEBACK,2x2,left,10,53,Zone,4-3 Defense,43.0,Quarters,"GO, IN, FLAT",C,Singleback Balanced Short Pass,2
+2022102309,1535,1,deep,SHOTGUN,2x2,left,10,30,Zone,3-4 Defense,20.0,Cover-6 Right,"HITCH, CORNER, IN, FLAT, GO",I,Scoring Zone Deep Pass,2
+2022102309,2128,1,short,SHOTGUN,3x1,left,10,85,Zone,5-2 Defense,75.0,Cover-6 Right,"POST, CORNER, HITCH, ANGLE, OUT",C,Short Left Pass,2
+2022102309,2176,1,short,SHOTGUN,3x1,right,10,74,Zone,Heavy DE Front,64.0,Cover-6 Right,"OUT, OUT, OUT, FLAT, GO",C,Short Right Pass,2
+2022102309,2212,1,short,SHOTGUN,2x2,right,10,63,Zone,Heavy DE Front,53.0,Cover-3 Seam,"HITCH, IN, FLAT, FLAT, HITCH",I,Short Right Pass,2
+2022110600,1058,1,short,SHOTGUN,2x2,right,10,59,Zone,Interior DL Heavy,49.0,Cover-2,"POST, OUT, GO, CROSS, GO",C,Short Right Pass,2
+2022110600,1114,1,short,SHOTGUN,3x1,middle,25,61,Zone,Interior DL Heavy,51.0,Cover-3,"IN, CROSS, OUT, IN, ANGLE",C,Short Middle Pass,2
+2022110600,1526,1,short,SHOTGUN,3x1,middle,10,61,Zone,Interior DL Heavy,51.0,Cover-3,"GO, HITCH, OUT, POST",I,Short Middle Pass,2
+2022110600,1627,1,short,SHOTGUN,2x1,right,10,21,Other,5-2 Defense,11.0,Red Zone,"OUT, CORNER, FLAT, CROSS, CROSS",C,Short Right Pass,2
+2022110600,1657,1,short,JUMBO,1x1,right,1,11,Other,5-2 Defense,1.0,Goal Line,"OUT, FLAT, CROSS, FLAT",I,Short Right Pass,2
+2022091111,899,2,deep,SHOTGUN,2x2,right,15,82,Zone,4-2-5 Nickel,72.0,Quarters,"HITCH, IN, ANGLE, POST, SLANT",C,Spread Misdirection Play,2
+2022091111,973,2,short,SINGLEBACK,2x2,right,7,18,Other,4-3 Defense,8.0,Red Zone,"CROSS, OUT, FLAT, OUT, SLANT",C,Red Zone Short Pass,2
+2022091111,1192,2,short,SHOTGUN,2x2,left,1,11,Man,4-3 Defense,1.0,Cover-0,"SLANT, HITCH, OUT, CROSS",I,Short Left Pass,2
+2022091111,1307,2,short,SHOTGUN,2x2,right,7,98,Man,4-3 Defense,88.0,Cover-1,"SLANT, GO, ANGLE, GO",C,Short Right Pass,2
+2022091111,1392,2,short,SHOTGUN,3x1,middle,8,88,Man,4-3 Defense,78.0,Cover-1,"SLANT, IN, FLAT, SLANT",C,Short Middle Pass,2
+2022091111,1484,2,short,SHOTGUN,3x1,right,12,49,Man,4-3 Defense,39.0,Cover-1,"GO, HITCH, ANGLE, OUT, GO",C,Short Right Pass,2
+2022091111,1650,2,deep,SHOTGUN,2x2,middle,2,33,Zone,4-2-5 Nickel,23.0,Cover-2,"GO, CORNER, IN, OUT, CROSS",C,Second-and-Short Deep Shot,2
+2022091500,816,2,short,JUMBO,2x0,right,1,11,Other,5-2 Defense,1.0,Goal Line,"OUT, FLAT",C,Short Right Pass,2
+2022091500,1213,2,short,SHOTGUN,3x1,right,10,77,Man,5-2 Defense,67.0,Cover-1,"OUT, HITCH, OUT, ANGLE, GO",C,Short Right Pass,2
+2022091500,1532,2,short,SHOTGUN,2x2,right,9,76,Zone,5-2 Defense,66.0,Quarters,"GO, GO, FLAT, OUT, HITCH",C,Short Right Pass,2
+2022092509,1118,2,short,SHOTGUN,2x2,right,10,71,Man,5-2 Defense,61.0,Cover-1,"CROSS, GO, GO, OUT, POST",I,Short Right Pass,2
+2022092509,1342,2,short,SHOTGUN,3x1,left,6,81,Zone,Heavy LB Defense,71.0,Cover-3,"IN, FLAT, OUT, CORNER, HITCH",I,Short Left Pass,2
+2022092509,1414,2,short,SHOTGUN,3x1,right,10,64,Zone,Heavy LB Defense,54.0,Cover-3,"IN, CROSS, POST, OUT",C,Short Right Pass,2
+2022092509,1467,2,short,SHOTGUN,2x2,middle,1,44,Zone,Heavy LB Defense,34.0,Cover-3 Seam,"SLANT, SLANT, FLAT, HITCH",C,Short Middle Pass,2
+2022092509,1988,2,short,SHOTGUN,3x1,middle,11,74,Zone,Heavy DE Front,64.0,Cover-6 Right,"POST, GO, IN, ANGLE, GO",I,Short Middle Pass,2
+2022100206,938,2,short,SINGLEBACK,2x2,right,5,80,Man,5-2 Defense,30.0,Cover-1,"CORNER, CROSS, FLAT, CROSS, CROSS",C,Singleback Balanced Short Pass,2
+2022100206,1152,2,short,SINGLEBACK,2x2,left,7,40,Man,5-2 Defense,70.0,Cover-1,"CROSS, CROSS, FLAT, POST",C,Midfield Short Pass,2
+2022100206,1362,2,short,EMPTY,3x2,right,11,66,Man,5-2 Defense,44.0,Cover-1,"HITCH, CROSS, HITCH, FLAT",C,Short Right Pass,2
+2022100206,1468,2,short,SHOTGUN,3x1,right,11,99,Other,4-2-5 Nickel,11.0,Red Zone,"SCREEN, CROSS, FLAT, CORNER, CROSS",I,Short Right Pass,2
+2022100206,1981,2,deep,SHOTGUN,3x1,left,15,91,Zone,5-2 Defense,19.0,Cover 6-Left,"GO, GO, POST, ANGLE, GO",I,Shotgun Isolation Deep Attack,2
+2022100902,1121,2,short,SINGLEBACK,3x1,right,7,25,Zone,Other,15.0,Quarters,"CROSS, FLAT, CORNER, CROSS",C,Short Right Pass,2
+2022100902,1320,2,short,SHOTGUN,2x2,left,7,106,Zone,Other,96.0,Cover 6-Left,"HITCH, POST, HITCH",C,Short Left Pass,2
+2022100902,1571,2,short,SHOTGUN,2x2,left,12,22,Zone,Other,12.0,Cover-3 Seam,"OUT, GO, CROSS, SCREEN, HITCH",C,Short Left Pass,2
+2022100902,1870,2,short,SHOTGUN,3x1,right,7,81,Zone,Other,71.0,Cover-2,"POST, CROSS, POST, OUT",C,Short Right Pass,2
+2022101700,1136,2,short,EMPTY,4x1,right,10,75,Zone,3-4 Defense,35.0,Cover-3,"OUT, HITCH, SCREEN, CROSS, HITCH",C,Short Right Pass,2
+2022101700,1205,2,short,SHOTGUN,2x2,left,10,86,Zone,3-4 Defense,24.0,Cover-6 Right,"HITCH, ANGLE, OUT, OUT, HITCH",C,Short Left Pass,2
+2022101700,1274,2,short,SINGLEBACK,2x2,right,10,96,Zone,3-4 Defense,14.0,Quarters,"CROSS, CROSS, GO, FLAT, POST",C,Singleback Balanced Short Pass,2
+2022102309,1249,2,short,SINGLEBACK,2x2,middle,2,45,Zone,3-4 Defense,35.0,Cover-3,"FLAT, HITCH, HITCH",C,Midfield Short Pass,2
+2022102309,1299,2,deep,PISTOL,2x1,right,6,27,Zone,3-4 Defense,17.0,Cover-3,"CROSS, GO, POST, FLAT, FLAT",I,Pistol Deep Attack,2
+2022102309,1557,2,short,SINGLEBACK,2x2,right,10,30,Man,3-4 Defense,20.0,Cover-1,"GO, GO, SCREEN, FLAT, GO",C,Singleback Balanced Short Pass,2
+2022102309,1834,2,short,SHOTGUN,3x1,right,9,82,Zone,Heavy DE Front,72.0,Cover-3,"GO, GO, FLAT, SCREEN, SLANT",C,Short Right Pass,2
+2022102309,2152,2,short,SHOTGUN,3x1,left,5,80,Zone,5-2 Defense,70.0,Cover-6 Right,"GO, HITCH, IN, SCREEN, GO",C,Short Left Pass,2
+2022102309,2234,2,short,SHOTGUN,2x2,right,10,63,Zone,Heavy DE Front,53.0,Cover-6 Right,"GO, GO, POST, ANGLE, HITCH",I,Short Right Pass,2
+2022110600,938,2,short,SHOTGUN,2x2,middle,15,98,Zone,Interior DL Heavy,88.0,Cover-3,"FLAT, HITCH, FLAT, ANGLE, HITCH",I,Short Middle Pass,2
+2022110600,1005,2,short,SINGLEBACK,3x1,right,8,71,Zone,5-2 Defense,61.0,Cover-2,"GO, CROSS, CROSS, FLAT",C,Short Right Pass,2
+2022110600,1138,2,short,SHOTGUN,2x2,right,15,51,Zone,Interior DL Heavy,41.0,Cover-2,"POST, HITCH, CROSS, FLAT, ANGLE",C,Short Right Pass,2
+2022110600,1461,2,short,SHOTGUN,3x1,right,5,68,Zone,Interior DL Heavy,58.0,Cover-3,"POST, IN, OUT, CORNER",C,Short Right Pass,2
+2022110600,1553,2,short,SHOTGUN,3x1,left,10,61,Zone,Interior DL Heavy,51.0,Cover-3,"CROSS, HITCH, SCREEN, GO, GO",C,Short Left Pass,2
+2022110600,1682,2,short,SINGLEBACK,2x2,right,1,11,Man,5-2 Defense,1.0,Cover-0,"HITCH, FLAT, CROSS, IN",C,Red Zone Short Pass,2
+2022091500,1300,3,short,SHOTGUN,3x1,right,2,57,Man,5-2 Defense,47.0,Cover-1,"SLANT, SLANT, HITCH, FLAT, SLANT",I,Short Right Pass,2
+2022092509,1364,3,short,SHOTGUN,2x2,left,6,81,Man,Heavy LB Defense,71.0,Cover-1,"OUT, CORNER, HITCH, GO",C,Short Left Pass,2
+2022092509,2015,3,deep,SHOTGUN,3x1,left,11,74,Man,Heavy DE Front,64.0,Cover-1,"OUT, POST, FLAT, GO",I,Third-and-Long Deep Attack,2
+2022100206,1386,3,short,SHOTGUN,2x2,middle,3,74,Man,5-2 Defense,36.0,Cover-1,"OUT, OUT, IN, HITCH",C,Short Middle Pass,2
+2022100206,1490,3,short,SHOTGUN,2x2,left,11,99,Other,4-2-5 Nickel,11.0,Red Zone,"POST, GO, OUT, GO, CORNER",C,Short Left Pass,2
+2022100206,1890,3,deep,SHOTGUN,3x1,left,5,71,Zone,5-2 Defense,39.0,Cover-2,"IN, GO, CROSS, ANGLE, CORNER",C,Shotgun Isolation Deep Attack,2
+2022101700,1090,3,short,SHOTGUN,3x1,middle,4,69,Zone,3-4 Defense,41.0,Cover-3 Seam,"HITCH, OUT, OUT, CROSS",C,Short Middle Pass,2
+2022101700,1160,3,short,EMPTY,3x2,right,5,80,Zone,3-4 Defense,30.0,Cover-3 Seam,"GO, GO, SCREEN, FLAT, GO",C,Short Right Pass,2
+2022101700,1229,3,short,EMPTY,4x1,left,5,91,Man,3-4 Defense,19.0,Cover-1,"SLANT, SLANT, HITCH, SCREEN, SLANT",C,Short Left Pass,2
+2022101700,1838,3,short,SHOTGUN,2x2,middle,17,91,Zone,3-4 Defense,19.0,Quarters,"POST, HITCH, POST, ANGLE, HITCH",I,Short Middle Pass,2
+2022102309,1321,3,short,SHOTGUN,2x2,right,6,27,Zone,5-2 Defense,17.0,Cover-2,"SLANT, GO, HITCH, FLAT, GO",C,Short Right Pass,2
+2022102309,1511,3,short,SHOTGUN,2x2,middle,7,40,Zone,5-2 Defense,30.0,Cover-3 Seam,"CROSS, POST, IN, CORNER",C,Short Middle Pass,2
+2022102309,1581,3,short,SHOTGUN,3x1,right,3,23,Man,3-4 Defense,13.0,Cover-1,"SLANT, GO, CROSS, CROSS, WHEEL",C,Short Right Pass,2
+2022102309,1858,3,short,SHOTGUN,3x1,middle,14,87,Zone,5-2 Defense,77.0,Cover-6 Right,"CROSS, GO, POST, HITCH, ANGLE",I,Short Middle Pass,2
+2022102309,2256,3,deep,SHOTGUN,2x2,right,10,63,Zone,5-2 Defense,53.0,Cover-3 Seam,"GO, IN, OUT, CROSS",I,Third-and-Long Deep Attack,2
+2022110600,755,3,short,EMPTY,3x2,middle,2,77,Zone,5-2 Defense,67.0,Cover-3,"GO, POST, GO, HITCH, POST",I,Short Middle Pass,2
+2022110600,960,3,deep,SHOTGUN,3x1,middle,15,98,Zone,Interior DL Heavy,88.0,Cover-2,"IN, CROSS, OUT, POST, POST",C,Third-and-Long Deep Attack,2
+2022110600,1029,3,short,SHOTGUN,3x1,right,6,69,Zone,5-2 Defense,59.0,Cover-3,"HITCH, CROSS, FLAT, IN, HITCH",C,Short Right Pass,2
+2022110600,1162,3,short,SHOTGUN,3x1,left,9,45,Man,5-2 Defense,35.0,Cover-1,"GO, OUT, OUT, HITCH",C,Short Left Pass,2
+2022110600,1233,3,short,SHOTGUN,3x1,right,2,25,Man,5-2 Defense,15.0,Cover-1,"GO, GO, FLAT, FLAT, CROSS",C,Short Right Pass,2
+2022110600,1497,3,short,SINGLEBACK,2x2,right,1,64,Zone,Interior DL Heavy,54.0,Cover-2,"OUT, FLAT, CROSS, CROSS",C,Short Yardage Pass,2
+2022110600,1582,3,short,SHOTGUN,3x1,middle,5,56,Zone,Interior DL Heavy,46.0,Cover-3,"HITCH, OUT, FLAT, CROSS, GO",C,Short Middle Pass,2
+2022091111,1975,1,short,SHOTGUN,3x1,middle,10,70,Zone,Other,60.0,Cover-2,"HITCH, SLANT, FLAT, FLAT, HITCH",C,Short Middle Pass,3
+2022091111,2020,1,short,SHOTGUN,3x1,right,10,55,Zone,Other,45.0,Cover-2,"OUT, HITCH, ANGLE, GO, OUT",C,Short Right Pass,3
+2022091111,2089,1,short,I_FORM,2x1,left,10,45,Zone,Other,35.0,Quarters,"CORNER, OUT, HITCH",C,Short Left Pass,3
+2022091111,2134,1,short,SHOTGUN,2x2,left,10,28,Zone,4-3 Defense,18.0,Quarters,"POST, HITCH, OUT, GO",I,Short Left Pass,3
+2022091500,1908,1,short,SHOTGUN,3x1,left,10,51,Zone,5-2 Defense,59.0,Cover-2,"POST, CROSS, FLAT, GO",C,Short Left Pass,3
+2022091500,1937,1,short,SHOTGUN,2x2,right,10,69,Zone,5-2 Defense,41.0,Cover-2,"CROSS, POST, OUT, GO, FLAT",I,Short Right Pass,3
+2022091500,2067,1,short,SHOTGUN,2x2,right,10,95,Zone,5-2 Defense,15.0,Cover-3 Seam,"GO, GO, ANGLE, SCREEN, GO",C,Short Right Pass,3
+2022091500,2603,1,short,I_FORM,2x1,right,10,19,Zone,5-2 Defense,91.0,Quarters,"CROSS, FLAT, CORNER, HITCH, OUT",I,Short Right Pass,3
+2022092509,2149,1,deep,SINGLEBACK,2x2,right,18,27,Man,Heavy LB Defense,83.0,2-Man,"GO, FLAT, OUT",I,First Down Play Action Deep Pass,3
+2022092509,2268,1,short,JUMBO,2x2,right,7,103,Other,5-2 Defense,7.0,Red Zone,"SCREEN, IN, FLAT, OUT, FLAT",I,Short Right Pass,3
+2022092509,2533,1,deep,SINGLEBACK,2x2,right,10,35,Man,Heavy LB Defense,75.0,Cover-1,"GO, HITCH, GO, ANGLE, HITCH",I,First Down Play Action Deep Pass,3
+2022100902,2416,1,short,EMPTY,3x2,left,10,65,Man,Other,45.0,Cover-1,"HITCH, HITCH, GO, FLAT, OUT",I,Short Left Pass,3
+2022100902,2483,1,deep,SHOTGUN,2x2,right,10,88,Zone,Other,22.0,Cover-3,"GO, GO, GO, HITCH",I,General Strategy,3
+2022101700,2236,1,short,SHOTGUN,3x1,left,10,49,Zone,3-4 Defense,61.0,Cover-3,"IN, FLAT, OUT, HITCH, OUT",C,Short Left Pass,3
+2022101700,2370,1,short,SINGLEBACK,2x2,right,10,75,Zone,3-4 Defense,35.0,Cover-3 Seam,"IN, POST, SCREEN, OUT",C,Singleback Balanced Short Pass,3
+2022101700,2795,1,short,SINGLEBACK,2x2,left,10,51,Zone,3-4 Defense,59.0,Cover-3,"CROSS, ANGLE, OUT, GO, SCREEN",C,Singleback Balanced Short Pass,3
+2022101700,2890,1,short,SHOTGUN,3x1,left,10,73,Zone,3-4 Defense,37.0,Cover-6 Right,"FLAT, GO, FLAT, SLANT, SCREEN",C,Short Left Pass,3
+2022102309,2438,1,short,SINGLEBACK,2x2,left,10,51,Zone,4-3 Defense,59.0,Cover-6 Right,"CROSS, GO, FLAT, POST",C,Singleback Balanced Short Pass,3
+2022102309,2467,1,short,I_FORM,2x1,left,10,63,Zone,Heavy DE Front,47.0,Cover-3,"CROSS, FLAT, HITCH, CROSS",I,Short Left Pass,3
+2022110600,1891,1,short,SHOTGUN,2x2,left,10,89,Zone,5-2 Defense,79.0,Cover-3,"GO, FLAT, GO, GO, GO",I,Short Left Pass,3
+2022110600,2223,1,deep,SHOTGUN,2x2,right,10,60,Zone,Interior DL Heavy,50.0,Cover-2,"POST, POST, ANGLE, GO, GO",I,General Strategy,3
+2022110600,2595,1,short,SHOTGUN,3x1,middle,10,73,Zone,Interior DL Heavy,63.0,Cover-3,"GO, FLAT, IN, CROSS",I,Short Middle Pass,3
+2022091111,1946,2,short,SHOTGUN,2x2,left,10,83,Zone,Other,73.0,Quarters,"HITCH, CROSS, HITCH, SCREEN, GO",C,Short Left Pass,3
+2022091111,2156,2,short,SHOTGUN,2x2,left,10,28,Man,Other,18.0,Cover-1,"HITCH, HITCH, FLAT, FLAT, SCREEN",C,Short Left Pass,3
+2022091500,1863,2,short,SHOTGUN,2x2,right,8,37,Zone,5-2 Defense,73.0,Cover-6 Right,"OUT, GO, OUT, FLAT, GO",C,Short Right Pass,3
+2022091500,1959,2,short,SINGLEBACK,3x1,left,10,69,Man,5-2 Defense,41.0,Cover-0,"HITCH, CROSS, FLAT, POST",C,Short Left Pass,3
+2022091500,2436,2,short,SHOTGUN,2x2,middle,8,37,Zone,Interior DL Heavy,73.0,Quarters,"HITCH, FLAT, ANGLE, HITCH, FLAT",C,Short Middle Pass,3
+2022091500,2625,2,short,SHOTGUN,3x1,right,10,19,Zone,5-2 Defense,91.0,Quarters,"GO, POST, CROSS, SCREEN, GO",I,Short Right Pass,3
+2022092509,2237,2,short,SHOTGUN,2x2,right,8,86,Zone,Heavy LB Defense,24.0,Cover-3,"SCREEN, IN, POST, GO",C,Short Right Pass,3
+2022092509,2290,2,short,EMPTY,4x1,right,7,103,Zone,5-2 Defense,7.0,Cover-3,"HITCH, IN, CROSS, IN, OUT",I,Short Right Pass,3
+2022092509,2555,2,short,I_FORM,2x1,left,10,35,Man,Heavy LB Defense,75.0,Cover-1,"CORNER, FLAT, HITCH",I,Short Left Pass,3
+2022092509,3063,2,short,SHOTGUN,2x2,left,14,31,Zone,Heavy DE Front,79.0,Cover-2,"HITCH, GO, IN, FLAT, HITCH",C,Short Left Pass,3
+2022100206,2111,2,short,SINGLEBACK,2x2,left,6,85,Zone,5-2 Defense,75.0,Cover-2,"GO, FLAT, GO",C,Singleback Balanced Short Pass,3
+2022100902,2438,2,short,SINGLEBACK,2x2,left,10,65,Zone,Other,45.0,Cover-3,"CORNER, FLAT, OUT",C,Singleback Balanced Short Pass,3
+2022100902,2725,2,short,SINGLEBACK,2x2,right,4,86,Zone,Other,24.0,Quarters,"CROSS, CROSS, FLAT, FLAT, CORNER",C,Singleback Balanced Short Pass,3
+2022100902,2822,2,short,SHOTGUN,3x1,left,9,101,Zone,Other,9.0,Cover-3,"OUT, OUT, OUT, ANGLE, GO",I,Short Left Pass,3
+2022100902,3220,2,short,JUMBO,2x2,right,6,39,Zone,Other,71.0,Quarters,"CROSS, FLAT, CROSS, CORNER",C,Short Right Pass,3
+2022101700,2292,2,short,SHOTGUN,2x2,right,15,44,Zone,3-4 Defense,66.0,Cover 6-Left,"GO, GO, OUT, CROSS, FLAT",C,Short Right Pass,3
+2022101700,2727,2,short,SHOTGUN,2x2,right,10,40,Zone,3-4 Defense,70.0,Cover 6-Left,"IN, OUT, OUT, POST, CROSS",C,Short Right Pass,3
+2022101700,2844,2,short,SHOTGUN,3x1,right,7,66,Zone,3-4 Defense,44.0,Cover-3,"POST, WHEEL, CROSS, IN, OUT",I,Short Right Pass,3
+2022101700,2914,2,deep,SHOTGUN,2x2,right,8,75,Zone,3-4 Defense,35.0,Cover-3,"POST, WHEEL, OUT, IN, CROSS",I,Hi-Lo Route Concept,3
+2022102309,2410,2,short,SINGLEBACK,2x2,right,8,35,Zone,4-3 Defense,75.0,Cover 6-Left,"SCREEN, SLANT, CROSS, FLAT, CORNER",C,Midfield Short Pass,3
+2022102309,2524,2,short,SHOTGUN,2x2,right,20,53,Zone,Heavy DE Front,57.0,Cover-3,"OUT, GO, HITCH, FLAT, GO",C,Short Right Pass,3
+2022110600,2617,2,deep,SHOTGUN,3x1,left,10,73,Zone,5-2 Defense,63.0,Cover 6-Left,"POST, HITCH, ANGLE, OUT, OUT",I,Flood Concept (Intermediate Stretch),3
+2022091111,2065,3,short,SHOTGUN,2x2,right,5,50,Man,Other,40.0,Cover-1,"SLANT, SLANT, CROSS, WHEEL, GO",C,Short Right Pass,3
+2022091500,2460,3,short,SHOTGUN,2x2,middle,2,43,Zone,Interior DL Heavy,67.0,Cover-2,"HITCH, IN, WHEEL, CORNER, CROSS",I,Short Middle Pass,3
+2022092509,2192,3,deep,EMPTY,3x2,middle,15,30,Man,Heavy LB Defense,80.0,2-Man,"GO, FLAT, FLAT, GO, GO",C,Third-and-Long Deep Attack,3
+2022092509,2315,3,short,SHOTGUN,3x1,middle,7,103,Zone,5-2 Defense,7.0,Cover-3,"HITCH, FLAT, FLAT, CROSS, HITCH",I,Short Middle Pass,3
+2022092509,2577,3,short,SHOTGUN,2x2,left,10,35,Zone,Heavy DE Front,75.0,Quarters,"CROSS, CORNER, IN, CROSS",C,Short Left Pass,3
+2022092509,3087,3,short,SHOTGUN,3x1,left,7,38,Man,Heavy DE Front,72.0,Cover-1,"IN, CORNER, CORNER, FLAT, CROSS",C,Short Left Pass,3
+2022100206,2135,3,short,SHOTGUN,3x1,left,4,83,Man,5-2 Defense,73.0,Cover-1,"HITCH, GO, HITCH, OUT",I,Short Left Pass,3
+2022100206,2540,3,deep,SHOTGUN,3x1,right,5,55,Man,5-2 Defense,45.0,Cover-1,"CROSS, GO, OUT, CROSS",I,Shotgun Isolation Deep Attack,3
+2022100902,2392,3,short,EMPTY,3x2,right,12,44,Zone,Other,66.0,Cover-3,"CROSS, HITCH, FLAT, IN, SCREEN",C,Short Right Pass,3
+2022100902,2749,3,short,SHOTGUN,3x1,right,2,88,Man,Other,22.0,Cover-1,"IN, GO, GO, CROSS",C,Short Right Pass,3
+2022100902,2844,3,short,SHOTGUN,2x2,left,9,101,Other,Other,9.0,Red Zone,"FLAT, CORNER, OUT, CROSS, SLANT",C,Short Left Pass,3
+2022101700,2446,3,short,SHOTGUN,2x2,right,1,98,Man,3-4 Defense,12.0,Cover-1,"HITCH, ANGLE, HITCH, FLAT, FLAT",I,Short Right Pass,3
+2022101700,2866,3,short,SHOTGUN,3x1,middle,7,66,Man,3-4 Defense,44.0,Cover-1,"HITCH, GO, CROSS, IN",C,Short Middle Pass,3
+2022101700,2936,3,short,EMPTY,4x1,right,8,75,Zone,3-4 Defense,35.0,Cover-3 Seam,"GO, GO, CROSS, FLAT, CORNER",C,Short Right Pass,3
+2022102309,2548,3,short,SHOTGUN,3x1,right,11,62,Zone,5-2 Defense,48.0,Cover-6 Right,"HITCH, CORNER, FLAT, FLAT, IN",C,Short Right Pass,3
+2022102309,3124,3,short,SHOTGUN,3x1,middle,11,34,Zone,Heavy DE Front,76.0,Quarters,"HITCH, HITCH, HITCH, FLAT, HITCH",C,Short Middle Pass,3
+2022110600,1934,3,short,SHOTGUN,2x1,left,7,86,Zone,Interior DL Heavy,76.0,Cover-3,"GO, OUT, FLAT, GO, CROSS",I,Short Left Pass,3
+2022110600,2266,3,short,SHOTGUN,3x1,middle,8,58,Zone,5-2 Defense,48.0,Cover-3,"POST, CROSS, OUT, GO, HITCH",IN,Short Middle Pass,3
+2022110600,2639,3,short,EMPTY,3x2,left,10,73,Zone,5-2 Defense,63.0,Cover-2,"CROSS, GO, CROSS, CROSS",C,Short Left Pass,3
+2022091111,3295,1,short,SINGLEBACK,2x2,right,10,35,Man,Other,75.0,Cover-1,"CROSS, FLAT, SLANT, CORNER",C,Midfield Short Pass,4
+2022091500,2951,1,short,SINGLEBACK,2x2,right,10,70,Zone,5-2 Defense,60.0,Cover-2,"SCREEN, CORNER, FLAT, OUT, SCREEN",C,Singleback Balanced Short Pass,4
+2022091500,3032,1,short,SINGLEBACK,3x1,left,10,57,Zone,5-2 Defense,47.0,Cover-2,"OUT, POST, OUT, CROSS",C,Short Left Pass,4
+2022091500,3090,1,short,EMPTY,3x2,left,10,46,Zone,5-2 Defense,36.0,Cover-6 Right,"HITCH, HITCH, OUT, FLAT, OUT",C,Short Left Pass,4
+2022091500,3138,1,short,SHOTGUN,2x2,right,3,13,Man,5-2 Defense,3.0,Cover-0,"FLAT, OUT, FLAT, HITCH",IN,Short Right Pass,4
+2022091500,3200,1,short,SHOTGUN,3x1,left,10,85,Zone,Interior DL Heavy,75.0,Cover-2,"SCREEN, IN, IN, OUT, HITCH",C,Short Left Pass,4
+2022091500,3458,1,short,EMPTY,3x2,right,10,96,Zone,5-2 Defense,86.0,Cover-2,"HITCH, SLANT, FLAT, HITCH, GO",I,Short Right Pass,4
+2022091500,3780,1,short,SHOTGUN,3x1,left,10,83,Zone,5-2 Defense,73.0,Quarters,"HITCH, GO, IN, SCREEN, GO",C,Short Left Pass,4
+2022091500,3903,1,short,SHOTGUN,3x1,right,8,18,Man,5-2 Defense,8.0,Cover-1 Double,"POST, HITCH, CROSS, FLAT, IN",C,Short Right Pass,4
+2022092509,3616,1,short,SHOTGUN,3x1,left,10,85,Zone,5-2 Defense,75.0,Cover-2,"CORNER, HITCH, OUT, GO, OUT",C,Short Left Pass,4
+2022092509,3717,1,short,SHOTGUN,2x2,right,10,64,Zone,Heavy DE Front,54.0,Cover-6 Right,"CORNER, FLAT, GO, POST, HITCH",C,Short Right Pass,4
+2022092509,3765,1,short,SHOTGUN,3x1,middle,10,52,Zone,Heavy LB Defense,42.0,Cover-2,"HITCH, CORNER, CORNER, HITCH, FLAT",C,Short Middle Pass,4
+2022092509,3907,1,short,SHOTGUN,3x1,left,10,26,Zone,5-2 Defense,16.0,Cover-3,"CROSS, SCREEN, GO, FLAT, FLAT",I,Short Left Pass,4
+2022101700,3193,1,short,SHOTGUN,2x2,middle,10,93,Zone,3-4 Defense,83.0,Cover-3,"FLAT, HITCH, HITCH, HITCH",IN,Short Middle Pass,4
+2022101700,3370,1,short,SHOTGUN,2x2,right,10,68,Zone,3-4 Defense,58.0,Cover-3 Seam,"GO, HITCH, FLAT, HITCH, GO",C,Short Right Pass,4
+2022101700,3461,1,short,SINGLEBACK,2x2,left,10,37,Zone,3-4 Defense,27.0,Cover-3 Seam,"SCREEN, GO, FLAT, HITCH",C,Midfield Short Pass,4
+2022101700,3571,1,short,SHOTGUN,3x1,middle,20,35,Zone,3-4 Defense,25.0,Cover-3,"GO, IN, CROSS, ANGLE, GO",C,Short Middle Pass,4
+2022101700,3789,1,short,SHOTGUN,3x1,middle,10,85,Zone,3-4 Defense,75.0,Cover-3 Seam,"IN, CROSS, CROSS, ANGLE, OUT",C,Short Middle Pass,4
+2022101700,3861,1,short,SHOTGUN,2x2,right,10,75,Zone,Heavy DE Front,65.0,Cover-3,"POST, HITCH, POST, HITCH",C,Short Right Pass,4
+2022102309,3167,1,short,EMPTY,3x2,right,10,62,Zone,3-4 Defense,52.0,Cover 6-Left,"GO, SLANT, SLANT, OUT, CROSS",C,Short Right Pass,4
+2022102309,3625,1,short,EMPTY,3x2,middle,10,85,Zone,Heavy DE Front,75.0,Cover-3 Seam,"GO, CROSS, POST, GO, GO",C,Short Middle Pass,4
+2022102309,3654,1,short,SHOTGUN,2x2,right,10,64,Zone,Heavy DE Front,54.0,Cover-2,"HITCH, GO, HITCH, FLAT, GO",I,Short Right Pass,4
+2022102309,3700,1,short,SHOTGUN,3x1,middle,10,45,Zone,4-3 Defense,35.0,Cover-6 Right,"HITCH, CORNER, OUT, FLAT, CROSS",I,Short Middle Pass,4
+2022102309,3883,1,deep,SHOTGUN,2x2,right,10,72,Zone,Heavy DE Front,62.0,Cover 6-Left,"GO, POST, OUT, HITCH, GO",I,Flood Concept (Intermediate Stretch),4
+2022102309,3929,1,short,SHOTGUN,3x1,right,10,58,Zone,4-3 Defense,48.0,Cover-6 Right,"HITCH, OUT, IN, GO",C,Short Right Pass,4
+2022102309,3964,1,short,EMPTY,3x2,left,10,37,Zone,4-3 Defense,27.0,Cover-3 Seam,"HITCH, FLAT, GO, GO, CROSS",C,Short Left Pass,4
+2022102309,4036,1,short,SHOTGUN,3x1,left,7,17,Other,Heavy DE Front,7.0,Red Zone,"OUT, OUT, GO, GO, CORNER",C,Short Left Pass,4
+2022110600,2928,1,short,SINGLEBACK,2x2,right,10,50,Zone,5-2 Defense,60.0,Cover-3,"POST, SCREEN, FLAT, GO, GO",C,Midfield Short Pass,4
+2022110600,2963,1,short,SHOTGUN,3x1,left,19,41,Zone,5-2 Defense,69.0,Cover-3,"GO, IN, FLAT, HITCH, OUT",C,Short Left Pass,4
+2022110600,3497,1,short,SHOTGUN,3x1,left,15,48,Zone,5-2 Defense,62.0,Cover-3,"GO, OUT, POST, CROSS, OUT",C,Short Left Pass,4
+2022110600,3552,1,short,SHOTGUN,3x1,left,10,66,Man,5-2 Defense,44.0,Cover-1,"POST, SLANT, SCREEN, GO, GO",I,Short Left Pass,4
+2022110600,3772,1,deep,SHOTGUN,3x1,left,10,67,Man,Interior DL Heavy,43.0,Cover-1,"GO, CROSS, OUT, GO, CROSS",C,Shotgun Isolation Deep Attack,4
+2022091111,2746,2,short,SINGLEBACK,2x2,right,11,11,Zone,Other,99.0,Cover-2,"CROSS, CORNER, FLAT, FLAT, POST",I,Red Zone Short Pass,4
+2022091111,2922,2,short,SHOTGUN,3x1,right,7,64,Zone,Other,46.0,Cover-3,"SLANT, HITCH, FLAT, FLAT, GO",C,Short Right Pass,4
+2022091500,2987,2,short,SHOTGUN,2x2,right,8,68,Zone,5-2 Defense,58.0,Cover-2,"GO, FLAT, GO, OUT, OUT",C,Short Right Pass,4
+2022091500,3061,2,short,SHOTGUN,2x2,right,7,54,Zone,5-2 Defense,44.0,Cover 6-Left,"SCREEN, GO, FLAT, GO",C,Short Right Pass,4
+2022091500,3114,2,short,SINGLEBACK,2x2,right,3,39,Zone,5-2 Defense,29.0,Quarters,"CROSS, CROSS, FLAT, FLAT, OUT",C,Midfield Short Pass,4
+2022091500,3480,2,short,SHOTGUN,3x1,right,10,96,Zone,5-2 Defense,86.0,Cover-6 Right,"OUT, GO, OUT, ANGLE, GO",C,Short Right Pass,4
+2022091500,3557,2,short,SHOTGUN,3x1,left,6,72,Zone,5-2 Defense,62.0,Cover-2,"IN, CORNER, FLAT, OUT, HITCH",I,Short Left Pass,4
+2022091500,3833,2,short,EMPTY,4x1,right,4,56,Zone,5-2 Defense,46.0,Cover-2,"GO, GO, SCREEN, GO, GO",C,Short Right Pass,4
+2022091500,3939,2,short,SHOTGUN,2x2,middle,7,17,Man,5-2 Defense,7.0,Cover-1 Double,"GO, GO, GO, OUT, GO",I,Short Middle Pass,4
+2022092509,3156,2,short,SHOTGUN,2x2,middle,15,42,Zone,5-2 Defense,32.0,Cover 6-Left,"IN, OUT, IN, OUT, CROSS",I,Short Middle Pass,4
+2022092509,3645,2,short,SHOTGUN,2x2,right,6,81,Zone,5-2 Defense,71.0,Cover-2,"GO, IN, FLAT, HITCH, OUT",I,Short Right Pass,4
+2022092509,3741,2,short,SHOTGUN,2x2,right,4,58,Zone,Heavy DE Front,48.0,Cover 6-Left,"HITCH, FLAT, HITCH, FLAT, HITCH",C,Short Right Pass,4
+2022092509,3821,2,short,SHOTGUN,3x1,right,10,42,Zone,Heavy DE Front,32.0,Cover-3 Seam,"GO, GO, GO, SCREEN, GO",C,Short Right Pass,4
+2022092509,3929,2,short,SHOTGUN,3x1,left,10,26,Zone,5-2 Defense,16.0,Cover-3 Seam,"IN, CROSS, SCREEN, GO, GO",C,Short Left Pass,4
+2022100206,2937,2,short,EMPTY,3x2,right,12,50,Zone,5-2 Defense,60.0,Cover-2,"GO, CORNER, POST, HITCH",I,Short Right Pass,4
+2022100902,3402,2,short,SHOTGUN,2x2,left,7,31,Man,Other,21.0,Cover-1,"GO, HITCH, FLAT, OUT, GO",C,Short Left Pass,4
+2022100902,3465,2,short,SHOTGUN,2x2,left,8,20,Other,Other,10.0,Red Zone,"GO, OUT, FLAT, OUT, GO",C,Short Left Pass,4
+2022100902,3876,2,short,SINGLEBACK,2x2,right,9,92,Zone,Other,82.0,Cover-3,"CROSS, CROSS, FLAT, CROSS, CORNER",C,Singleback Balanced Short Pass,4
+2022100902,3942,2,short,SHOTGUN,3x1,right,10,73,Zone,Other,63.0,Cover-3,"HITCH, CROSS, HITCH",C,Short Right Pass,4
+2022101700,3595,2,short,SHOTGUN,3x1,left,12,27,Zone,3-4 Defense,17.0,Cover 6-Left,"CORNER, POST, OUT, HITCH, OUT",I,Short Left Pass,4
+2022101700,3813,2,short,SHOTGUN,3x1,left,10,85,Zone,Heavy DE Front,75.0,Cover 6-Left,"GO, HITCH, IN, FLAT, GO",C,Short Left Pass,4
+2022101700,3905,2,short,SHOTGUN,3x1,left,5,70,Zone,3-4 Defense,60.0,Cover-2,"GO, FLAT, FLAT, FLAT, GO",C,Short Left Pass,4
+2022102309,3333,2,short,SHOTGUN,3x1,middle,6,77,Zone,3-4 Defense,67.0,Cover-3 Seam,"FLAT, POST, CROSS, ANGLE, HITCH",C,Short Middle Pass,4
+2022102309,3676,2,deep,PISTOL,3x1,left,10,64,Zone,Heavy DE Front,54.0,Cover-3 Seam,"CROSS, IN, CORNER, FLAT, GO",C,Pistol Deep Attack,4
+2022102309,3722,2,short,EMPTY,3x2,right,10,45,Zone,4-3 Defense,35.0,Cover 6-Left,"GO, CROSS, GO, CROSS, GO",C,Short Right Pass,4
+2022102309,3905,2,short,SHOTGUN,3x1,middle,10,72,Zone,Heavy DE Front,62.0,Cover-6 Right,"POST, HITCH, ANGLE, GO, OUT",C,Short Middle Pass,4
+2022102309,3993,2,deep,SHOTGUN,2x2,left,4,31,Zone,4-3 Defense,21.0,Cover-3 Seam,"GO, FLAT, GO, GO, GO",I,Midfield Deep Shotgun Attack,4
+2022102309,4060,2,short,SHOTGUN,2x2,left,5,15,Other,Heavy DE Front,5.0,Red Zone,"OUT, CORNER, ANGLE, SLANT, OUT",I,Short Left Pass,4
+2022110600,3173,2,deep,SHOTGUN,2x2,left,8,80,Zone,5-2 Defense,30.0,Cover-3,"GO, CROSS, HITCH, GO",C,Spread Misdirection Play,4
+2022110600,3218,2,short,SHOTGUN,2x2,left,6,104,Man,5-2 Defense,6.0,Cover-0,"OUT, HITCH, FLAT, GO, GO",C,Short Left Pass,4
+2022110600,3521,2,short,SHOTGUN,3x1,left,5,58,Man,5-2 Defense,52.0,Cover-1,"OUT, HITCH, ANGLE, GO, HITCH",C,Short Left Pass,4
+2022110600,3574,2,short,SHOTGUN,2x2,left,10,66,Man,5-2 Defense,44.0,Cover-1,"SLANT, IN, FLAT, GO, GO",C,Short Left Pass,4
+2022091111,2583,3,deep,SHOTGUN,2x2,right,5,40,Man,Other,70.0,Cover-1,"CROSS, FLAT, OUT, OUT, CORNER",I,Midfield Deep Shotgun Attack,4
+2022091111,2806,3,short,SHOTGUN,2x2,left,11,11,Zone,Other,99.0,Cover-3,"FLAT, GO, FLAT, ANGLE, GO",C,Short Left Pass,4
+2022091111,3009,3,deep,SHOTGUN,2x2,right,5,79,Zone,Other,31.0,Cover-2,"POST, GO, CROSS, GO, OUT",I,Hi-Lo Route Concept,4
+2022091111,3357,3,short,SHOTGUN,3x1,left,3,42,Man,Other,68.0,Cover-1,"SLANT, SLANT, HITCH, FLAT, SLANT",I,Short Left Pass,4
+2022091500,3504,3,short,SHOTGUN,2x2,right,2,88,Zone,5-2 Defense,78.0,Cover-3,"OUT, GO, HITCH, FLAT, GO",C,Short Right Pass,4
+2022091500,3579,3,short,SHOTGUN,2x2,right,6,72,Zone,5-2 Defense,62.0,Cover-2,"HITCH, POST, GO, HITCH",I,Short Right Pass,4
+2022091500,3857,3,short,SHOTGUN,3x1,right,1,53,Zone,5-2 Defense,43.0,Cover-2,"HITCH, HITCH, HITCH, ANGLE, GO",I,Short Right Pass,4
+2022091500,3966,3,short,SHOTGUN,2x2,left,7,17,Man,5-2 Defense,7.0,Cover-1 Double,"SLANT, GO, GO, FLAT, HITCH",C,Short Left Pass,4
+2022092509,3178,3,short,SHOTGUN,2x2,right,15,42,Zone,Heavy DE Front,32.0,Cover-3,"POST, HITCH, GO, ANGLE, HITCH",I,Short Right Pass,4
+2022092509,3845,3,short,SHOTGUN,2x2,right,12,44,Zone,Heavy DE Front,34.0,Quarters,"IN, HITCH, POST, ANGLE, HITCH",C,Short Right Pass,4
+2022100206,2862,3,short,SHOTGUN,2x2,right,4,41,Zone,5-2 Defense,69.0,Cover-2,"IN, GO, SLANT, FLAT, GO",C,Short Right Pass,4
+2022100206,2959,3,short,EMPTY,3x2,right,12,50,Zone,5-2 Defense,60.0,Cover-2,"HITCH, HITCH, FLAT, HITCH, FLAT",I,Short Right Pass,4
+2022100902,3268,3,short,EMPTY,3x2,left,6,81,Man,Other,71.0,2-Man,"CROSS, POST, HITCH, POST",C,Short Left Pass,4
+2022100902,3489,3,short,SHOTGUN,3x1,right,7,19,Other,Other,9.0,Red Zone,"HITCH, IN, OUT, WHEEL, IN",I,Short Right Pass,4
+2022101700,3617,3,deep,SHOTGUN,3x1,left,12,27,Man,3-4 Defense,17.0,Cover-0,"POST, GO, CROSS, GO",I,Third-and-Long Deep Attack,4
+2022101700,3837,3,short,SHOTGUN,3x1,middle,5,80,Zone,Heavy DE Front,70.0,Cover 6-Left,"HITCH, CORNER, OUT, ANGLE, GO",C,Short Middle Pass,4
+2022102309,3213,3,short,SHOTGUN,3x1,left,10,62,Zone,5-2 Defense,52.0,Cover 6-Left,"HITCH, OUT, HITCH, GO",I,Short Left Pass,4
+2022102309,3367,3,short,SHOTGUN,3x1,right,14,85,Zone,5-2 Defense,75.0,Cover-3,"GO, IN, CROSS, OUT, OUT",I,Short Right Pass,4
+2022102309,4082,3,short,SHOTGUN,3x1,right,5,15,Other,Heavy DE Front,5.0,Red Zone,"HITCH, FLAT, HITCH, SLANT",C,Short Right Pass,4
+2022110600,3008,3,short,SHOTGUN,2x2,right,2,58,Zone,5-2 Defense,52.0,Quarters,"HITCH, WHEEL, CORNER, CROSS, CROSS",C,Short Right Pass,4
+2022110600,3074,3,short,EMPTY,4x1,left,3,73,Zone,Interior DL Heavy,37.0,Cover-3,"SLANT, OUT, FLAT, CROSS, SLANT",C,Short Left Pass,4
+2022110600,3242,3,short,SHOTGUN,3x1,left,13,97,Man,5-2 Defense,13.0,Cover-1,"IN, POST, FLAT, IN, CORNER",I,Short Left Pass,4
+2022110600,3430,3,short,SHOTGUN,2x2,right,5,47,Zone,5-2 Defense,63.0,Cover-2,"HITCH, IN, IN, CORNER",C,Short Right Pass,4
+2022091500,3879,4,deep,SHOTGUN,3x1,middle,1,53,Other,5-2 Defense,43.0,Bracket,"POST, GO, FLAT, HITCH, HITCH",C,Shotgun Isolation Deep Attack,4
+2022091500,3990,4,short,SHOTGUN,2x2,middle,7,17,Man,5-2 Defense,7.0,Cover-1 Double,"GO, GO, GO, OUT, POST",C,Short Middle Pass,4
+2022092509,3228,4,deep,SHOTGUN,3x1,right,15,42,Zone,Heavy DE Front,32.0,Cover-3,"HITCH, GO, FLAT, GO, SCREEN",I,Midfield Deep Shotgun Attack,4
+2022092509,3974,4,short,SHOTGUN,2x2,right,5,21,Zone,5-2 Defense,11.0,Cover-3,"HITCH, CORNER, FLAT, GO, IN",I,Short Right Pass,4
+2022100902,3994,4,short,SHOTGUN,2x2,right,1,64,Man,Other,54.0,Cover-0,"SLANT, SLANT, FLAT, SLANT",I,Short Right Pass,4
+2022101700,2979,4,short,SHOTGUN,3x1,left,2,39,Zone,3-4 Defense,29.0,Cover-3,"OUT, IN, FLAT, POST",I,Short Left Pass,4
+2022101700,3970,4,deep,SHOTGUN,3x1,right,1,66,Other,Heavy DE Front,56.0,Prevent,"POST, GO, GO, GO",I,Shotgun Isolation Deep Attack,4
+2022102309,3768,4,short,EMPTY,3x2,middle,13,48,Man,5-2 Defense,38.0,2-Man,"CROSS, HITCH, FLAT, IN",C,Short Middle Pass,4
+2022102309,4143,4,short,SHOTGUN,2x2,right,1,11,Other,4-3 Defense,1.0,Red Zone,"HITCH, GO, FLAT, GO, SLANT",C,Short Right Pass,4
+2022110600,3128,4,short,SHOTGUN,3x1,right,4,72,Zone,5-2 Defense,38.0,Cover-3,"HITCH, CORNER, FLAT, CROSS, OUT",C,Short Right Pass,4
+2022101700,4179,1,short,SHOTGUN,2x2,left,19,20,Zone,3-4 Defense,90.0,Cover-3 Seam,"HITCH, GO, FLAT, GO, IN",C,Short Left Pass,5
+2022101700,4349,1,short,SHOTGUN,3x1,middle,10,29,Zone,3-4 Defense,81.0,Cover-3 Seam,"HITCH, GO, HITCH, FLAT, HITCH",I,Short Middle Pass,5
+2022101700,4203,2,deep,SHOTGUN,3x1,left,14,25,Man,3-4 Defense,85.0,Cover-1,"HITCH, GO, OUT, GO",I,Scoring Zone Deep Pass,5
+2022101700,4371,2,short,SHOTGUN,2x2,middle,10,29,Man,3-4 Defense,81.0,Cover-1,"OUT, GO, HITCH, FLAT, GO",I,Short Middle Pass,5
+2022101700,4225,3,deep,EMPTY,3x2,right,14,25,Zone,3-4 Defense,85.0,Cover-3,"HITCH, IN, CROSS, SLANT, GO",I,Third-and-Long Deep Attack,5
+2022101700,4416,3,short,SHOTGUN,2x2,middle,15,24,Zone,Heavy DE Front,86.0,Cover 6-Left,"GO, GO, POST, ANGLE, GO",C,Short Middle Pass,5
+2022101700,4511,3,short,SHOTGUN,3x1,left,12,80,Man,3-4 Defense,30.0,Cover-1,"CROSS, CROSS, CROSS, OUT",C,Short Left Pass,5
