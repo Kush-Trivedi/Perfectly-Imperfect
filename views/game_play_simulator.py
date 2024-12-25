@@ -1544,7 +1544,7 @@ class NFLAdvancedPlaygroundSimulator:
                         - **Color:** Colors differentiate field zones, making it easier to compare defensive strategies across areas of the field.
 
                         **Key Insight:**
-                        - Use this chart to identify field zones where the offense struggled most against certain defensive coverages. For example, the chart might reveal that offenses completed fewer passes in the **Opponent Red Zone** when faced with Zone coverage.
+                        - Use this chart to identify field zones where the offense struggled most against certain defensive coverages. For example, the chart might reveal that offenses completed more passes in the **Own Territory**.
 
                         """
                     )

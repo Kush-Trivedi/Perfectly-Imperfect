@@ -130,19 +130,19 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
 
     st.markdown(
         """    
-        The model **QB's Radar**, is designed to predict the best receiver for an NFL quarterback to target. It uses two predictive approaches:
+        The **QB's Radar**, is designed to predict the best receiver for a quarterback to target. It uses two predictive approaches:
 
         1. **Strategic Receiver**: Predicted using the Progressive Widening Search algorithm, optimized for safer and potentially higher-value plays.
         2. **Primary Receiver**: Predicted using the Beam Search algorithm, which often aligns with conventional quarterback decisions.
         3. **Best Receiver**: Occurs when both models predict the same receiver and the predicted receiver matches the actual receiver targeted during the game most of the time.
 
-        This report provides a detailed evaluation of the model’s performance, focusing on its ability to identify superior receiver options, particularly for deep passes, 
+        This report provides a detailed evaluation focusing on its ability to identify superior receiver options, particularly for deep passes, 
         using a variety of statistical and machine learning methods.
         """
     )
 
     test_1 , test_2 = st.columns(2)
-    
+
     with test_1:
         st.markdown(
             """
@@ -156,7 +156,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
                     - **Wilcoxon Test**:
                         - **Wilcoxon Statistic**: 7489.0
                         - **P-value**: 3.49 × 10⁻³⁸
-                - **Conclusion**: The non-parametric Wilcoxon test confirms the significant difference observed in the t-test, indicating robust results.
+                    - **Conclusion**: The non-parametric Wilcoxon test confirms the significant difference observed in the t-test, indicating robust results.
 
             """
         )
@@ -174,7 +174,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
                     - **Wilcoxon Test**:
                         - **Wilcoxon Statistic**: 0.0
                         - **P-value**: 6.75 × 10⁻⁶²
-                - **Conclusion**: The Wilcoxon test strongly supports the t-test result, highlighting the consistent superiority of predicted scores.
+                    - **Conclusion**: The Wilcoxon test strongly supports the t-test result, highlighting the consistent superiority of predicted scores.
             """
 
         )
@@ -260,7 +260,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
         """
         #### :green[Conclusion]
 
-        The **QB's Radar** model demonstrates its ability to significantly enhance quarterback decision-making, particularly for **deep passes**. By leveraging statistical tests and real-world scenarios, the analysis validates the model’s predictive power:
+        The **QB's Radar** demonstrates its ability to significantly enhance quarterback decision-making, particularly for **deep passes**. By leveraging statistical tests and real-world scenarios, the analysis validates the model’s predictive power:
 
         - **Statistically significant improvement** in yards gained and score predictions.
         - **Large effect size** confirming practical advantages.
