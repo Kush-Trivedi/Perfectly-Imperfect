@@ -1842,6 +1842,95 @@ class NFLAdvancedPlaygroundSimulator:
                     By combining the heatmap with the circular bar plot, we can analyze offensive setups more effectively and adapt strategies to counter defensive alignments.
                     """
                 )
+                st.divider()
+                st.markdown("<h3 style='text-align: center; color: gray;'>Offense Formation and Field Zones</h3>", unsafe_allow_html=True)
+                st.markdown(
+                    """
+                    This visualization combines two types of charts—a **Heatmap** and a **Circular Bar Plot**—to analyze how offenses employed different formations (`offenseFormation`) across 
+                    various field zones. The goal is to understand how these formations impacted pass outcomes (`passResult`), such as completions, incompletions, sacks, interceptions, or scrambles, 
+                    across four key field zones (Opponent Red Zone, Midfield, Own Territory, Own Deep Zone).
+
+                    """
+                )
+                offense_formation_heatmap_text , offense_formation_plot_text = st.columns(2)
+
+                with offense_formation_heatmap_text:
+                    st.markdown(
+                        """
+                        #### Heatmap
+                        **What It Shows:**
+                        - The heatmap displays the proportion of pass outcomes (`passResult`) for different combinations of field zones and offensive formations.
+                        - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
+                        - **Y-axis:** Offensive formations (`offenseFormation`), such as Shotgun, Singleback, Empty, Jumbo, or I-Form.
+                        - **Darker colors:** Indicate where certain outcomes are more frequent:
+                        - Darker near **Complete:** Suggests the offensive formation was effective in the corresponding field zone.
+                        - Darker near **Incomplete** or **Intercepted:** Suggests the formation struggled in that zone.
+                        - Lighter or transparent shades indicate less frequent or less impactful combinations of outcomes and formations.
+
+                        **Why It Matters:**
+                        - Highlights where offensive formations excel or falter in specific field zones.
+                        - Identifies which formations contribute to successful or unsuccessful pass outcomes.
+
+                        **Key Insight:**
+                        - This heatmap helps pinpoint offensive formations that worked best in specific field zones.
+                        - For example, a darker shade near "**Complete**" suggests that the Shotgun formation was effective in a particular zone.
+                        - A darker shade near "**Incomplete**" or "**Intercepted**" indicates where the formation may have been less effective.
+
+                        """
+                    )
+                
+                with offense_formation_plot_text:
+                    st.markdown(
+                        """
+                        #### Circular Bar Plot (Radial Bar Chart)
+                        **What It Shows:**
+                        - The circular chart is divided into four sections, each representing a field zone:
+                        - **Opponent Red Zone** (0-25 yards)
+                        - **Midfield** (26-50 yards)
+                        - **Own Territory** (51-75 yards)
+                        - **Own Deep Zone** (76-100 yards).
+                        - Each bar represents an offensive formation (`offenseFormation`) used in that field zone (e.g., Shotgun, Singleback).
+                        - The length of the bar shows how frequently that formation was used in the corresponding field zone.
+
+                        **Why It Matters:**
+                        - **Peak of the Bar:** Longer bars highlight formations that were frequently used in specific field zones.
+                        - **Color:** Colors differentiate field zones, making it easier to compare how offenses employed formations across the field.
+
+                        **Key Insight:**
+                        - Use this chart to identify field zones where specific formations were heavily employed.
+                        - For example, the chart might show that the Shotgun formation is frequently used, while Jumbo is less common overall*.
+
+                        """
+                    )
+
+                self.plot_combined(
+                    fig_width=0.5,
+                    fig_height=0.5,
+                    df=self.combo_df,
+                    group_cols=["offenseFormation", "field_zone"],
+                    value_col="passResult",
+                    category_label="offenseFormation"
+                )
+
+                st.markdown(
+                    """
+                    #### Visualization Summary
+                    - The **Heatmap** provides a high-level view of the effectiveness of offensive formations across different field zones and pass outcomes.
+                    - The **Circular Bar Plot** adds context by showing which formations were most frequently used in various field zones.
+
+                    **How to Use It:**
+                    - Start with the heatmap to identify where offensive formations were most effective (e.g., dark colors near "Complete" or "Incomplete").
+                    - Use the circular bar plot to explore the frequency of each formation in different field zones and correlate it with the heatmap trends.
+
+                    **Takeaway:**
+                    This visualization provides a clear breakdown of how offensive formations were employed and their impact on pass outcomes across key field zones. It helps answer:
+                    - Which offensive formations are most effective in specific field zones?
+                    - Where do formations succeed or fail based on pass outcomes?
+                    - How can you adjust offensive formations to maximize success in different field zones?
+
+                    By combining the heatmap with the circular bar plot, we can analyze offensive setups more effectively and optimize strategies for each field zone.
+                    """
+                )
 
         
 
