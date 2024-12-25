@@ -976,7 +976,6 @@ class NFLAdvancedPlaygroundSimulator:
         
         circular_df = temp_df[[category_label, "row_sum", "field_zone"]]
         circular_df = circular_df.sort_values(by=["field_zone", category_label])
-        print(circular_df)
         
         VALUES = circular_df["row_sum"].values
         LABELS = circular_df[category_label].values
