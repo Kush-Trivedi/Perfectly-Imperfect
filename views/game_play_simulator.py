@@ -913,6 +913,7 @@ class NFLAdvancedPlaygroundSimulator:
 
             if matched_display_name:
                 receiver_routes = df_route[df_route['displayName'] == matched_display_name]
+                preferred_route = receiver_routes.loc[receiver_routes['C %'].idxmax()]
                 routes_sorted = receiver_routes.sort_values(by='route %', ascending=False)
 
                 top_routes = routes_sorted.head(4)
@@ -926,6 +927,7 @@ class NFLAdvancedPlaygroundSimulator:
                 routes_str = "\n - ".join(route_list)
             else:
                 routes_str = "N/A"
+                preferred_route = pd.Series({'routeRan': 'N/A', 'C %': 0})
 
             final_rows.append({
                 'Passer - Receiver': f"{passer} - {receiver}",
@@ -933,6 +935,7 @@ class NFLAdvancedPlaygroundSimulator:
                 'Complete Pass': f"{round(c_percent, 2)} %",
                 'Incomplete Pass': f"{round(i_percent, 2)} %",
                 'Preferred Location': preferred_location,
+                'Most Successful Route': f"{preferred_route['routeRan']} ({preferred_route['C %']:.2f}% Completion)",
                 'Receiver Routes Ran %': routes_str,
             })
 
