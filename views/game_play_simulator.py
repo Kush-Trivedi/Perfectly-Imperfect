@@ -1141,10 +1141,9 @@ class NFLAdvancedPlaygroundSimulator:
 
 
     def run_streamlit_app(self):
-        st.title("Welcome to :orange[Playground Simulator]")
-        st.subheader(":violet[Game Situation]",divider="gray")    
+        st.title("Welcome to :orange[Playground Simulator]")  
         with st.container(border=True):
-            col1,col2 = st.columns([2,8])
+            col1,col2 = st.columns([3,7])
             with col1:
                 st.subheader(":violet[Game Situation]",divider="gray")
             with col2:
@@ -1720,7 +1719,6 @@ class NFLAdvancedPlaygroundSimulator:
                             **Key Insight:**
                             - This heatmap helps identify defensive formations that worked best in specific field zones.
                             - For example, a darker shade near "**Incomplete**" or "**Intercepted**" suggests the formation was effective in that zone.
-                            - A darker shade near "**Complete**" indicates where the defense struggled against the offense.
 
                             """
                         )
@@ -1812,7 +1810,6 @@ class NFLAdvancedPlaygroundSimulator:
                             **Key Insight:**
                             - This heatmap helps pinpoint receiver alignments that worked best in specific field zones.
                             - For example, a darker shade near "**Complete**" suggests a 3x2 alignment was effective in the **Midfield**.
-                            - Conversely, a darker shade near "**Incomplete**" indicates where the alignment failed to produce successful plays.
 
                             """
                         )
@@ -1904,8 +1901,6 @@ class NFLAdvancedPlaygroundSimulator:
                             **Key Insight:**
                             - This heatmap helps pinpoint offensive formations that worked best in specific field zones.
                             - For example, a darker shade near "**Complete**" suggests that the Shotgun formation was effective in a particular zone.
-                            - A darker shade near "**Incomplete**" or "**Intercepted**" indicates where the formation may have been less effective.
-
                             """
                         )
                 
