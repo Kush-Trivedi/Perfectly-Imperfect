@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import base64
-import weasyprint
+import pdfkit
 import pandas as pd
 import matplotlib.pyplot as plt
 from joypy import joyplot
@@ -320,7 +320,7 @@ def download_team_pdf(team_name, html_summary, logo_base64, fig=None):
         buf.seek(0)
         chart_base64 = base64.b64encode(buf.read()).decode('utf-8')
         chart_html = f'<img src="data:image/png;base64,{chart_base64}" style="max-width:600px;" />'
-
+    
     full_html = f"""
     <html>
     <head>
@@ -378,10 +378,13 @@ def download_team_pdf(team_name, html_summary, logo_base64, fig=None):
     </body>
     </html>
     """
-    return weasyprint.HTML(string=full_html).write_pdf()
+    
+    # Generate PDF as a bytes object (in-memory)
+    pdf_data = pdfkit.from_string(full_html, False)
+    return pdf_data
 
 def download_all_selected_pdf(content):
-    html_content = f"""
+    full_html = f"""
     <html>
     <head>
         <style>
@@ -395,7 +398,7 @@ def download_all_selected_pdf(content):
                 page-break-inside: avoid;
             }}
             ul {{
-                margin: 0;
+                margin: 0; 
                 padding-left: 1em;
             }}
             li {{
@@ -411,7 +414,9 @@ def download_all_selected_pdf(content):
     </body>
     </html>
     """
-    return weasyprint.HTML(string=html_content).write_pdf()
+
+    pdf_data = pdfkit.from_string(full_html, False)
+    return pdf_data
 
 # -----------------------------------------------------------------------------
 # Card display
