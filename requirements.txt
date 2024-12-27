@@ -7,6 +7,5 @@ tensorflow
 matplotlib
 seaborn
 scikit-learn
-pdfkit
-wkhtmltopdf
+xhtml2pdf
 joypy

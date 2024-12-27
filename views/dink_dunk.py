@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import base64
-import pdfkit
+from xhtml2pdf import pisa
 import pandas as pd
 import matplotlib.pyplot as plt
 from joypy import joyplot
@@ -311,6 +311,21 @@ def analyze_team_strategy(require_df, team_name, specific_strategies=None, color
 # -----------------------------------------------------------------------------
 # PDF creation
 # -----------------------------------------------------------------------------
+def html_to_pdf_bytes(html_str):
+    """Convert an HTML string to PDF bytes using xhtml2pdf."""
+    # Use a BytesIO buffer to write the PDF output
+    pdf_buffer = io.BytesIO()
+
+    # Create PDF from HTML
+    pisa_status = pisa.CreatePDF(io.StringIO(html_str), dest=pdf_buffer)
+
+    # Check for errors
+    if pisa_status.err:
+        return None
+
+    # Return the PDF data as bytes
+    return pdf_buffer.getvalue()
+
 def download_team_pdf(team_name, html_summary, logo_base64, fig=None):
     """Build a PDF with the HTML bullet summary + chart."""
     chart_html = ""
@@ -320,7 +335,7 @@ def download_team_pdf(team_name, html_summary, logo_base64, fig=None):
         buf.seek(0)
         chart_base64 = base64.b64encode(buf.read()).decode('utf-8')
         chart_html = f'<img src="data:image/png;base64,{chart_base64}" style="max-width:600px;" />'
-    
+
     full_html = f"""
     <html>
     <head>
@@ -378,13 +393,12 @@ def download_team_pdf(team_name, html_summary, logo_base64, fig=None):
     </body>
     </html>
     """
-    
-    # Generate PDF as a bytes object (in-memory)
-    pdf_data = pdfkit.from_string(full_html, False)
-    return pdf_data
+
+    pdf_bytes = html_to_pdf_bytes(full_html)
+    return pdf_bytes
 
 def download_all_selected_pdf(content):
-    full_html = f"""
+    html_content = f"""
     <html>
     <head>
         <style>
@@ -398,7 +412,7 @@ def download_all_selected_pdf(content):
                 page-break-inside: avoid;
             }}
             ul {{
-                margin: 0; 
+                margin: 0;
                 padding-left: 1em;
             }}
             li {{
@@ -414,9 +428,7 @@ def download_all_selected_pdf(content):
     </body>
     </html>
     """
-
-    pdf_data = pdfkit.from_string(full_html, False)
-    return pdf_data
+    return html_to_pdf_bytes(html_content)
 
 # -----------------------------------------------------------------------------
 # Card display
