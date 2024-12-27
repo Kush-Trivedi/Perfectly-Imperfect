@@ -499,129 +499,130 @@ class NFLAdvancedPlaygroundSimulator:
         ] 
 
         with offense_col:
-            offense_col_a, offense_col_b = st.columns(2)
-            with offense_col_a:
-                st.subheader(":green[Offense]", divider="gray")
+            with st.container(border=True):
+                offense_col_a, offense_col_b = st.columns(2)
+                with offense_col_a:
+                    st.subheader(":green[Offense]", divider="gray")
 
-            with offense_col_b:
-                offense_play_option_map = { 0: ":material/sprint: Run", 1: ":material/arrow_split: Pass" }
-                offense_play_selection = st.pills("Play Type", options=offense_play_option_map.keys(), format_func=lambda option: offense_play_option_map[option], selection_mode="single", default=1, key="offense_play_selection")
-                offense_play_type = offense_play_option_map[offense_play_selection]
-                offense_play_type = offense_play_type.split(":")[-1].strip().lower()
+                with offense_col_b:
+                    offense_play_option_map = { 0: ":material/sprint: Run", 1: ":material/arrow_split: Pass" }
+                    offense_play_selection = st.pills("Play Type", options=offense_play_option_map.keys(), format_func=lambda option: offense_play_option_map[option], selection_mode="single", default=1, key="offense_play_selection")
+                    offense_play_type = offense_play_option_map[offense_play_selection]
+                    offense_play_type = offense_play_type.split(":")[-1].strip().lower()
 
 
-            offense_col_c, offense_col_d, offense_col_e, offense_col_f = st.columns(4)
+                offense_col_c, offense_col_d, offense_col_e, offense_col_f = st.columns(4)
 
-            with offense_col_c:
-                offense_team_name = st.selectbox("Offense Team", options=self.team_names, key="offense_team_name")
-                self.routes_df, self.pass_receiver_df, self.combo_df = _load_offense_tendency_data(self.offense_player_path, offense_team_name)
+                with offense_col_c:
+                    offense_team_name = st.selectbox("Offense Team", options=self.team_names, key="offense_team_name")
+                    self.routes_df, self.pass_receiver_df, self.combo_df = _load_offense_tendency_data(self.offense_player_path, offense_team_name)
 
-            with offense_col_d:
-                off_score = st.number_input("Score Points", key="offense_score", min_value=0, max_value=99, step=1,value=13,format="%d")
+                with offense_col_d:
+                    off_score = st.number_input("Score Points", key="offense_score", min_value=0, max_value=99, step=1,value=13,format="%d")
 
-            with offense_col_e:
-                off_timeout_remaining = st.selectbox("Timeout Left", options=[3, 2, 1])
+                with offense_col_e:
+                    off_timeout_remaining = st.selectbox("Timeout Left", options=[3, 2, 1])
 
-            with offense_col_f:
-                offense_wp = st.number_input("Win Probability", value=0.90206, format="%.5f")
+                with offense_col_f:
+                    offense_wp = st.number_input("Win Probability", value=0.90206, format="%.5f")
 
-            selected_team_logo_path = self.logo_folder / f"{offense_team_name}.png"
-            if selected_team_logo_path.exists():
-                img_base64 = self.img_to_base64(str(selected_team_logo_path))
-                st.markdown(
-                    f"""
-                    <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
-                        <img src="data:image/png;base64,{img_base64}" alt="{offense_team_name}" 
-                            style="width: 250px; height: 250px; object-fit: contain;">
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-            else:
-                st.warning(f"Logo not found for team: {offense_team_name}")
-
-            offense_formation = st.selectbox("Offense Formation", options= unique_offense_formation, index=1)
-
-            default_offense_players = [
-                "James Ferentz", "Trenton Brown", "Hunter Henry", "Kendrick Bourne",
-                "Isaiah Wynn", "Yodny Cajuste", "Jakobi Meyers", "Michael Onwenu",
-                "Mac Jones", "Rhamondre Stevenson", "Tyquan Thornton"
-            ]
-
-            default_offense_positions = [
-                "C", "T", "TE", "WR", "G",
-                "T", "WR", "G", "QB", "RB", "WR"
-            ]
-
-            default_offense_routes = [
-                "Pass Block", "Pass Block", "CORNER", "HITCH", "Pass Block",
-                "Pass Block", "IN", "Pass Block", "No Route", "OUT", "GO"
-            ]
-
-            for i in range(11):
-                col_player, col_position, col_route = st.columns(3)
-                
-                with col_player:
-                    player_options = self.player_df['displayName'].tolist()
-                    
-                    if default_offense_players[i] in player_options:
-                        default_index_player = player_options.index(default_offense_players[i])
-                    else:
-                        default_index_player = 0  
-                        st.warning(f"Default player '{default_offense_players[i]}' for Offense Player {i + 1} not found. Defaulting to the first available player.")
-                    
-                    player = st.selectbox(
-                        f"Player {i + 1}",
-                        options=player_options,
-                        index=default_index_player,
-                        key=f"offense_player_{i}",
+                selected_team_logo_path = self.logo_folder / f"{offense_team_name}.png"
+                if selected_team_logo_path.exists():
+                    img_base64 = self.img_to_base64(str(selected_team_logo_path))
+                    st.markdown(
+                        f"""
+                        <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+                            <img src="data:image/png;base64,{img_base64}" alt="{offense_team_name}" 
+                                style="width: 250px; height: 250px; object-fit: contain;">
+                        </div>
+                        """,
+                        unsafe_allow_html=True
                     )
-                
-                with col_position:
-                    if default_offense_positions[i] in unique_offense_position:
-                        default_index_position = unique_offense_position.index(default_offense_positions[i])
-                    else:
-                        default_index_position = 0  
-                        st.warning(f"Default position '{default_offense_positions[i]}' for Offense Player {i + 1} not found. Defaulting to the first available position.")
-                    
-                    position = st.selectbox(
-                        f"Position",
-                        options=unique_offense_position,
-                        index=default_index_position,
-                        key=f"offense_position_{i}",
-                    )
-                
-                with col_route:
-                    if default_offense_routes[i] in unique_routes:
-                        default_index_route = unique_routes.index(default_offense_routes[i])
-                    else:
-                        default_index_route = 0 
-                        st.warning(f"Default route '{default_offense_routes[i]}' for Offense Player {i + 1} not found. Defaulting to the first available route.")
-                    
-                    route = st.selectbox(
-                        f"Route",
-                        options=unique_routes,
-                        index=default_index_route,
-                        key=f"offense_route_{i}",
-                    )
+                else:
+                    st.warning(f"Logo not found for team: {offense_team_name}")
 
-                    
-                offense_selected_players.append(player)
-                offense_selected_positions.append(position)
-                offense_selected_routes.append(route)
-            
-            error_placeholder_offense = st.empty()
-            if len(set(offense_selected_players)) != 11:
-                error_placeholder_offense.error("Please select exactly 11 players for the offense.")
-            elif len(offense_selected_players) > 11:
-                error_placeholder_offense.error("Too many players selected. Please select exactly 11 players for the offense.")
-            elif len(offense_selected_players) != len(set(offense_selected_players)):
-                error_placeholder_offense.error("Each offense player must be unique!")
-            else:
-                error_placeholder_offense.empty()
+                offense_formation = st.selectbox("Offense Formation", options= unique_offense_formation, index=1)
 
-            offense_ratings = get_weighted_player_rating(self.player_df,offense_selected_players, quarter, down)
-        
+                default_offense_players = [
+                    "James Ferentz", "Trenton Brown", "Hunter Henry", "Kendrick Bourne",
+                    "Isaiah Wynn", "Yodny Cajuste", "Jakobi Meyers", "Michael Onwenu",
+                    "Mac Jones", "Rhamondre Stevenson", "Tyquan Thornton"
+                ]
+
+                default_offense_positions = [
+                    "C", "T", "TE", "WR", "G",
+                    "T", "WR", "G", "QB", "RB", "WR"
+                ]
+
+                default_offense_routes = [
+                    "Pass Block", "Pass Block", "CORNER", "HITCH", "Pass Block",
+                    "Pass Block", "IN", "Pass Block", "No Route", "OUT", "GO"
+                ]
+
+                for i in range(11):
+                    col_player, col_position, col_route = st.columns(3)
+                    
+                    with col_player:
+                        player_options = self.player_df['displayName'].tolist()
+                        
+                        if default_offense_players[i] in player_options:
+                            default_index_player = player_options.index(default_offense_players[i])
+                        else:
+                            default_index_player = 0  
+                            st.warning(f"Default player '{default_offense_players[i]}' for Offense Player {i + 1} not found. Defaulting to the first available player.")
+                        
+                        player = st.selectbox(
+                            f"Player {i + 1}",
+                            options=player_options,
+                            index=default_index_player,
+                            key=f"offense_player_{i}",
+                        )
+                    
+                    with col_position:
+                        if default_offense_positions[i] in unique_offense_position:
+                            default_index_position = unique_offense_position.index(default_offense_positions[i])
+                        else:
+                            default_index_position = 0  
+                            st.warning(f"Default position '{default_offense_positions[i]}' for Offense Player {i + 1} not found. Defaulting to the first available position.")
+                        
+                        position = st.selectbox(
+                            f"Position",
+                            options=unique_offense_position,
+                            index=default_index_position,
+                            key=f"offense_position_{i}",
+                        )
+                    
+                    with col_route:
+                        if default_offense_routes[i] in unique_routes:
+                            default_index_route = unique_routes.index(default_offense_routes[i])
+                        else:
+                            default_index_route = 0 
+                            st.warning(f"Default route '{default_offense_routes[i]}' for Offense Player {i + 1} not found. Defaulting to the first available route.")
+                        
+                        route = st.selectbox(
+                            f"Route",
+                            options=unique_routes,
+                            index=default_index_route,
+                            key=f"offense_route_{i}",
+                        )
+
+                        
+                    offense_selected_players.append(player)
+                    offense_selected_positions.append(position)
+                    offense_selected_routes.append(route)
+                
+                error_placeholder_offense = st.empty()
+                if len(set(offense_selected_players)) != 11:
+                    error_placeholder_offense.error("Please select exactly 11 players for the offense.")
+                elif len(offense_selected_players) > 11:
+                    error_placeholder_offense.error("Too many players selected. Please select exactly 11 players for the offense.")
+                elif len(offense_selected_players) != len(set(offense_selected_players)):
+                    error_placeholder_offense.error("Each offense player must be unique!")
+                else:
+                    error_placeholder_offense.empty()
+
+                offense_ratings = get_weighted_player_rating(self.player_df,offense_selected_players, quarter, down)
+
         return offense_play_type, offense_team_name, off_score, off_timeout_remaining, offense_wp, offense_formation, offense_selected_players, offense_selected_positions, offense_selected_routes, offense_ratings, offense_team_name
     
 
@@ -651,128 +652,129 @@ class NFLAdvancedPlaygroundSimulator:
         ]
 
         with defense_col:
-            defense_col_a, defense_col_b = st.columns(2)
+            with st.container(border=True):
+                defense_col_a, defense_col_b = st.columns(2)
 
-            with defense_col_a:
-                st.subheader(":blue[Defense]",divider="gray")
+                with defense_col_a:
+                    st.subheader(":blue[Defense]",divider="gray")
 
-            with defense_col_b:
-                defesne_play_option_map = {0: ":material/conditions: Man", 1: ":material/detection_and_zone: Zone"}
-                defense_play_selection = st.pills("Coverage", options=defesne_play_option_map.keys(), format_func=lambda option: defesne_play_option_map[option], selection_mode="single", default=1, key="defense_play_selection")
-                defense_play_type = defesne_play_option_map[defense_play_selection]
-                defense_play_type = defense_play_type.split(":")[-1].strip()
+                with defense_col_b:
+                    defesne_play_option_map = {0: ":material/conditions: Man", 1: ":material/detection_and_zone: Zone"}
+                    defense_play_selection = st.pills("Coverage", options=defesne_play_option_map.keys(), format_func=lambda option: defesne_play_option_map[option], selection_mode="single", default=1, key="defense_play_selection")
+                    defense_play_type = defesne_play_option_map[defense_play_selection]
+                    defense_play_type = defense_play_type.split(":")[-1].strip()
 
-            defense_col_c, defense_col_d, defense_col_e, defense_col_f = st.columns(4)
+                defense_col_c, defense_col_d, defense_col_e, defense_col_f = st.columns(4)
 
-            with defense_col_c:
-                defense_team_name = st.selectbox("Defense Team", options=self.team_names, index=1, key="defense_team_name")
+                with defense_col_c:
+                    defense_team_name = st.selectbox("Defense Team", options=self.team_names, index=1, key="defense_team_name")
 
-            with defense_col_d:
-                def_score = st.number_input("Score Points", key="defense_score", min_value=0, max_value=99, step=1, value=3, format="%d")
+                with defense_col_d:
+                    def_score = st.number_input("Score Points", key="defense_score", min_value=0, max_value=99, step=1, value=3, format="%d")
 
-            with defense_col_e:
-                def_timeout_remaining = st.selectbox("Timeout Left", options=[3,2,1],key="def_timeout")
+                with defense_col_e:
+                    def_timeout_remaining = st.selectbox("Timeout Left", options=[3,2,1],key="def_timeout")
 
-            with defense_col_f:
-                defense_wp = st.number_input("Win Probablity",key="defense_wp", value=0.09794 ,format="%.5f")
+                with defense_col_f:
+                    defense_wp = st.number_input("Win Probablity",key="defense_wp", value=0.09794 ,format="%.5f")
 
 
-            
-            selected_defense_logo_path = self.logo_folder / f"{defense_team_name}.png"
-            if selected_defense_logo_path.exists():
-                img_base64 = self.img_to_base64(str(selected_defense_logo_path))
-                st.markdown(
-                    f"""
-                    <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
-                        <img src="data:image/png;base64,{img_base64}" alt="{defense_team_name}" 
-                            style="width: 250px; height: 250px; object-fit: contain;">
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-            else:
-                st.warning(f"Logo not found for team: {defense_team_name}")
-
-                    
-            defense_formation = st.selectbox("Defense Formation", options = unique_defense_formation, index=11)
-            
-            default_players = [
-                "Stephon Gilmore", "Rodney McLeod", "DeForest Buckner", "Yannick Ngakoue",
-                "Ifeadi Odenigbo", "Kenny Moore", "Zaire Franklin", "Brandon Facyson",
-                "Bobby Okereke", "Kwity Paye", "Rodney Thomas"
-            ]
-
-            default_positions = [
-                "CB", "FS", "DT", "DE", "DE", "CB",
-                "OLB", "CB", "MLB", "DE", "FS"
-            ]
-
-            default_cover_assignments = [
-                "MAN", "HCR", "Pass Rush", "Pass Rush", "Pass Rush",
-                "CFL", "HCL", "3L", "CFR", "Pass Rush", "3M"
-            ]
-
-            for i in range(11):
-                def_col_player, def_col_position, col_coverage = st.columns(3)
                 
-                with def_col_player:
-                    player_options = self.player_df['displayName'].tolist()
-                    
-                    if default_players[i] in player_options:
-                        default_index_player = player_options.index(default_players[i])
-                    else:
-                        default_index_player = 0  
-                    
-                    def_player = st.selectbox(
-                        f"Player {i + 1}",
-                        options=player_options,
-                        index=default_index_player,
-                        key=f"defense_player_{i}",
-                
+                selected_defense_logo_path = self.logo_folder / f"{defense_team_name}.png"
+                if selected_defense_logo_path.exists():
+                    img_base64 = self.img_to_base64(str(selected_defense_logo_path))
+                    st.markdown(
+                        f"""
+                        <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+                            <img src="data:image/png;base64,{img_base64}" alt="{defense_team_name}" 
+                                style="width: 250px; height: 250px; object-fit: contain;">
+                        </div>
+                        """,
+                        unsafe_allow_html=True
                     )
-                
-                with def_col_position:
-                    if default_positions[i] in unique_defense_position:
-                        default_index_position = unique_defense_position.index(default_positions[i])
-                    else:
-                        default_index_position = 0  
-                    
-                    def_position = st.selectbox(
-                        f"Position",
-                        options=unique_defense_position,
-                        index=default_index_position,
-                        key=f"defense_position_{i}",
-                   
-                    )
-                
-                with col_coverage:
-                    if default_cover_assignments[i] in unique_coverage:
-                        default_index_coverage = unique_coverage.index(default_cover_assignments[i])
-                    else:
-                        default_index_coverage = 0 
-                    
-                    def_coverage = st.selectbox(
-                        f"Coverage",
-                        options=unique_coverage,
-                        index=default_index_coverage,
-                        key=f"defense_coverage_{i}",
-                    )
-                    
-                defense_selected_players.append(def_player)
-                defense_selected_positions.append(def_position)
-                defense_selected_assignments.append(def_coverage)
+                else:
+                    st.warning(f"Logo not found for team: {defense_team_name}")
 
-            error_placeholder_defense = st.empty()
-            if len(set(defense_selected_players)) != 11:
-                error_placeholder_defense.error("Please select exactly 11 players for the defense.")
-            elif len(defense_selected_players) > 11:
-                error_placeholder_defense.error("Too many players selected. Please select exactly 11 players for the defense.")
-            elif len(defense_selected_players) != len(set(defense_selected_players)):
-                error_placeholder_defense.error("Each defense player must be unique!")
-            else:
-                error_placeholder_defense.empty()
+                        
+                defense_formation = st.selectbox("Defense Formation", options = unique_defense_formation, index=11)
+                
+                default_players = [
+                    "Stephon Gilmore", "Rodney McLeod", "DeForest Buckner", "Yannick Ngakoue",
+                    "Ifeadi Odenigbo", "Kenny Moore", "Zaire Franklin", "Brandon Facyson",
+                    "Bobby Okereke", "Kwity Paye", "Rodney Thomas"
+                ]
 
-            defense_ratings = get_weighted_player_rating(self.player_df, defense_selected_players, quarter, down)
+                default_positions = [
+                    "CB", "FS", "DT", "DE", "DE", "CB",
+                    "OLB", "CB", "MLB", "DE", "FS"
+                ]
+
+                default_cover_assignments = [
+                    "MAN", "HCR", "Pass Rush", "Pass Rush", "Pass Rush",
+                    "CFL", "HCL", "3L", "CFR", "Pass Rush", "3M"
+                ]
+
+                for i in range(11):
+                    def_col_player, def_col_position, col_coverage = st.columns(3)
+                    
+                    with def_col_player:
+                        player_options = self.player_df['displayName'].tolist()
+                        
+                        if default_players[i] in player_options:
+                            default_index_player = player_options.index(default_players[i])
+                        else:
+                            default_index_player = 0  
+                        
+                        def_player = st.selectbox(
+                            f"Player {i + 1}",
+                            options=player_options,
+                            index=default_index_player,
+                            key=f"defense_player_{i}",
+                    
+                        )
+                    
+                    with def_col_position:
+                        if default_positions[i] in unique_defense_position:
+                            default_index_position = unique_defense_position.index(default_positions[i])
+                        else:
+                            default_index_position = 0  
+                        
+                        def_position = st.selectbox(
+                            f"Position",
+                            options=unique_defense_position,
+                            index=default_index_position,
+                            key=f"defense_position_{i}",
+                    
+                        )
+                    
+                    with col_coverage:
+                        if default_cover_assignments[i] in unique_coverage:
+                            default_index_coverage = unique_coverage.index(default_cover_assignments[i])
+                        else:
+                            default_index_coverage = 0 
+                        
+                        def_coverage = st.selectbox(
+                            f"Coverage",
+                            options=unique_coverage,
+                            index=default_index_coverage,
+                            key=f"defense_coverage_{i}",
+                        )
+                        
+                    defense_selected_players.append(def_player)
+                    defense_selected_positions.append(def_position)
+                    defense_selected_assignments.append(def_coverage)
+
+                error_placeholder_defense = st.empty()
+                if len(set(defense_selected_players)) != 11:
+                    error_placeholder_defense.error("Please select exactly 11 players for the defense.")
+                elif len(defense_selected_players) > 11:
+                    error_placeholder_defense.error("Too many players selected. Please select exactly 11 players for the defense.")
+                elif len(defense_selected_players) != len(set(defense_selected_players)):
+                    error_placeholder_defense.error("Each defense player must be unique!")
+                else:
+                    error_placeholder_defense.empty()
+
+                defense_ratings = get_weighted_player_rating(self.player_df, defense_selected_players, quarter, down)
 
         return defense_play_type, defense_team_name, def_score, def_timeout_remaining, defense_wp, defense_formation, defense_selected_players, defense_selected_positions, defense_selected_assignments, defense_ratings, defense_team_name
     
@@ -1141,7 +1143,15 @@ class NFLAdvancedPlaygroundSimulator:
     def run_streamlit_app(self):
         st.title("Welcome to :orange[Playground Simulator]")
         st.subheader(":violet[Game Situation]",divider="gray")    
-        quarter, down, yards_to_go, yards_to_endzone, game_half, is_second_half, quarter_seconds_remaining, half_seconds_remaining, game_seconds_remaining = self.game_situation_components()
+        with st.container(border=True):
+            col1,col2 = st.columns([2,8])
+            with col1:
+                st.subheader(":violet[Game Situation]",divider="gray")
+            with col2:
+                pass
+
+            quarter, down, yards_to_go, yards_to_endzone, game_half, is_second_half, quarter_seconds_remaining, half_seconds_remaining, game_seconds_remaining = self.game_situation_components()
+        
         offense_col, defense_col = st.columns(2)
         offense_play_type, offense_teaam_name, off_score, off_timeout_remaining, offense_wp, offense_formation, offense_selected_players, offense_selected_positions, offense_selected_routes, offense_ratings, offense_team_name = self.offense_details(offense_col, quarter, down)
         defense_play_type, defense_team_name, def_score, def_timeout_remaining, defense_wp, defense_formation, defense_selected_players, defense_selected_positions, defense_selected_assignments, defense_ratings, defense_team_name = self.defense_details(defense_col, quarter, down)
@@ -1291,32 +1301,36 @@ class NFLAdvancedPlaygroundSimulator:
             st.markdown("<h3 style='text-align: center; color: grey;'>Tensorflow Predictive Insights: Yard Gains and Offensive Strategies</h3>", unsafe_allow_html=True)
 
             if offense_play_type == "run":
-                self.create_donut_plot(probabilities)
+                with st.container(border=True):
+                    st.markdown("<h3 style='text-align: center; color: grey;'>Tensorflow Predictive Insights: Yard Gains and Offensive Strategies</h3>", unsafe_allow_html=True)
+                    self.create_donut_plot(probabilities)
                 st.subheader("Run Play Type Report is in Progress & will be continued in future......")
 
             if offense_play_type == "pass":
-                yards_prob, strategy_prob = st.columns(2)
-                with yards_prob:
-                    self.create_donut_plot(probabilities)
+                with st.container(border=True):
+                    st.markdown("<h3 style='text-align: center; color: grey;'>Tensorflow Predictive Insights: Yard Gains and Offensive Strategies</h3>", unsafe_allow_html=True)
+                    yards_prob, strategy_prob = st.columns(2)
+                    with yards_prob:
+                        self.create_donut_plot(probabilities)
 
-                with strategy_prob:
-                    self.plot_bar_with_percentages(startegy)
+                    with strategy_prob:
+                        self.plot_bar_with_percentages(startegy)
                     
                 prediction_text = f"""
-                ---
-
                 Based on the current game scenario and player configurations, the predictive model has evaluated the likelihood of yard gains and an Offensive Strategy based on the current game scenario *(Down: **{down}**, Distance: **{yards_to_go}** yards, Quarter: **{quarter}**, Time Remaining: **{quarter_seconds_remaining}** seconds, Score Difference: **{pay_load.get("score_differential")}** points)* and player configurations. The model suggests:
                 """
                 st.markdown(prediction_text)
 
                 donut_pred_text, startegy_pred_text = st.columns(2)
                 with donut_pred_text:
-                    st.markdown("<h5 style='text-align: center; color: grey;'>Yard Gains Insights</h5>", unsafe_allow_html=True)
-                    st.markdown(donut_prediction_text)
+                    with st.container(border=True):
+                        st.markdown("<h5 style='text-align: center; color: grey;'>Yard Gains Insights</h5>", unsafe_allow_html=True)
+                        st.markdown(donut_prediction_text)
 
                 with startegy_pred_text:
-                    st.markdown("<h5 style='text-align: center; color: grey;'>Offensive Strategies Insights</h5>", unsafe_allow_html=True)
-                    st.markdown(strategy_prediction_text)
+                    with st.container(border=True):
+                        st.markdown("<h5 style='text-align: center; color: grey;'>Offensive Strategies Insights</h5>", unsafe_allow_html=True)
+                        st.markdown(strategy_prediction_text)
 
                 st.divider()
                 offense, defense = st.columns(2)
@@ -1363,19 +1377,20 @@ class NFLAdvancedPlaygroundSimulator:
 
                 game_situation_text_1, game_situation_text_2 = st.columns(2)
                 with game_situation_text_1:
-                    game_situation_text = f"""
-        
-                    ### **Game :orange[Situational] Context**
-                    - **Quarter**: The game is in the `{quarter}` quarter, with the `{down}` down being played.
-                    - **Yards to Go**: The offense needs `{yards_to_go}` yards to secure a first down.
-                    - **Field Position**: The ball is positioned `{yards_to_endzone}` yards from the endzone.
-                    - **Game Clock**: There are `{quarter_seconds_remaining}` seconds left in this quarter, `{half_seconds_remaining}` seconds in the half, and `{game_seconds_remaining}` seconds remaining in the game overall.
-                    - **Game Segment**: The play is taking place in `{game_half.split(":")[-1]}`.
-                        {f"- **Critical Situation**: With less than 2 minutes remaining in the game, every play becomes vital for both teams." if game_seconds_remaining <= 120 else ""}
-                        {f"- **Red Zone Alert**: The ball is within the 20-yard line, increasing scoring opportunities." if yards_to_endzone <= 20 else ""}
-                        {f"- **Third Down Pressure**: A critical third down is in play, and the offense must execute effectively to avoid a punt or turnover." if down == 3 else ""}
-                    """
-                    st.markdown(game_situation_text)
+                    with st.container(border=True):
+                        game_situation_text = f"""
+            
+                        ### **Game :orange[Situational] Context**
+                        - **Quarter**: The game is in the `{quarter}` quarter, with the `{down}` down being played.
+                        - **Yards to Go**: The offense needs `{yards_to_go}` yards to secure a first down.
+                        - **Field Position**: The ball is positioned `{yards_to_endzone}` yards from the endzone.
+                        - **Game Clock**: There are `{quarter_seconds_remaining}` seconds left in this quarter, `{half_seconds_remaining}` seconds in the half, and `{game_seconds_remaining}` seconds remaining in the game overall.
+                        - **Game Segment**: The play is taking place in `{game_half.split(":")[-1]}`.
+                            {f"- **Critical Situation**: With less than 2 minutes remaining in the game, every play becomes vital for both teams." if game_seconds_remaining <= 120 else ""}
+                            {f"- **Red Zone Alert**: The ball is within the 20-yard line, increasing scoring opportunities." if yards_to_endzone <= 20 else ""}
+                            {f"- **Third Down Pressure**: A critical third down is in play, and the offense must execute effectively to avoid a punt or turnover." if down == 3 else ""}
+                        """
+                        st.markdown(game_situation_text)
 
                 with game_situation_text_2:
                     summary_data = {
@@ -1508,49 +1523,51 @@ class NFLAdvancedPlaygroundSimulator:
                 )
                 pff_passCoverage_heatmap_text , pff_passCoverage_plot_text = st.columns(2)
                 with pff_passCoverage_heatmap_text:
-                    st.markdown(
-                        """
-                        #### Heatmap
-                        **What It Shows:**
-                        - The heatmap shows the proportion of pass outcomes (`passResult`) for different combinations of field zones and defensive coverage schemes.
-                            - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
-                            - **Y-axis:** Defensive pass coverage schemes.
-                        - **Darker colors:** Indicate where certain outcomes are more frequent:
-                            - Darker near **Complete:** The offense is effective against this coverage in the corresponding field zone & vice versa for Lighter or transparent shade.
-                 
-                        **Why It Matters:**
-                        - Highlights where offenses excel or falter against specific defensive coverages.
-                        - Identifies the effectiveness of defensive schemes in disrupting offensive plays in different field zones.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """
+                            #### Heatmap
+                            **What It Shows:**
+                            - The heatmap shows the proportion of pass outcomes (`passResult`) for different combinations of field zones and defensive coverage schemes.
+                                - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
+                                - **Y-axis:** Defensive pass coverage schemes.
+                            - **Darker colors:** Indicate where certain outcomes are more frequent:
+                                - Darker near **Complete:** The offense is effective against this coverage in the corresponding field zone & vice versa for Lighter or transparent shade.
+                    
+                            **Why It Matters:**
+                            - Highlights where offenses excel or falter against specific defensive coverages.
+                            - Identifies the effectiveness of defensive schemes in disrupting offensive plays in different field zones.
 
-                        **Key Insight:**
-                        - This heatmap helps pinpoint which defensive strategies were most effective in disrupting offensive plays across different field zones.
-                        - A darker color near "**Complete**" suggests the offense thrives against that coverage in certain zones. A darker color near "**Incomplete**" or "**Intercepted**" points to defensive schemes that are highly effective in shutting down the offense.
+                            **Key Insight:**
+                            - This heatmap helps pinpoint which defensive strategies were most effective in disrupting offensive plays across different field zones.
+                            - A darker color near "**Complete**" suggests the offense thrives against that coverage in certain zones. A darker color near "**Incomplete**" or "**Intercepted**" points to defensive schemes that are highly effective in shutting down the offense.
 
 
-                        """
-                    )
+                            """
+                        )
                 with pff_passCoverage_plot_text:
-                    st.markdown(
-                        """
-                        #### Circular Bar Plot (Radial Bar Chart)
-                        **What It Shows:**
-                        - The circular chart is divided into four sections, each representing a field zone:
-                            - **Opponent Red Zone** (0-25 yards)
-                            - **Midfield** (26-50 yards)
-                            - **Own Territory** (51-75 yards)
-                            - **Own Deep Zone** (76-100 yards).
-                        - Each bar in the chart represents a defensive pass coverage scheme (e.g., Cover - 0, Cover - 1, etc ) used in that field zone.
-                        - The length of the bar shows how often that coverage was employed.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """
+                            #### Circular Bar Plot (Radial Bar Chart)
+                            **What It Shows:**
+                            - The circular chart is divided into four sections, each representing a field zone:
+                                - **Opponent Red Zone** (0-25 yards)
+                                - **Midfield** (26-50 yards)
+                                - **Own Territory** (51-75 yards)
+                                - **Own Deep Zone** (76-100 yards).
+                            - Each bar in the chart represents a defensive pass coverage scheme (e.g., Cover - 0, Cover - 1, etc ) used in that field zone.
+                            - The length of the bar shows how often that coverage was employed.
 
-                        **Why It Matters:**
-                        - **Peak of the Bar:** Longer bars highlight defensive schemes that were frequently used and potentially more effective against offensive plays in that zone.
-                        - **Color:** Colors differentiate field zones, making it easier to compare defensive strategies across areas of the field.
+                            **Why It Matters:**
+                            - **Peak of the Bar:** Longer bars highlight defensive schemes that were frequently used and potentially more effective against offensive plays in that zone.
+                            - **Color:** Colors differentiate field zones, making it easier to compare defensive strategies across areas of the field.
 
-                        **Key Insight:**
-                        - Use this chart to identify field zones where the offense struggled most against certain defensive coverages. For example, the chart might reveal that offenses completed more passes in the **Own Territory**.
+                            **Key Insight:**
+                            - Use this chart to identify field zones where the offense struggled most against certain defensive coverages. For example, the chart might reveal that offenses completed more passes in the **Own Territory**.
 
-                        """
-                    )
+                            """
+                        )
                 
                 self.plot_combined(
                     fig_width=3,
@@ -1560,26 +1577,27 @@ class NFLAdvancedPlaygroundSimulator:
                     value_col="passResult",
                     category_label="pff_passCoverage"
                 )
-                st.markdown(
-                    """
-                    #### Visualization Summary
-                    - The **Heatmap** provides a big-picture view of how defensive coverage schemes influenced pass outcomes across the field.
-                    - The **Circular Bar Plot** adds context by showing where defensive schemes are most prevalent and their general impact.
+                with st.container(border=True):
+                    st.markdown(
+                        """
+                        #### Visualization Summary
+                        - The **Heatmap** provides a big-picture view of how defensive coverage schemes influenced pass outcomes across the field.
+                        - The **Circular Bar Plot** adds context by showing where defensive schemes are most prevalent and their general impact.
 
-                    **How to Use It:**
-                    - Start with the heatmap to identify offensive performance trends (e.g., dark colors for "Complete" or "Incomplete").
-                    - Use the circular bar plot to dig deeper into the details, such as which defensive schemes were most frequently used and where offenses struggled the most.
+                        **How to Use It:**
+                        - Start with the heatmap to identify offensive performance trends (e.g., dark colors for "Complete" or "Incomplete").
+                        - Use the circular bar plot to dig deeper into the details, such as which defensive schemes were most frequently used and where offenses struggled the most.
 
-                    **Takeaway:**
-                    This visualization provides a clear breakdown of offensive performance against defensive strategies across key field zones. It helps answer:
-                    - Where does your offense excel or struggle against specific coverage types?
-                    - Which field zones present the biggest challenges for your plays?
-                    - How can you adapt your offense to exploit weaknesses in defensive schemes?
+                        **Takeaway:**
+                        This visualization provides a clear breakdown of offensive performance against defensive strategies across key field zones. It helps answer:
+                        - Where does your offense excel or struggle against specific coverage types?
+                        - Which field zones present the biggest challenges for your plays?
+                        - How can you adapt your offense to exploit weaknesses in defensive schemes?
 
-                    By combining the heatmap with the circular bar plot, we can develop strategies to counter defensive coverage and optimize offensive performance.
+                        By combining the heatmap with the circular bar plot, we can develop strategies to counter defensive coverage and optimize offensive performance.
 
-                    """
-                )
+                        """
+                    )
                 st.divider()
                 st.markdown("<h3 style='text-align: center; color: gray;'>Offensive Strategy and Field Zones</h3>", unsafe_allow_html=True)
                 st.markdown(
@@ -1592,51 +1610,53 @@ class NFLAdvancedPlaygroundSimulator:
                 startegy_heatmap_text , startegy_plot_text = st.columns(2)
 
                 with startegy_heatmap_text:
-                    st.markdown(
-                        """
-                        #### Heatmap
-                        **What It Shows:**
-                        - The heatmap shows the proportion of pass outcomes (`passResult`) for different combinations of field zones and offensive strategies.
-                            - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
-                            - **Y-axis:** Offensive strategies (`strategy`), such as Short Left Pass, Short Right Pass, Shotgun Isolation, or Deep Attack.
-                        - **Darker colors:** Indicate where certain outcomes are more frequent:
-                            - Darker near **Complete:** The offense was highly effective using this strategy in the corresponding field zone. Lighter or transparent shades indicate less frequent or less effective outcomes.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """
+                            #### Heatmap
+                            **What It Shows:**
+                            - The heatmap shows the proportion of pass outcomes (`passResult`) for different combinations of field zones and offensive strategies.
+                                - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
+                                - **Y-axis:** Offensive strategies (`strategy`), such as Short Left Pass, Short Right Pass, Shotgun Isolation, or Deep Attack.
+                            - **Darker colors:** Indicate where certain outcomes are more frequent:
+                                - Darker near **Complete:** The offense was highly effective using this strategy in the corresponding field zone. Lighter or transparent shades indicate less frequent or less effective outcomes.
 
-                        **Why It Matters:**
-                        - Highlights where offenses excel or struggle with specific strategies in different field zones.
-                        - Identifies which strategies lead to successful or unsuccessful outcomes.
+                            **Why It Matters:**
+                            - Highlights where offenses excel or struggle with specific strategies in different field zones.
+                            - Identifies which strategies lead to successful or unsuccessful outcomes.
 
-                        **Key Insight:**
-                        - This heatmap helps pinpoint offensive strategies that worked best in specific field zones.
-                        - For example, a darker shade near "**Complete**" suggests that a strategy like Short Right Pass was highly effective in a specific zone.
-                        - Conversely, darker shades near "**Incomplete**" or "**Intercepted**" indicate where the strategy failed or the defense disrupted the play.
+                            **Key Insight:**
+                            - This heatmap helps pinpoint offensive strategies that worked best in specific field zones.
+                            - For example, a darker shade near "**Complete**" suggests that a strategy like Short Right Pass was highly effective in a specific zone.
+                            - Conversely, darker shades near "**Incomplete**" or "**Intercepted**" indicate where the strategy failed or the defense disrupted the play.
 
-                        """
-                    )
+                            """
+                        )
 
                 with startegy_plot_text:
-                    st.markdown(
-                        """ 
-                        #### Circular Bar Plot (Radial Bar Chart)
-                        **What It Shows:**
-                        - The circular chart is divided into four sections, each representing a field zone:
-                        - **Opponent Red Zone** (0-25 yards)
-                        - **Midfield** (26-50 yards)
-                        - **Own Territory** (51-75 yards)
-                        - **Own Deep Zone** (76-100 yards).
-                        - Each bar in the chart represents an offensive strategy (`strategy`) used in that field zone (e.g., Short Left Pass, Shotgun Isolation).
-                        - The length of the bar shows how frequently that strategy was employed in that field zone.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """ 
+                            #### Circular Bar Plot (Radial Bar Chart)
+                            **What It Shows:**
+                            - The circular chart is divided into four sections, each representing a field zone:
+                            - **Opponent Red Zone** (0-25 yards)
+                            - **Midfield** (26-50 yards)
+                            - **Own Territory** (51-75 yards)
+                            - **Own Deep Zone** (76-100 yards).
+                            - Each bar in the chart represents an offensive strategy (`strategy`) used in that field zone (e.g., Short Left Pass, Shotgun Isolation).
+                            - The length of the bar shows how frequently that strategy was employed in that field zone.
 
-                        **Why It Matters:**
-                        - **Peak of the Bar:** Longer bars highlight strategies that were frequently used in specific field zones.
-                        - **Color:** Colors differentiate field zones, making it easier to compare offensive strategy usage across the field.
+                            **Why It Matters:**
+                            - **Peak of the Bar:** Longer bars highlight strategies that were frequently used in specific field zones.
+                            - **Color:** Colors differentiate field zones, making it easier to compare offensive strategy usage across the field.
 
-                        **Key Insight:**
-                        - Use this chart to identify which strategies are most commonly used in different field zones.
-                        - For example, the chart might reveal that Short Left Pass is frequently used in the **Midfield**, while Short Middle Pass is less common in the **Opponent Red Zone**.
+                            **Key Insight:**
+                            - Use this chart to identify which strategies are most commonly used in different field zones.
+                            - For example, the chart might reveal that Short Left Pass is frequently used in the **Midfield**, while Short Middle Pass is less common in the **Opponent Red Zone**.
 
-                        """
-                    )
+                            """
+                        )
 
                 self.plot_combined(
                     fig_width=4,
@@ -1649,26 +1669,27 @@ class NFLAdvancedPlaygroundSimulator:
                     main_width=20,
                     main_height=10
                 )
-                st.markdown(
-                    """
-                    #### Visualization Summary
-                    - The **Heatmap** provides a big-picture view of how offensive strategies influenced pass outcomes across the field.
-                    - The **Circular Bar Plot** adds context by showing which offensive strategies were most frequently used in different field zones.
+                with st.container(border=True):
+                    st.markdown(
+                        """
+                        #### Visualization Summary
+                        - The **Heatmap** provides a big-picture view of how offensive strategies influenced pass outcomes across the field.
+                        - The **Circular Bar Plot** adds context by showing which offensive strategies were most frequently used in different field zones.
 
-                    **How to Use It:**
-                    - Start with the heatmap to identify performance trends for specific strategies (e.g., dark colors for "Complete" or "Incomplete").
-                    - Use the circular bar plot to explore the frequency of each strategy in various field zones and correlate it with the heatmap trends.
+                        **How to Use It:**
+                        - Start with the heatmap to identify performance trends for specific strategies (e.g., dark colors for "Complete" or "Incomplete").
+                        - Use the circular bar plot to explore the frequency of each strategy in various field zones and correlate it with the heatmap trends.
 
-                    **Takeaway:**
-                    This visualization provides a clear breakdown of offensive performance and strategy usage across key field zones. It helps answer:
-                    - Which offensive strategies are most effective in specific field zones?
-                    - Where do offensive strategies falter or succeed based on pass outcomes?
-                    - How can you adjust your play-calling to maximize success in each field zone?
+                        **Takeaway:**
+                        This visualization provides a clear breakdown of offensive performance and strategy usage across key field zones. It helps answer:
+                        - Which offensive strategies are most effective in specific field zones?
+                        - Where do offensive strategies falter or succeed based on pass outcomes?
+                        - How can you adjust your play-calling to maximize success in each field zone?
 
-                    By combining the heatmap with the circular bar plot, we can develop strategies to optimize offensive plays and counter defensive responses effectively.
+                        By combining the heatmap with the circular bar plot, we can develop strategies to optimize offensive plays and counter defensive responses effectively.
 
-                    """
-                )
+                        """
+                    )
                 st.divider()
                 st.markdown("<h3 style='text-align: center; color: gray;'>Defensive Formation and Field Zones</h3>", unsafe_allow_html=True)
                 st.markdown(
@@ -1680,52 +1701,54 @@ class NFLAdvancedPlaygroundSimulator:
                 )
                 defense_formation_heatmap_text , defense_formation_plot_text = st.columns(2)
                 with defense_formation_heatmap_text:
-                    st.markdown(
-                        """
-                        #### Heatmap
-                        **What It Shows:**
-                        - The heatmap displays the proportion of pass outcomes (`passResult`) for different combinations of field zones and defensive formations.
-                        - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
-                        - **Y-axis:** Defensive formations (`defenseFormation`), such as 3-4 Defense, Big Nickel, or 5-2 Defense.
-                        - **Darker colors:** Indicate where certain outcomes are more frequent:
-                        - Darker near **Incomplete** or **Intercepted:** Suggests the defensive formation was more effective in disrupting the offense in the corresponding field zone.
-                        - Lighter or transparent colors indicate less frequent or less impactful combinations of outcomes and formations.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """
+                            #### Heatmap
+                            **What It Shows:**
+                            - The heatmap displays the proportion of pass outcomes (`passResult`) for different combinations of field zones and defensive formations.
+                            - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
+                            - **Y-axis:** Defensive formations (`defenseFormation`), such as 3-4 Defense, Big Nickel, or 5-2 Defense.
+                            - **Darker colors:** Indicate where certain outcomes are more frequent:
+                            - Darker near **Incomplete** or **Intercepted:** Suggests the defensive formation was more effective in disrupting the offense in the corresponding field zone.
+                            - Lighter or transparent colors indicate less frequent or less impactful combinations of outcomes and formations.
 
-                        **Why It Matters:**
-                        - Highlights where defensive formations were most effective at stopping or disrupting offensive plays.
-                        - Identifies formations and zones where offenses managed to succeed or where defenses dominated.
+                            **Why It Matters:**
+                            - Highlights where defensive formations were most effective at stopping or disrupting offensive plays.
+                            - Identifies formations and zones where offenses managed to succeed or where defenses dominated.
 
-                        **Key Insight:**
-                        - This heatmap helps identify defensive formations that worked best in specific field zones.
-                        - For example, a darker shade near "**Incomplete**" or "**Intercepted**" suggests the formation was effective in that zone.
-                        - A darker shade near "**Complete**" indicates where the defense struggled against the offense.
+                            **Key Insight:**
+                            - This heatmap helps identify defensive formations that worked best in specific field zones.
+                            - For example, a darker shade near "**Incomplete**" or "**Intercepted**" suggests the formation was effective in that zone.
+                            - A darker shade near "**Complete**" indicates where the defense struggled against the offense.
 
-                        """
-                    )
+                            """
+                        )
 
                 with defense_formation_plot_text:
-                    st.markdown(
-                        """
-                        #### Circular Bar Plot (Radial Bar Chart)
-                        **What It Shows:**
-                        - The circular chart is divided into four sections, each representing a field zone:
-                        - **Opponent Red Zone** (0-25 yards)
-                        - **Midfield** (26-50 yards)
-                        - **Own Territory** (51-75 yards)
-                        - **Own Deep Zone** (76-100 yards).
-                        - Each bar represents a defensive formation (`defenseFormation`) used in that field zone (e.g., 3-4 Defense, Big Nickel, or 5-2 Defense).
-                        - The length of the bar shows how frequently that formation was used by the 31 teams in that field zone.
+                    with st.container(border=True,height=755):
+                            st.markdown(
+                                """
+                                #### Circular Bar Plot (Radial Bar Chart)
+                                **What It Shows:**
+                                - The circular chart is divided into four sections, each representing a field zone:
+                                - **Opponent Red Zone** (0-25 yards)
+                                - **Midfield** (26-50 yards)
+                                - **Own Territory** (51-75 yards)
+                                - **Own Deep Zone** (76-100 yards).
+                                - Each bar represents a defensive formation (`defenseFormation`) used in that field zone (e.g., 3-4 Defense, Big Nickel, or 5-2 Defense).
+                                - The length of the bar shows how frequently that formation was used by the 31 teams in that field zone.
 
-                        **Why It Matters:**
-                        - **Peak of the Bar:** Longer bars highlight formations that were frequently employed in specific zones.
-                        - **Color:** Colors differentiate field zones, making it easier to compare defensive formation usage across areas of the field.
+                                **Why It Matters:**
+                                - **Peak of the Bar:** Longer bars highlight formations that were frequently employed in specific zones.
+                                - **Color:** Colors differentiate field zones, making it easier to compare defensive formation usage across areas of the field.
 
-                        **Key Insight:**
-                        - Use this chart to identify field zones where certain defensive formations were heavily used.
-                        - For example, the chart might show that 3-4 Defense was commonly used in the **Midfield**, while Big Nickel appeared more often in the **Opponent Red Zone**.
+                                **Key Insight:**
+                                - Use this chart to identify field zones where certain defensive formations were heavily used.
+                                - For example, the chart might show that 3-4 Defense was commonly used in the **Midfield**, while Big Nickel appeared more often in the **Opponent Red Zone**.
 
-                        """
-                    )
+                                """
+                            )
 
                 self.plot_combined(
                     fig_width=3,
@@ -1736,25 +1759,26 @@ class NFLAdvancedPlaygroundSimulator:
                     category_label="defenseFormation"
                 )
 
-                st.markdown(
-                    """
-                    #### Visualization Summary
-                    - The **Heatmap** provides a high-level view of the effectiveness of defensive formations across different field zones and pass outcomes.
-                    - The **Circular Bar Plot** adds context by showing which formations were most frequently used by the defensive teams in various field zones.
+                with st.container(border=True):
+                    st.markdown(
+                        """
+                        #### Visualization Summary
+                        - The **Heatmap** provides a high-level view of the effectiveness of defensive formations across different field zones and pass outcomes.
+                        - The **Circular Bar Plot** adds context by showing which formations were most frequently used by the defensive teams in various field zones.
 
-                    **How to Use It:**
-                    - Start with the heatmap to identify where defensive formations were most effective (e.g., dark colors near "Incomplete" or "Intercepted").
-                    - Use the circular bar plot to explore the frequency of each formation in different field zones and correlate it with the heatmap trends.
+                        **How to Use It:**
+                        - Start with the heatmap to identify where defensive formations were most effective (e.g., dark colors near "Incomplete" or "Intercepted").
+                        - Use the circular bar plot to explore the frequency of each formation in different field zones and correlate it with the heatmap trends.
 
-                    **Takeaway:**
-                    This visualization provides a clear breakdown of how defensive formations were employed and their impact on pass outcomes across key field zones. It helps answer:
-                    - Which defensive formations are most effective in specific field zones?
-                    - Where do defensive formations succeed or fail against offensive plays?
-                    - How can you adapt offensive strategies to counter specific defensive formations?
+                        **Takeaway:**
+                        This visualization provides a clear breakdown of how defensive formations were employed and their impact on pass outcomes across key field zones. It helps answer:
+                        - Which defensive formations are most effective in specific field zones?
+                        - Where do defensive formations succeed or fail against offensive plays?
+                        - How can you adapt offensive strategies to counter specific defensive formations?
 
-                    By combining the heatmap with the circular bar plot, we can analyze defensive setups more effectively and adjust strategies accordingly.
-                    """
-                )
+                        By combining the heatmap with the circular bar plot, we can analyze defensive setups more effectively and adjust strategies accordingly.
+                        """
+                    )
 
                 st.divider()
                 st.markdown("<h3 style='text-align: center; color: gray;'>Receiver Alignments and Field Zones</h3>", unsafe_allow_html=True)
@@ -1768,53 +1792,55 @@ class NFLAdvancedPlaygroundSimulator:
                 receiver_alignmentn_heatmap_text , receiver_alignmentn_plot_text = st.columns(2)
 
                 with receiver_alignmentn_heatmap_text:
-                    st.markdown(
-                        """
-                        #### Heatmap
-                        **What It Shows:**
-                        - The heatmap shows the proportion of pass outcomes (`passResult`) for different combinations of field zones and receiver alignments.
-                        - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
-                        - **Y-axis:** Receiver alignments (`receiverAlignment`), such as 3x1, 2x2, or 1x1.
-                        - **Darker colors:** Indicate where certain outcomes are more frequent:
-                        - Darker near **Complete:** Suggests the receiver alignment was effective in producing completions in the corresponding field zone.
-                        - Darker near **Incomplete** or **Intercepted:** Suggests the alignment was less effective, or the defense disrupted the play.
-                        - Lighter or transparent colors indicate negligible or less frequent outcomes.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """
+                            #### Heatmap
+                            **What It Shows:**
+                            - The heatmap shows the proportion of pass outcomes (`passResult`) for different combinations of field zones and receiver alignments.
+                            - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
+                            - **Y-axis:** Receiver alignments (`receiverAlignment`), such as 3x1, 2x2, or 1x1.
+                            - **Darker colors:** Indicate where certain outcomes are more frequent:
+                            - Darker near **Complete:** Suggests the receiver alignment was effective in producing completions in the corresponding field zone.
+                            - Darker near **Incomplete** or **Intercepted:** Suggests the alignment was less effective, or the defense disrupted the play.
+                            - Lighter or transparent colors indicate negligible or less frequent outcomes.
 
-                        **Why It Matters:**
-                        - Highlights where offenses excel or struggle based on their receiver alignments in specific field zones.
-                        - Identifies which alignments lead to successful or unsuccessful pass outcomes.
+                            **Why It Matters:**
+                            - Highlights where offenses excel or struggle based on their receiver alignments in specific field zones.
+                            - Identifies which alignments lead to successful or unsuccessful pass outcomes.
 
-                        **Key Insight:**
-                        - This heatmap helps pinpoint receiver alignments that worked best in specific field zones.
-                        - For example, a darker shade near "**Complete**" suggests a 3x2 alignment was effective in the **Midfield**.
-                        - Conversely, a darker shade near "**Incomplete**" indicates where the alignment failed to produce successful plays.
+                            **Key Insight:**
+                            - This heatmap helps pinpoint receiver alignments that worked best in specific field zones.
+                            - For example, a darker shade near "**Complete**" suggests a 3x2 alignment was effective in the **Midfield**.
+                            - Conversely, a darker shade near "**Incomplete**" indicates where the alignment failed to produce successful plays.
 
-                        """
-                    )
+                            """
+                        )
 
                 with receiver_alignmentn_plot_text:
-                    st.markdown(
-                        """
-                        #### Circular Bar Plot (Radial Bar Chart)
-                        **What It Shows:**
-                        - The circular chart is divided into four sections, each representing a field zone:
-                        - **Opponent Red Zone** (0-25 yards)
-                        - **Midfield** (26-50 yards)
-                        - **Own Territory** (51-75 yards)
-                        - **Own Deep Zone** (76-100 yards).
-                        - Each bar represents a receiver alignment (`receiverAlignment`) used in that field zone (e.g., 3x1, 2x2, 3x2).
-                        - The length of the bar shows how frequently that alignment was used in the corresponding field zone.
+                    with st.container(border=True,height=755):
+                        st.markdown(
+                            """
+                            #### Circular Bar Plot (Radial Bar Chart)
+                            **What It Shows:**
+                            - The circular chart is divided into four sections, each representing a field zone:
+                            - **Opponent Red Zone** (0-25 yards)
+                            - **Midfield** (26-50 yards)
+                            - **Own Territory** (51-75 yards)
+                            - **Own Deep Zone** (76-100 yards).
+                            - Each bar represents a receiver alignment (`receiverAlignment`) used in that field zone (e.g., 3x1, 2x2, 3x2).
+                            - The length of the bar shows how frequently that alignment was used in the corresponding field zone.
 
-                        **Why It Matters:**
-                        - **Peak of the Bar:** Longer bars highlight alignments that were frequently used in specific field zones.
-                        - **Color:** Colors differentiate field zones, making it easier to compare how offenses set up their receivers in different areas of the field.
+                            **Why It Matters:**
+                            - **Peak of the Bar:** Longer bars highlight alignments that were frequently used in specific field zones.
+                            - **Color:** Colors differentiate field zones, making it easier to compare how offenses set up their receivers in different areas of the field.
 
-                        **Key Insight:**
-                        - Use this chart to identify field zones where specific receiver alignments were heavily employed.
-                        - For example, the chart might show that 2x1 alignments are frequently used in the **Opponent Red Zone**, while 3x2 alignments are more common in the **Midfield**.
+                            **Key Insight:**
+                            - Use this chart to identify field zones where specific receiver alignments were heavily employed.
+                            - For example, the chart might show that 2x1 alignments are frequently used in the **Opponent Red Zone**, while 3x2 alignments are more common in the **Midfield**.
 
-                        """
-                    )
+                            """
+                        )
 
                 self.plot_combined(
                     fig_width=0.5,
@@ -1825,25 +1851,26 @@ class NFLAdvancedPlaygroundSimulator:
                     category_label="receiverAlignment",
                     inner_radius=80
                 )
-                st.markdown(
-                    """
-                    #### Visualization Summary
-                    - The **Heatmap** provides a high-level view of the effectiveness of receiver alignments across different field zones and pass outcomes.
-                    - The **Circular Bar Plot** adds context by showing which alignments were most frequently used in various field zones.
+                with st.container(border=True):
+                    st.markdown(
+                        """
+                        #### Visualization Summary
+                        - The **Heatmap** provides a high-level view of the effectiveness of receiver alignments across different field zones and pass outcomes.
+                        - The **Circular Bar Plot** adds context by showing which alignments were most frequently used in various field zones.
 
-                    **How to Use It:**
-                    - Start with the heatmap to identify where receiver alignments were most effective (e.g., dark colors near "Complete" or "Incomplete").
-                    - Use the circular bar plot to explore the frequency of each alignment in different field zones and correlate it with the heatmap trends.
+                        **How to Use It:**
+                        - Start with the heatmap to identify where receiver alignments were most effective (e.g., dark colors near "Complete" or "Incomplete").
+                        - Use the circular bar plot to explore the frequency of each alignment in different field zones and correlate it with the heatmap trends.
 
-                    **Takeaway:**
-                    This visualization provides a clear breakdown of how offensive receiver alignments were employed and their impact on pass outcomes across key field zones. It helps answer:
-                    - Which receiver alignments are most effective in specific field zones?
-                    - Where do alignments succeed or fail based on pass outcomes?
-                    - How can you adjust receiver alignments to maximize success in different field zones?
+                        **Takeaway:**
+                        This visualization provides a clear breakdown of how offensive receiver alignments were employed and their impact on pass outcomes across key field zones. It helps answer:
+                        - Which receiver alignments are most effective in specific field zones?
+                        - Where do alignments succeed or fail based on pass outcomes?
+                        - How can you adjust receiver alignments to maximize success in different field zones?
 
-                    By combining the heatmap with the circular bar plot, we can analyze offensive setups more effectively and adapt strategies to counter defensive alignments.
-                    """
-                )
+                        By combining the heatmap with the circular bar plot, we can analyze offensive setups more effectively and adapt strategies to counter defensive alignments.
+                        """
+                    )
                 st.divider()
                 st.markdown("<h3 style='text-align: center; color: gray;'>Offense Formation and Field Zones</h3>", unsafe_allow_html=True)
                 st.markdown(
@@ -1857,53 +1884,55 @@ class NFLAdvancedPlaygroundSimulator:
                 offense_formation_heatmap_text , offense_formation_plot_text = st.columns(2)
 
                 with offense_formation_heatmap_text:
-                    st.markdown(
-                        """
-                        #### Heatmap
-                        **What It Shows:**
-                        - The heatmap displays the proportion of pass outcomes (`passResult`) for different combinations of field zones and offensive formations.
-                        - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
-                        - **Y-axis:** Offensive formations (`offenseFormation`), such as Shotgun, Singleback, Empty, Jumbo, or I-Form.
-                        - **Darker colors:** Indicate where certain outcomes are more frequent:
-                        - Darker near **Complete:** Suggests the offensive formation was effective in the corresponding field zone.
-                        - Darker near **Incomplete** or **Intercepted:** Suggests the formation struggled in that zone.
-                        - Lighter or transparent shades indicate less frequent or less impactful combinations of outcomes and formations.
+                    with st.container(border=True,height=758):
+                        st.markdown(
+                            """
+                            #### Heatmap
+                            **What It Shows:**
+                            - The heatmap displays the proportion of pass outcomes (`passResult`) for different combinations of field zones and offensive formations.
+                            - **X-axis:** Pass outcomes (`passResult`) such as Complete, Incomplete, Sack, Intercepted.
+                            - **Y-axis:** Offensive formations (`offenseFormation`), such as Shotgun, Singleback, Empty, Jumbo, or I-Form.
+                            - **Darker colors:** Indicate where certain outcomes are more frequent:
+                            - Darker near **Complete:** Suggests the offensive formation was effective in the corresponding field zone.
+                            - Darker near **Incomplete** or **Intercepted:** Suggests the formation struggled in that zone.
+                            - Lighter or transparent shades indicate less frequent or less impactful combinations of outcomes and formations.
 
-                        **Why It Matters:**
-                        - Highlights where offensive formations excel or falter in specific field zones.
-                        - Identifies which formations contribute to successful or unsuccessful pass outcomes.
+                            **Why It Matters:**
+                            - Highlights where offensive formations excel or falter in specific field zones.
+                            - Identifies which formations contribute to successful or unsuccessful pass outcomes.
 
-                        **Key Insight:**
-                        - This heatmap helps pinpoint offensive formations that worked best in specific field zones.
-                        - For example, a darker shade near "**Complete**" suggests that the Shotgun formation was effective in a particular zone.
-                        - A darker shade near "**Incomplete**" or "**Intercepted**" indicates where the formation may have been less effective.
+                            **Key Insight:**
+                            - This heatmap helps pinpoint offensive formations that worked best in specific field zones.
+                            - For example, a darker shade near "**Complete**" suggests that the Shotgun formation was effective in a particular zone.
+                            - A darker shade near "**Incomplete**" or "**Intercepted**" indicates where the formation may have been less effective.
 
-                        """
-                    )
+                            """
+                        )
                 
                 with offense_formation_plot_text:
-                    st.markdown(
-                        """
-                        #### Circular Bar Plot (Radial Bar Chart)
-                        **What It Shows:**
-                        - The circular chart is divided into four sections, each representing a field zone:
-                        - **Opponent Red Zone** (0-25 yards)
-                        - **Midfield** (26-50 yards)
-                        - **Own Territory** (51-75 yards)
-                        - **Own Deep Zone** (76-100 yards).
-                        - Each bar represents an offensive formation (`offenseFormation`) used in that field zone (e.g., Shotgun, Singleback).
-                        - The length of the bar shows how frequently that formation was used in the corresponding field zone.
+                    with st.container(border=True,height=758):
+                        st.markdown(
+                            """
+                            #### Circular Bar Plot (Radial Bar Chart)
+                            **What It Shows:**
+                            - The circular chart is divided into four sections, each representing a field zone:
+                            - **Opponent Red Zone** (0-25 yards)
+                            - **Midfield** (26-50 yards)
+                            - **Own Territory** (51-75 yards)
+                            - **Own Deep Zone** (76-100 yards).
+                            - Each bar represents an offensive formation (`offenseFormation`) used in that field zone (e.g., Shotgun, Singleback).
+                            - The length of the bar shows how frequently that formation was used in the corresponding field zone.
 
-                        **Why It Matters:**
-                        - **Peak of the Bar:** Longer bars highlight formations that were frequently used in specific field zones.
-                        - **Color:** Colors differentiate field zones, making it easier to compare how offenses employed formations across the field.
+                            **Why It Matters:**
+                            - **Peak of the Bar:** Longer bars highlight formations that were frequently used in specific field zones.
+                            - **Color:** Colors differentiate field zones, making it easier to compare how offenses employed formations across the field.
 
-                        **Key Insight:**
-                        - Use this chart to identify field zones where specific formations were heavily employed.
-                        - For example, the chart might show that the Shotgun formation is frequently used, while Jumbo is less common overall*.
+                            **Key Insight:**
+                            - Use this chart to identify field zones where specific formations were heavily employed.
+                            - For example, the chart might show that the Shotgun formation is frequently used, while Jumbo is less common overall*.
 
-                        """
-                    )
+                            """
+                        )
 
                 self.plot_combined(
                     fig_width=0.5,
@@ -1914,25 +1943,26 @@ class NFLAdvancedPlaygroundSimulator:
                     category_label="offenseFormation"
                 )
 
-                st.markdown(
-                    """
-                    #### Visualization Summary
-                    - The **Heatmap** provides a high-level view of the effectiveness of offensive formations across different field zones and pass outcomes.
-                    - The **Circular Bar Plot** adds context by showing which formations were most frequently used in various field zones.
+                with st.container(border=True):
+                    st.markdown(
+                        """
+                        #### Visualization Summary
+                        - The **Heatmap** provides a high-level view of the effectiveness of offensive formations across different field zones and pass outcomes.
+                        - The **Circular Bar Plot** adds context by showing which formations were most frequently used in various field zones.
 
-                    **How to Use It:**
-                    - Start with the heatmap to identify where offensive formations were most effective (e.g., dark colors near "Complete" or "Incomplete").
-                    - Use the circular bar plot to explore the frequency of each formation in different field zones and correlate it with the heatmap trends.
+                        **How to Use It:**
+                        - Start with the heatmap to identify where offensive formations were most effective (e.g., dark colors near "Complete" or "Incomplete").
+                        - Use the circular bar plot to explore the frequency of each formation in different field zones and correlate it with the heatmap trends.
 
-                    **Takeaway:**
-                    This visualization provides a clear breakdown of how offensive formations were employed and their impact on pass outcomes across key field zones. It helps answer:
-                    - Which offensive formations are most effective in specific field zones?
-                    - Where do formations succeed or fail based on pass outcomes?
-                    - How can you adjust offensive formations to maximize success in different field zones?
+                        **Takeaway:**
+                        This visualization provides a clear breakdown of how offensive formations were employed and their impact on pass outcomes across key field zones. It helps answer:
+                        - Which offensive formations are most effective in specific field zones?
+                        - Where do formations succeed or fail based on pass outcomes?
+                        - How can you adjust offensive formations to maximize success in different field zones?
 
-                    By combining the heatmap with the circular bar plot, we can analyze offensive setups more effectively and optimize strategies for each field zone.
-                    """
-                )
+                        By combining the heatmap with the circular bar plot, we can analyze offensive setups more effectively and optimize strategies for each field zone.
+                        """
+                    )
 
         
 
