@@ -146,7 +146,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
     test_1 , test_2 = st.columns(2)
 
     with test_1:
-        with st.container(border=True):
+        with st.container(border=True,height=600):
             st.markdown(
                 """
                 1. **Paired t-Test and Wilcoxon Test for Yards Gained**
@@ -165,7 +165,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
             )
 
     with test_2:
-        with st.container(border=True):
+        with st.container(border=True,height=600):
             st.markdown(
                 """
                 2. **Paired t-Test and Wilcoxon Test for Score Comparison**
@@ -188,7 +188,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
     test_3, test_4 = st.columns(2)
 
     with test_3:
-        with st.container(border=True, height=500):
+        with st.container(border=True, height=400):
             st.markdown(
                 """
                 3. **Bootstrap Analysis**:
@@ -201,7 +201,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
             )
     
     with test_4:
-        with st.container(border=True, height=500):
+        with st.container(border=True, height=400):
             st.markdown(
                 """
                 4. **Effect Size (Cohen's d)**:
@@ -216,7 +216,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
     test_5, test_6 = st.columns(2)
 
     with test_5:
-        with st.container(border=True, height=500):
+        with st.container(border=True, height=400):
             st.markdown(
                 """
                 5. **Analysis of Variance (ANOVA)**:
@@ -230,7 +230,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
             )
     
     with test_6:
-        with st.container(border=True, height=500):
+        with st.container(border=True, height=400):
             st.markdown(
                 """
                 6. **Chi-Square Test for Pass Location and Success**:
