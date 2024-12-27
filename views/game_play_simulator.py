@@ -483,8 +483,6 @@ class NFLAdvancedPlaygroundSimulator:
             seconds = game_seconds_remaining % 60
             st.markdown(f"Game time left: **{minutes:02}:{seconds:02}** (*MM:SS*)")
 
-        st.divider()
-
         return quarter, down, yards_to_go, yards_to_endzone, game_half, is_second_half, quarter_seconds_remaining, half_seconds_remaining, game_seconds_remaining
     
     def offense_details(self, offense_col, quarter, down):
