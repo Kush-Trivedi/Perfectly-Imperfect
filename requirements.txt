@@ -7,3 +7,5 @@ tensorflow
 matplotlib
 seaborn
 scikit-learn
+weasyprint
+joypy
