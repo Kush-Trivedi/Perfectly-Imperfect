@@ -83,7 +83,7 @@ pg = st.navigation(
     }
 )
 
-st.logo("assets/navabar/logo.png")
+st.logo("assets/navbar/logo.png")
 
 # Run Navigation
 pg.run()
