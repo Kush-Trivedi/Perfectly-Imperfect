@@ -114,165 +114,165 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
         
         progress_placeholder.empty()
       
-    # if os.path.exists(video_path):
-    #     st.video(video_path, muted=True)
-    # else:
-    #     st.error("Video file not found for the selected Game ID and Play ID.")
+    if os.path.exists(video_path):
+        st.video(video_path, muted=True)
+    else:
+        st.error("Video file not found for the selected Game ID and Play ID.")
     
-    # st.divider()
+    st.divider()
 
-    # if os.path.exists(image_path):
-    #     st.image(image_path, caption="Receiver Scores", use_container_width=True)
-    # else:
-    #     st.warning("Receiver scores image not found for the selected Game ID and Play ID.")
+    if os.path.exists(image_path):
+        st.image(image_path, caption="Receiver Scores", use_container_width=True)
+    else:
+        st.warning("Receiver scores image not found for the selected Game ID and Play ID.")
 
-    # st.divider()
+    st.divider()
 
-    # st.markdown("<h3 style='color: gray;'>Technical Findings and Results</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: gray;'>Technical Findings and Results</h3>", unsafe_allow_html=True)
 
-    # st.markdown(
-    #     """    
-    #     The **QB's Radar**, is designed to predict the best receiver for a quarterback to target. It uses two predictive approaches:
+    st.markdown(
+        """    
+        The **QB's Radar**, is designed to predict the best receiver for a quarterback to target. It uses two predictive approaches:
 
-    #     1. **Strategic Receiver**: Predicted using the Progressive Widening Search algorithm, optimized for safer and potentially higher-value plays.
-    #     2. **Primary Receiver**: Predicted using the Beam Search algorithm, which often aligns with conventional quarterback decisions.
-    #     3. **Best Receiver**: Occurs when both models predict the same receiver and the predicted receiver matches the actual receiver targeted during the game most of the time.
+        1. **Strategic Receiver**: Predicted using the Progressive Widening Search algorithm, optimized for safer and potentially higher-value plays.
+        2. **Primary Receiver**: Predicted using the Beam Search algorithm, which often aligns with conventional quarterback decisions.
+        3. **Best Receiver**: Occurs when both models predict the same receiver and the predicted receiver matches the actual receiver targeted during the game most of the time.
 
-    #     This report provides a detailed evaluation focusing on its ability to identify superior receiver options, particularly for deep passes, 
-    #     using a variety of statistical and machine learning methods.
-    #     """
-    # )
+        This report provides a detailed evaluation focusing on its ability to identify superior receiver options, particularly for deep passes, 
+        using a variety of statistical and machine learning methods.
+        """
+    )
 
-    # test_1 , test_2 = st.columns(2)
+    test_1 , test_2 = st.columns(2)
 
-    # with test_1:
-    #     with st.container(border=True,height=550):
-    #         st.markdown(
-    #             """
-    #             1. **Paired t-Test and Wilcoxon Test for Yards Gained**
-    #                 - **Objective**: Compare actual yards gained (`yardsGained`) with the predicted distance to the Strategic Receiver (`progressive_widening_search_receiver_distance`).
-    #                 - **Results**: 
-    #                     - **Paired t-test**:
-    #                         - **T-statistic**: 14.783
-    #                         - **P-value**: 4.17 × 10⁻³⁹
-    #                         - **Conclusion**: The predicted receivers significantly outperformed the actual receivers in terms of yards gained.
-    #                     - **Wilcoxon Test**:
-    #                         - **Wilcoxon Statistic**: 7489.0
-    #                         - **P-value**: 3.49 × 10⁻³⁸
-    #                     - **Conclusion**: The non-parametric Wilcoxon test confirms the significant difference observed in the t-test, indicating robust results.
+    with test_1:
+        with st.container(border=True,height=550):
+            st.markdown(
+                """
+                1. **Paired t-Test and Wilcoxon Test for Yards Gained**
+                    - **Objective**: Compare actual yards gained (`yardsGained`) with the predicted distance to the Strategic Receiver (`progressive_widening_search_receiver_distance`).
+                    - **Results**: 
+                        - **Paired t-test**:
+                            - **T-statistic**: 14.783
+                            - **P-value**: 4.17 × 10⁻³⁹
+                            - **Conclusion**: The predicted receivers significantly outperformed the actual receivers in terms of yards gained.
+                        - **Wilcoxon Test**:
+                            - **Wilcoxon Statistic**: 7489.0
+                            - **P-value**: 3.49 × 10⁻³⁸
+                        - **Conclusion**: The non-parametric Wilcoxon test confirms the significant difference observed in the t-test, indicating robust results.
 
-    #             """
-    #         )
+                """
+            )
 
-    # with test_2:
-    #     with st.container(border=True,height=550):
-    #         st.markdown(
-    #             """
-    #             2. **Paired t-Test and Wilcoxon Test for Score Comparison**
-    #                 - **Objective**: Compare actual yards gained (`yardsGained`) with the model-predicted scores (`progressive_widening_search_widening_receiver_score`).
-    #                 - **Results**:
-    #                     - **Paired t-test**:
-    #                         - **T-statistic**: -37.882
-    #                         - **P-value**: 1.06 × 10⁻¹²⁸
-    #                         - **Conclusion**: The predicted scores show a statistically significant difference, confirming that the Strategic Receiver is often better positioned for high-value plays.
-    #                     - **Wilcoxon Test**:
-    #                         - **Wilcoxon Statistic**: 0.0
-    #                         - **P-value**: 6.75 × 10⁻⁶²
-    #                     - **Conclusion**: The Wilcoxon test strongly supports the t-test result, highlighting the consistent superiority of predicted scores.
-    #             """
+    with test_2:
+        with st.container(border=True,height=550):
+            st.markdown(
+                """
+                2. **Paired t-Test and Wilcoxon Test for Score Comparison**
+                    - **Objective**: Compare actual yards gained (`yardsGained`) with the model-predicted scores (`progressive_widening_search_widening_receiver_score`).
+                    - **Results**:
+                        - **Paired t-test**:
+                            - **T-statistic**: -37.882
+                            - **P-value**: 1.06 × 10⁻¹²⁸
+                            - **Conclusion**: The predicted scores show a statistically significant difference, confirming that the Strategic Receiver is often better positioned for high-value plays.
+                        - **Wilcoxon Test**:
+                            - **Wilcoxon Statistic**: 0.0
+                            - **P-value**: 6.75 × 10⁻⁶²
+                        - **Conclusion**: The Wilcoxon test strongly supports the t-test result, highlighting the consistent superiority of predicted scores.
+                """
 
-    #         )
+            )
 
-    # test_3, test_4 = st.columns(2)
+    test_3, test_4 = st.columns(2)
 
-    # with test_3:
-    #     with st.container(border=True, height=400):
-    #         st.markdown(
-    #             """
-    #             3. **Bootstrap Analysis**:
-    #             - **Objective**: Quantify the mean difference in yards gained between actual receivers and predicted Strategic Receivers and compute a confidence interval.
-    #             - **Results**:
-    #                 - **Bootstrap Mean Difference**: 10.21 yards.
-    #                 - **95% Confidence Interval**: [8.69, 11.77]
-    #             - **Conclusion**: The predicted receivers gained significantly more yards than the actual receivers. The confidence interval does not include `0`, providing strong evidence for the model’s effectiveness.
-    #             """
-    #         )
+    with test_3:
+        with st.container(border=True, height=400):
+            st.markdown(
+                """
+                3. **Bootstrap Analysis**:
+                - **Objective**: Quantify the mean difference in yards gained between actual receivers and predicted Strategic Receivers and compute a confidence interval.
+                - **Results**:
+                    - **Bootstrap Mean Difference**: 10.21 yards.
+                    - **95% Confidence Interval**: [8.69, 11.77]
+                - **Conclusion**: The predicted receivers gained significantly more yards than the actual receivers. The confidence interval does not include `0`, providing strong evidence for the model’s effectiveness.
+                """
+            )
     
-    # with test_4:
-    #     with st.container(border=True, height=400):
-    #         st.markdown(
-    #             """
-    #             4. **Effect Size (Cohen's d)**:
-    #             - **Objective**: Measure the practical significance of the difference between actual yards gained and predicted receiver performance.
-    #             - **Results**:
-    #                 - **Cohen's d**: 0.892
-    #             - **Conclusion**: This large effect size indicates a strong practical significance, confirming that the Strategic Receivers provide a substantial advantage in terms of yardage.
-    #             """
-    #         )
+    with test_4:
+        with st.container(border=True, height=400):
+            st.markdown(
+                """
+                4. **Effect Size (Cohen's d)**:
+                - **Objective**: Measure the practical significance of the difference between actual yards gained and predicted receiver performance.
+                - **Results**:
+                    - **Cohen's d**: 0.892
+                - **Conclusion**: This large effect size indicates a strong practical significance, confirming that the Strategic Receivers provide a substantial advantage in terms of yardage.
+                """
+            )
 
-    # test_5, test_6 = st.columns(2)
+    test_5, test_6 = st.columns(2)
 
-    # with test_5:
-    #     with st.container(border=True, height=400):
-    #         st.markdown(
-    #             """
-    #             5. **Analysis of Variance (ANOVA)**:
-    #             - **Objective**: Evaluate whether pass location (left, middle, right) influences the effectiveness of yards gained.
-    #             - **Results**:
-    #                 - **F-statistic**: Computed internally.
-    #                 - **P-value**: 0.795
-    #             - **Conclusion**: Pass location does not have a statistically significant effect on the effectiveness of the model. The predictions are consistent regardless of whether the pass is to the left, middle, or right.
+    with test_5:
+        with st.container(border=True, height=400):
+            st.markdown(
+                """
+                5. **Analysis of Variance (ANOVA)**:
+                - **Objective**: Evaluate whether pass location (left, middle, right) influences the effectiveness of yards gained.
+                - **Results**:
+                    - **F-statistic**: Computed internally.
+                    - **P-value**: 0.795
+                - **Conclusion**: Pass location does not have a statistically significant effect on the effectiveness of the model. The predictions are consistent regardless of whether the pass is to the left, middle, or right.
                 
-    #             """
-    #         )
+                """
+            )
     
-    # with test_6:
-    #     with st.container(border=True, height=400):
-    #         st.markdown(
-    #             """
-    #             6. **Chi-Square Test for Pass Location and Success**:
-    #             - **Objective**: Assess whether pass location influences the likelihood of the Strategic Receiver outperforming the actual receiver.
-    #             - **Results**:
-    #                 - **Chi-Square Statistic**: Computed internally.
-    #                 - **P-value**: 0.906
-    #             - **Conclusion**: There is no statistically significant association between pass location and the success of passes to the Strategic Receiver.
+    with test_6:
+        with st.container(border=True, height=400):
+            st.markdown(
+                """
+                6. **Chi-Square Test for Pass Location and Success**:
+                - **Objective**: Assess whether pass location influences the likelihood of the Strategic Receiver outperforming the actual receiver.
+                - **Results**:
+                    - **Chi-Square Statistic**: Computed internally.
+                    - **P-value**: 0.906
+                - **Conclusion**: There is no statistically significant association between pass location and the success of passes to the Strategic Receiver.
 
-    #             """
-    #         )
+                """
+            )
 
-    # st.divider()
+    st.divider()
 
-    # st.markdown(
-    #     """
-    #     #### :violet[Missed Opportunities] and Use Cases
+    st.markdown(
+        """
+        #### :violet[Missed Opportunities] and Use Cases
 
-    #     1. **Incomplete Passes**:
-    #         - In several plays, the model predicted a **Strategic Receiver**, but the quarterback targeted a different receiver, resulting in an **incomplete pass**.
-    #         - **Potential Outcome**: If the QB had passed to the predicted receiver, the outcome could have been a completion with better yardage.
+        1. **Incomplete Passes**:
+            - In several plays, the model predicted a **Strategic Receiver**, but the quarterback targeted a different receiver, resulting in an **incomplete pass**.
+            - **Potential Outcome**: If the QB had passed to the predicted receiver, the outcome could have been a completion with better yardage.
 
-    #     2. **Safe vs. Risky Choices**:
-    #         - The model often identifies a **safer receiver** (Strategic Receiver) who might gain fewer yards but minimizes risk (e.g., avoiding interceptions or turnovers).
-    #         - **Example**: The QB passed to the Primary Receiver, resulting in a completion but with increased risk. The Strategic Receiver would have been a safer option.
+        2. **Safe vs. Risky Choices**:
+            - The model often identifies a **safer receiver** (Strategic Receiver) who might gain fewer yards but minimizes risk (e.g., avoiding interceptions or turnovers).
+            - **Example**: The QB passed to the Primary Receiver, resulting in a completion but with increased risk. The Strategic Receiver would have been a safer option.
 
-    #     3. **Game-Changing Potential**:
-    #         - In some cases, the model’s Strategic Receiver prediction identified receivers with significantly higher yardage potential than the Primary Receiver.
-    #         - **Example**: Passing to the Strategic Receiver could have resulted in a significant yardage gain and potentially altered the game outcome.
+        3. **Game-Changing Potential**:
+            - In some cases, the model’s Strategic Receiver prediction identified receivers with significantly higher yardage potential than the Primary Receiver.
+            - **Example**: Passing to the Strategic Receiver could have resulted in a significant yardage gain and potentially altered the game outcome.
         
-    #     """
-    # )
-    # st.divider()
-    # st.markdown(
-    #     """
-    #     #### :green[Conclusion]
+        """
+    )
+    st.divider()
+    st.markdown(
+        """
+        #### :green[Conclusion]
 
-    #     The **QB's Radar** demonstrates its ability to significantly enhance quarterback decision-making, particularly for **deep passes**. By leveraging statistical tests and real-world scenarios, the analysis validates the model’s predictive power:
+        The **QB's Radar** demonstrates its ability to significantly enhance quarterback decision-making, particularly for **deep passes**. By leveraging statistical tests and real-world scenarios, the analysis validates the model’s predictive power:
 
-    #     - **Statistically significant improvement** in yards gained and score predictions.
-    #     - **Large effect size** confirming practical advantages.
-    #     - **Missed opportunities** highlight areas where the model could have changed game outcomes.
+        - **Statistically significant improvement** in yards gained and score predictions.
+        - **Large effect size** confirming practical advantages.
+        - **Missed opportunities** highlight areas where the model could have changed game outcomes.
 
-    #     With further refinement, **QB's Radar** has the potential to optimize decision-making across all pass types, making it a valuable tool for NFL teams.
+        With further refinement, **QB's Radar** has the potential to optimize decision-making across all pass types, making it a valuable tool for NFL teams.
 
-    #     """
-    # )
+        """
+    )
 
