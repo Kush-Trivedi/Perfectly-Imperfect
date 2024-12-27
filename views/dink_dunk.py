@@ -42,7 +42,7 @@ def _load_offense_tendency_data(offense_player_path, team_name):
             "passer_player_name","passing_yards","receiver_player_name",
             "posteam","epa","yards_gained"
         ]
-        pbp = pd.read_csv("assets/data/nflverse/pbp_2022.csv", usecols=use_cols)
+        pbp = pd.read_csv("assets/data/pbp_2022.csv", usecols=use_cols)
         pbp_df = pd.merge(
             combo_df, pbp, 
             left_on=['gameId', 'playId'], 
