@@ -146,7 +146,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
     test_1 , test_2 = st.columns(2)
 
     with test_1:
-        with st.container(border=True,height=600):
+        with st.container(border=True,height=550):
             st.markdown(
                 """
                 1. **Paired t-Test and Wilcoxon Test for Yards Gained**
@@ -165,7 +165,7 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
             )
 
     with test_2:
-        with st.container(border=True,height=600):
+        with st.container(border=True,height=550):
             st.markdown(
                 """
                 2. **Paired t-Test and Wilcoxon Test for Score Comparison**
