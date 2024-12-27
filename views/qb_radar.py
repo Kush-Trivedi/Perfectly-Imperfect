@@ -48,7 +48,7 @@ with why:
 st.divider()
 st.markdown("<h3 style='color: gray;'>QB-Receiver Insights: Select Team, Game, and Play</h3>", unsafe_allow_html=True)
 
-selected_teams = st.multiselect("Select Teams:", team_names, default=["KC"])
+selected_teams = st.multiselect("Select Teams:", team_names, default=["WAS"])
 
 @st.cache_data
 def get_game_and_play_ids(selected_teams):
