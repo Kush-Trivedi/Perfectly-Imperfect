@@ -44,6 +44,7 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
+# Introduction Page
 introduction_page = st.Page(
     page="views/introduction.py",
     title="NFL Big Data Bowl 2025",
@@ -51,24 +52,38 @@ introduction_page = st.Page(
     default=True
 )
 
+# Advance Game Predictor Page
 game_play_simulator = st.Page(
     page="views/game_play_simulator.py",
     title="Game Play Simulator",
     icon=":material/sports_football:"
 )
 
+# Game Play Page
 qb_passing_guide_page = st.Page(
     page="views/qb_radar.py",
     title="Quarterback's Radar",
     icon=":material/target:"
 )
 
+# Dink & Dunk Page
+dink_dunck = st.Page(
+    page="views/dink_dunk.py",
+    title="Dink & Dunk Report",
+    icon=":material/inventory:"
+)
+
+
+
+# Navigation Setup
 pg = st.navigation(
     {
         "Intoduction": [introduction_page],
-        "Playground": [qb_passing_guide_page, game_play_simulator]
+        "Playground": [dink_dunck, game_play_simulator, qb_passing_guide_page]
     }
 )
 
-st.logo("assets/navabar/logo.png")
+st.logo("assets/navbar/logo2.png")
+
+# Run Navigation
 pg.run()
