@@ -13,7 +13,7 @@ logo_folder = Path("assets/game-play")
 
 what, why = st.columns(2)
 with what:
-    with st.container(border=True, height=450):
+    with st.container(border=True, height=410):
         st.markdown(
             """
             **What is QB's Radar**? \n
@@ -29,7 +29,7 @@ with what:
 
 
 with why:
-    with st.container(border=True, height=450):
+    with st.container(border=True, height=410):
         st.markdown(
             """
             **Why QB's Radar Matters**:
