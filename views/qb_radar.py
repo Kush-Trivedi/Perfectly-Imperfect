@@ -183,8 +183,6 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
 
             )
 
-    st.divider()
-
     test_3, test_4 = st.columns(2)
 
     with test_3:
@@ -212,7 +210,6 @@ if selected_game_id != "Select a Game ID" and selected_play_id != "Select a Play
                 """
             )
 
-    st.divider()
     test_5, test_6 = st.columns(2)
 
     with test_5:
