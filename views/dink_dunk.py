@@ -110,7 +110,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-st.title("The :blue[Dink] and :orange[Dunk] Report")
+st.title("The :blue[Dink] & :orange[Dunk] Report")
 
 # -----------------------------------------------------------------------------
 # Convert images to base64
