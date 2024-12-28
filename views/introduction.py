@@ -35,7 +35,9 @@ with col_1:
             """
             **Dink & Dunk Report**:
 
-            A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams. It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level.
+            A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams. 
+            
+            It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level.
             """
         )
 
@@ -45,7 +47,7 @@ with col_2:
             """
             **Game Play Simulator**:
 
-            A real time game play simulator where you can provide any game play scenarios and get **88%-93%** accurate predicted data-driven decisions on player performance, predicted yard gain outcomes, predicted offensive strategies & much more.
+            A real time game play simulator where you can provide any game play scenarios and get **88%-93%** accurate predicted data-driven decisions on player **performance*, **predicted yard gain outcomes**, **predicted offensive strategies** & much more.
             """
         )
 
@@ -56,7 +58,9 @@ with col_3:
             """
             **QB's Radar**:
 
-            This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search"
+            This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. 
+            
+            It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search"
             """
         )
 
