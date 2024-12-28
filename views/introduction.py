@@ -39,7 +39,7 @@ with col_1:
 
             A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams. 
             
-            It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level stats with a detailed breakdown of short passes.
+            It mainly focuses on short-pass strategies, known as "**Dink & Dunk**" with stats for short and deep passes we can also drill down to individual team level stats with a detailed breakdown of short passes.
             """
         )
 
