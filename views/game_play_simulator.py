@@ -91,7 +91,7 @@ model, cat_mapping, scaler, y_labels = load_model_components(model_directory)
 offense_strategy_model, offense_strategy_cat_mapping, offense_strategy_scaler, offense_strategy_y_labels = load_off_startegy_model_components(offense_model_dir)
     
 
-@st.cache_data
+@st.cache_data(ttl=86400)
 def _load_player_data(player_data_path):
     try:
         return pd.read_csv(player_data_path)
@@ -99,7 +99,7 @@ def _load_player_data(player_data_path):
         st.error(f"Error loading player data: {e}")
         return pd.DataFrame()
     
-@st.cache_data  
+@st.cache_data(ttl=86400)
 def _load_offense_tendency_data(offense_player_path, team_name):
     try:
         routes_path = offense_player_path + f"/{team_name}/{team_name}_route_analysis.csv"
@@ -115,7 +115,7 @@ def _load_offense_tendency_data(offense_player_path, team_name):
         return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
     
 
-@st.cache_data
+@st.cache_data(ttl=86400)
 def _load_historical_data(historical_data_path):
     try:
         return pd.read_csv(historical_data_path)
@@ -123,7 +123,7 @@ def _load_historical_data(historical_data_path):
         st.error(f"Error loading historical data: {e}")
         return pd.DataFrame()
     
-@st.cache_data
+@st.cache_data(ttl=86400)
 def load_ratings(quarter, down):
     try:
         file_path = f"assets/data/all_{quarter}_{down}_player_rating.csv"
@@ -132,7 +132,7 @@ def load_ratings(quarter, down):
         st.error(f"File not found for Quarter {quarter} and Down {down}.")
         return pd.DataFrame()
 
-@st.cache_data
+@st.cache_data(ttl=86400)
 def get_weighted_player_rating(player_df, player_names, quarter, down):
     overall_df = player_df
     specific_df = load_ratings(quarter, down)

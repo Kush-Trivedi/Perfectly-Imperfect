@@ -50,7 +50,7 @@ st.markdown("<h3 style='color: gray;'>QB-Receiver Insights: Select Team, Game, a
 
 selected_teams = st.multiselect("Select Teams:", team_names, default=["WAS"])
 
-@st.cache_data
+@st.cache_data(ttl=86400)
 def get_game_and_play_ids(selected_teams):
     game_play_dict = {}
     

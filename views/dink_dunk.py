@@ -25,7 +25,7 @@ def categorize_field(yardline):
     else:
         return 'Unknown'
 
-@st.cache_data  
+@st.cache_data(ttl=86400) 
 def _load_offense_tendency_data(offense_player_path, team_name):
     """Load offense data with caching."""
     try: 
@@ -502,24 +502,37 @@ def display_team_info(routes_df, pass_receiver_df,bullet_text_summary, fig, team
     st.divider()
 
 
+@st.cache_data(ttl=86400)
+def load_all_offense_data(offense_player_path):
+    all_teams_data = {}
+    for folder in Path(offense_player_path).iterdir():
+        if folder.is_dir():
+            team_name = folder.name
+            pbp_df, routes_df, pass_receiver_df = _load_offense_tendency_data(offense_player_path, team_name)
+            all_teams_data[team_name] = (pbp_df, routes_df, pass_receiver_df)
+    return all_teams_data
 
-offense_player_path = "assets/data/offense-data"
+all_data = load_all_offense_data("assets/data/offense-data")
 logo_folder = Path("assets/logo")
-team_names = [f.stem for f in logo_folder.glob("*.png")]
-
-selected_teams = st.multiselect("Select Teams:", team_names, placeholder="Choose Teams", default=["PHI"])
 
 
+selected_teams = st.multiselect(
+    "Select Teams:",
+     list(all_data.keys()),
+    placeholder="Choose Teams",
+    default=["PHI"]
+)
 if selected_teams:
     require_df = pd.DataFrame()
+    for team in selected_teams:
+        pbp_df, routes_df, pass_receiver_df = all_data[team]
+        require_df = pd.concat([require_df, pbp_df], ignore_index=True)
     
     for team in selected_teams:
-        temp_df, routes_df, pass_receiver_df = _load_offense_tendency_data(offense_player_path, team)
-        require_df = pd.concat([require_df, temp_df], ignore_index=True)
-
-    for team in selected_teams:
+        pbp_df, routes_df, pass_receiver_df = all_data[team]
         bullet_text_summary, fig = analyze_team_strategy(require_df, team)
         logo_path = logo_folder / f"{team}.png"
+
         display_team_info(
             routes_df = pass_receiver_df, pass_receiver_df =routes_df ,
             bullet_text_summary=bullet_text_summary,
