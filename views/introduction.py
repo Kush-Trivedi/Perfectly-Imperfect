@@ -37,7 +37,7 @@ with col_1:
 
             A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams. 
             
-            It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level.
+            It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level stats.
             """
         )
 
@@ -47,7 +47,9 @@ with col_2:
             """
             **Game Play Simulator**:
 
-            A real time game play simulator where you can provide any game play scenarios and get **88%-93%** accurate predicted data-driven decisions on player **performance*, **predicted yard gain outcomes**, **predicted offensive strategies** & much more.
+            A real time game play simulator where you can provide custom game play scenarios and get **88%-93%** accurate decisions on player **performance*, **predicted yard gain outcomes**, **predicted offensive strategies** & much more.
+
+            Every insight is tailored using tracking data to empower coaches with data-driven decision.
             """
         )
 
