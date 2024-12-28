@@ -1295,8 +1295,6 @@ class NFLAdvancedPlaygroundSimulator:
             """
 
             st.markdown(summary_intro_text)
-            st.markdown("<h3 style='text-align: center; color: grey;'>Tensorflow Predictive Insights: Yard Gains and Offensive Strategies</h3>", unsafe_allow_html=True)
-
             if offense_play_type == "run":
                 with st.container(border=True):
                     st.markdown("<h3 style='text-align: center; color: grey;'>Tensorflow Predictive Insights: Yard Gains and Offensive Strategies</h3>", unsafe_allow_html=True)
