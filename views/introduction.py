@@ -30,7 +30,7 @@ st.markdown(
 col_1, col_2, col_3 = st.columns(3)
 
 with col_1:
-    with st.container(border=True, height=300):
+    with st.container(border=True, height=310):
         st.markdown(
             """
             **Dink & Dunk Report**:
@@ -42,12 +42,12 @@ with col_1:
         )
 
 with col_2:
-    with st.container(border=True, height=300):
+    with st.container(border=True, height=310):
         st.markdown(
             """
             **Game Play Simulator**:
 
-            A real time game play simulator where you can provide custom game play scenarios and get **88%-93%** accurate decisions on player **performance*, **predicted yard gain outcomes**, **predicted offensive strategies** & much more.
+            A real time game play simulator where we can provide custom game play scenarios and get **88%-93%** accurate decisions on player **performance**, **predicted yard gain outcomes**, **predicted offensive strategies** & much more.
 
             Every insight is tailored using tracking data to empower coaches with data-driven decision.
             """
@@ -55,14 +55,14 @@ with col_2:
 
 
 with col_3:
-    with st.container(border=True, height=300):
+    with st.container(border=True, height=310):
         st.markdown(
             """
             **QB's Radar**:
 
             This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. 
             
-            It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search"
+            It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search".
             """
         )
 
