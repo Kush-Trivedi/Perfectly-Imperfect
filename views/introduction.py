@@ -11,7 +11,7 @@ st.markdown(
     I truly appreciate the live game valuable insights from [**Coach Josh Lenberson’s**](https://themiaa.com/news/2023/12/6/football-josh-lamberson-named-afca-division-ii-super-region-coach-of-the-year.aspx), who is the ***AFCA Super Region III Coach of the Year 2023*** and the ***2023 MIAA Coach of the Year***.
 
     As NFL offenses continue to innovate in the face of aggressive defensive schemes, short-passing plays have emerged as the cornerstone of modern strategy. 
-    With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient **Passes—DINKING** and **DUNKING** their way to dominance.
+    With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient passes **DINKING** & **DUNKING** their way to dominance.
 
     **The numbers back it up**: Short passes, particularly to the *middle*, *right*, and *left* have consistently shown higher success rates in sustaining drives and avoiding costly turnovers. 
     Teams that master these plays gain an edge in controlling the *clock*, converting key *downs*, and maximizing *Expected Points Added (EPA)* per play. 
