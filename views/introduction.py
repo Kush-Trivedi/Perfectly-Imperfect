@@ -18,10 +18,10 @@ st.markdown(
 
     **The numbers back it up! → For real? → Yes**
     
-    - But how do offensive play tendencies achieve this precision based on pre-snap configurations?
-    - How can we predict yard gains and determine the most effective offensive strategies in different scenarios?
-    - Which receiver should the quarterback target based on pre-snap formations?
-    - How pre-snap formations and tendencies could predict post-snap outcomes?
+    - *But how do offensive play tendencies achieve this precision based on pre-snap configurations?*
+    - *How can we predict yard gains and determine the most effective offensive strategies in different scenarios?*
+    - *Which receiver should the quarterback target based on pre-snap formations?*
+    - *How pre-snap formations and tendencies could predict post-snap outcomes?*
    
     This project provides answers to such questions by visualizes the *trends*, analyzing *quaterbacks-receivers patterns*, *strategies*, hands on with ***real time game play scenario simulator*** & revealing not only what happens but also why.
     
