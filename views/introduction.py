@@ -30,7 +30,7 @@ st.markdown(
 col_1, col_2, col_3 = st.columns(3)
 
 with col_1:
-    with st.container(border=True, height=315):
+    with st.container(border=True, height=320):
         st.markdown(
             """
             **Dink & Dunk Report**:
@@ -42,7 +42,7 @@ with col_1:
         )
 
 with col_2:
-    with st.container(border=True, height=315):
+    with st.container(border=True, height=320):
         st.markdown(
             """
             **Game Play Simulator**:
@@ -55,7 +55,7 @@ with col_2:
 
 
 with col_3:
-    with st.container(border=True, height=315):
+    with st.container(border=True, height=320):
         st.markdown(
             """
             **QB's Radar**:
