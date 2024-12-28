@@ -13,13 +13,14 @@ st.markdown(
     As NFL offenses continue to innovate in the face of aggressive defensive schemes, short-passing plays have emerged as the cornerstone of modern strategy. 
     With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient **Passes—DINKING** and **DUNKING** their way to dominance.
 
-    **The numbers back it up**: Short passes, particularly to the *middle*, *left*, and *right* have consistently shown higher success rates in sustaining drives and avoiding costly turnovers. 
+    **The numbers back it up**: Short passes, particularly to the *middle*, *right*, and *left* have consistently shown higher success rates in sustaining drives and avoiding costly turnovers. 
     Teams that master these plays gain an edge in controlling the *clock*, converting key *downs*, and maximizing *Expected Points Added (EPA)* per play. 
 
     **The numbers back it up! → For real? → Yes**
     
-    - But how do teams achieve this precision? 
-    - What drives the success of short passes in different scenarios? 
+    - But how do offensive play tendencies achieve this precision based on pre-snap configurations?
+    - How can we predict yard gains and determine the most effective offensive strategies in different scenarios?
+    - Which receiver should the quarterback target based on pre-snap formations?
     - How pre-snap formations and tendencies could predict post-snap outcomes?
    
     This project provides answers to such questions by visualizes the *trends*, analyzing *quaterbacks-receivers patterns*, *strategies*, hands on with ***real time game play scenario simulator*** & revealing not only what happens but also why.
