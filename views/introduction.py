@@ -64,7 +64,7 @@ with col_3:
 
             This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. 
             
-            It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search". Both are designed to identify the "Best Receiver" before the snap happens.
+            It uses two advanced heuristic search algorithms "**Beam Search**" & "**Progressive Widening Search**". Both are designed to identify the "Best Receiver" before the snap happens.
             """
         )
 
