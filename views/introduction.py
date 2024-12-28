@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title(":violet[NFL] Big Data Bowl 2025")
+st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery with Dink & Dunk, Game Play Simulation, and QB’s Radar")
 
 st.markdown(
     """
