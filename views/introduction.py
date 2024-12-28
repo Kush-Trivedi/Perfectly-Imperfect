@@ -37,7 +37,7 @@ with col_1:
 
             A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams. 
             
-            It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level stats.
+            It mainly focuses on short-pass strategies, known as "Dink & Dunk," with stats for short and deep passes also we can drill down to individual team level stats with a detailed breakdown of short passes.
             """
         )
 
@@ -62,7 +62,7 @@ with col_3:
 
             This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. 
             
-            It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search".
+            It uses two advanced heuristic search algorithms "Beam Search" & "Progressive Widening Search". Both are designed to identify the "Best Receiver" before the snap happens.
             """
         )
 
