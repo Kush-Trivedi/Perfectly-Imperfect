@@ -35,7 +35,7 @@ with col_1:
     with st.container(border=True, height=320):
         st.markdown(
             """
-            :violet[**Dink & Dunk Report**]:
+            :violet[**Dink & Dunk Report**]
 
             A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams. 
             
@@ -47,7 +47,7 @@ with col_2:
     with st.container(border=True, height=320):
         st.markdown(
             """
-            :violet[**Game Play Simulator**]:
+            :violet[**Game Play Simulator**]
 
             A real time game play simulator where we can provide custom game play scenarios and get **88%-93%** accurate decisions on player **performance**, **predicted yard gain outcomes**, **predicted offensive strategies** & much more.
 
@@ -60,7 +60,7 @@ with col_3:
     with st.container(border=True, height=320):
         st.markdown(
             """
-            :violet[**Quarterback's Radar**]:
+            :violet[**Quarterback's Radar**]
 
             This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. 
             
