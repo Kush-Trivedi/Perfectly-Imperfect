@@ -14,8 +14,9 @@ st.markdown(
     With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient **Passes—DINKING** and **DUNKING** their way to dominance.
 
     **The numbers back it up**: Short passes, particularly to the *middle*, *left*, and *right* have consistently shown higher success rates in sustaining drives and avoiding costly turnovers. 
-    Teams that master these plays gain an edge in controlling the *clock*, converting key *downs*, and maximizing *Expected Points Added (EPA)* per play. **The numbers back it up! → For real? → Yes**
+    Teams that master these plays gain an edge in controlling the *clock*, converting key *downs*, and maximizing *Expected Points Added (EPA)* per play. 
 
+    **The numbers back it up! → For real? → Yes**
     
     - But how do teams achieve this precision? 
     - What drives the success of short passes in different scenarios? 
