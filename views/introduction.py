@@ -23,17 +23,41 @@ st.markdown(
    
     This project provides answers to such questions by visualizes the *trends*, analyzing *quaterbacks-receivers patterns*, *strategies*, hands on with ***real time game play scenario simulator*** & revealing not only what happens but also why.
     
-    """
-)
-
-st.markdown("""
     #### Playground
-
-    1. **Dink & Dunk Report**: A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams.
-    2. **Game Play Simulator**: A real time game play simulator where you can provide any game play scenarios and get **88%-93%** accurate predicted data-driven decisions on player performance, predicted yard gain outcomes, predicted offensive strategies & much more.
-    3. **QB's Radar**: This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**.
-    
     """
 )
+
+col_1, col_2, col_3 = st.columns(3)
+
+with col_1:
+    with st.container(border=True, height=200):
+        st.markdown(
+            """
+            **Dink & Dunk Report**:
+
+            A handy report that gives the ***historical trends***, ***tendencies***, & ***routes-pass patterns*** for 32 NFL Teams.
+            """
+        )
+
+with col_2:
+    with st.container(border=True, height=200):
+        st.markdown(
+            """
+            **Game Play Simulator**:
+
+            A real time game play simulator where you can provide any game play scenarios and get **88%-93%** accurate predicted data-driven decisions on player performance, predicted yard gain outcomes, predicted offensive strategies & much more.
+            """
+        )
+
+
+with col_3:
+    with st.container(border=True, height=200):
+        st.markdown(
+            """
+            **QB's Radar**:
+
+            This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**.
+            """
+        )
 
 
