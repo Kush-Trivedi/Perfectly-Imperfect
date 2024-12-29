@@ -5,14 +5,14 @@ st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery with Dink & Dunk, Game 
 st.markdown(
     """
     #### Introduction
-    Please allow me to introduce myself I am *Kush Trivedi a Sr.ML/Data Scientist* my journey in analyzing NFL Big Data Bowl over the past few years has taught me a valuable lesson.
+    Please allow me to intoduce myself I am *Kush Trivedi a Sr.ML/Data Scientist* my journey in analyzing NFL Big Data Bowl over the past few years has taught me a valuable lesson.
     Despite my technical expertise & enthusiasm towards football, I always lacked the crucial domain knowledge of football strategies and their execution on the field. 
     Moreover, this year, I am very thankful to **DFO** ([**DeMarkco Butler**](https://ucmathletics.com/staff-directory/demarkco-butler/388)) for all his support throughout this project & 
     I truly appreciate the live game valuable insights from [**Coach Josh Lenberson’s**](https://themiaa.com/news/2023/12/6/football-josh-lamberson-named-afca-division-ii-super-region-coach-of-the-year.aspx), who is the ***AFCA Super Region II Coach of the Year 2023*** and the ***2023 MIAA Coach of the Year***.
 
     As NFL offenses continue to innovate in the face of aggressive defensive schemes, short-passing plays have emerged as the cornerstone of modern strategy. 
-    With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient passes **DINKING** & **DUNKING** their way to dominance.
-
+    With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient passes **DINKING** & **DUNKING** their way to dominance. 
+    
     **The numbers back it up**: Short passes, particularly to the *middle*, *right*, and *left* have consistently shown higher success rates in sustaining drives and avoiding costly turnovers. 
     Teams that master these plays gain an edge in controlling the *clock*, converting key *downs*, and maximizing *Expected Points Added (EPA)* per play. 
 
@@ -23,9 +23,8 @@ st.markdown(
     - *Which receiver should the quarterback target based on pre-snap formations?*
     - *How pre-snap formations and tendencies could predict post-snap outcomes?*
    
-    This project provides answers to such questions by visualizes the *trends*, analyzing *quaterbacks-receivers patterns*, *strategies*, hands on with ***real time game play scenario simulator*** & revealing not only what happens but also why.
+    This project provides answers to such questions in to **3 main playgrounds** by visualizes the *trends*, analyzing *quaterbacks-receivers patterns*, *strategies*, hands on with *real time game play scenario simulator* & revealing not only what happens but also why.
     
-    #### Playground
     """
 )
 
@@ -62,27 +61,24 @@ with col_3:
             """
             :violet[**Quarterback's Radar**]
 
-            This model help quarterbacks **identify the best receiver** for a  **Deep Passes** play by using tracking data with **video animation**. 
-            
-            It uses two advanced heuristic search algorithms "**Beam Search**" & "**Progressive Widening Search**". Both are designed to identify the "Best Receiver" before the snap happens.
+            This model help quarterbacks **identify the best receiver** for a pass play by using tracking data with **video animation**.It uses two advanced heuristic search algorithms "**Beam Search**" & "**Progressive Widening Search**". Both are designed to identify the "Best Receiver" before the snap happens.
             """
         )
-
 
 st.markdown("""
 
     #### Methodology
-    Dink & Dunk Report, Gameplay Simulator, and Quarterback’s Radar by extensively engineering and transforming raw tracking data to extract meaningful insights. For the Dink & Dunk Report, we identified pass plays and categorized them into short-pass strategies by analyzing formations, down and distance, player routes, and defensive coverage, despite the tracking data not providing explicit details. 
+    Dink & Dunk Report, Gameplay Simulator, and Quarterback’s Radar by extensively engineering and transforming raw tracking data to extract meaningful insights. For the Dink & Dunk Report, we identified pass plays and categorized them into short-pass strategies by analyzing formations, down and distance, player routes, receiver alignment, and defensive coverage, despite the tracking data not providing explicit details. 
     
-    The Gameplay Simulator was created by defining game situations like quarter, down, and yards to go, then analyzing offensive and defensive player data to train machine learning models that predict yard gains and strategies with high accuracy. 
+    The Gameplay Simulator was created by defining game situations like quarter, down, and yards to go, then analyzing offensive and defensive player data to train machine learning models that predict yard gains and strategies with high accuracy where we used 8 weeks data and tested on 9th week and achieved 88%-93% accurate results.
             
-    For Quarterback’s Radar, we tracked receiver positions and performances, then applied advanced algorithms to determine the best receiver for deep passes before the snap, integrating this with video animations. Across all tools, we built data processing pipelines to classify plays, transform and clean the data, and develop models that provide coaches and quarterbacks with reliable, data-driven insights.
+    For Quarterback’s Radar, we tracked receiver positions and distance, then applied advanced algorithms to determine the best receiver for passes before the snap, integrating this with video animations. Across all tools, we built data processing pipelines to classify plays, transform & clean the data, and develop models that provide coaches with reliable, data-driven insights.
 """)
 
 col_4, col_5, col_6 = st.columns(3)
 
 with col_4:
-    with st.container(border=True, height=980):
+    with st.container(border=True, height=1000):
         st.markdown(
             """
             :violet[**Dink & Dunk**] **Pipeline**
@@ -101,12 +97,12 @@ with col_4:
 
 
 with col_5:
-    with st.container(border=True, height=980):
+    with st.container(border=True, height=1000):
         st.markdown(
             """
             :violet[**Gameplay Simulator**] **Pipeline**
 
-            The Gameplay Simulator was built to provide real-time predictions for custom game scenarios with **88%-93%** accuracy:
+            The Gameplay Simulator was built to provide real-time predictions for custom game scenarios with **88%-93%** accuracy on test data (Week 9):
 
             1. **Game Situation Identification**: We extracted game situations including quarter, down, yards to go, yards to the end zone, game half, and time remaining.
             2. **Offensive and Defensive Data Analysis**: For the offense, we identified all 11 players, their routes, positions, formations, play types (pass or run), scores, winning probabilities, and individual performances. For the defense, we analyzed the 11 defensive players, their coverage types (zone or man), positions, formations, play types, scores, winning probabilities, and individual performances.
@@ -118,12 +114,12 @@ with col_5:
 
 
 with col_6:
-    with st.container(border=True,  height=980):
+    with st.container(border=True,  height=1000):
         st.markdown(
             """
             :violet[**Quarterback’s Radar**] **Pipeline**
 
-            Quarterback’s Radar assists us in selecting the best receiver for deep pass plays by leveraging tracking data and video animations:
+            Quarterback’s Radar assists us in selecting the best receiver for pass plays by leveraging tracking data and video animations:
 
             1. **Algorithm Development**: We implemented two advanced heuristic search algorithms, Beam Search and Progressive Widening Search, to evaluate receiver options in real-time.
 
@@ -134,5 +130,4 @@ with col_6:
             4. **Integration with Video Animation**: The selected receiver is highlighted through video animations, providing us with clear, actionable insights. Since the tracking data did not explicitly indicate the best receiver, we developed these algorithms to interpret the data and make accurate receiver recommendations.
             """
         )
-
 
