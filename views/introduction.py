@@ -5,7 +5,7 @@ st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery with Dink & Dunk, Game 
 st.markdown(
     """
     #### Introduction
-    Please allow me to intoduce myself I am *Kush Trivedi a Sr.ML/Data Scientist* my journey in analyzing NFL Big Data Bowl over the past few years has taught me a valuable lesson.
+    Please allow me to introduce myself I am *Kush Trivedi a Sr.ML/Data Scientist* my journey in analyzing NFL Big Data Bowl over the past few years has taught me a valuable lesson.
     Despite my technical expertise & enthusiasm towards football, I always lacked the crucial domain knowledge of football strategies and their execution on the field. 
     Moreover, this year, I am very thankful to **DFO** ([**DeMarkco Butler**](https://ucmathletics.com/staff-directory/demarkco-butler/388)) for all his support throughout this project & 
     I truly appreciate the live game valuable insights from [**Coach Josh Lenberson’s**](https://themiaa.com/news/2023/12/6/football-josh-lamberson-named-afca-division-ii-super-region-coach-of-the-year.aspx), who is the ***AFCA Super Region III Coach of the Year 2023*** and the ***2023 MIAA Coach of the Year***.
