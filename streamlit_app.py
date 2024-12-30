@@ -79,7 +79,7 @@ dink_dunck = st.Page(
 pg = st.navigation(
     {
         "Intoduction": [introduction_page],
-        "Playground": [dink_dunck, game_play_simulator, qb_passing_guide_page]
+        "Playground": [game_play_simulator, dink_dunck, qb_passing_guide_page]
     }
 )
 
