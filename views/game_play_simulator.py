@@ -142,20 +142,40 @@ def get_weighted_player_rating(player_df, player_names, quarter, down):
 
     overall_filtered = overall_df[overall_df['displayName'].isin(player_names)]
     specific_filtered = specific_df[specific_df['displayName'].isin(player_names)]
+
     merged_ratings = pd.merge(
-        overall_filtered[['displayName', 'final_rating']],
-        specific_filtered[['displayName', 'final_rating']],
-        on='displayName',
+        overall_filtered[['displayName', 'Team', 'final_rating']],
+        specific_filtered[['displayName', 'Team', 'final_rating']],
+        on=['displayName', 'Team'],
         suffixes=('_overall', '_specific')
     )
+
     merged_ratings['final_weighted_rating'] = (
         0.3 * merged_ratings['final_rating_overall'] +
         0.7 * merged_ratings['final_rating_specific']
     )
-    missing_players = set(player_names) - set(merged_ratings['displayName'])
+
+    averaged_ratings = (
+        merged_ratings.groupby(['displayName', 'Team'])['final_weighted_rating']
+        .mean()
+        .reset_index()
+    )
+
+    unique_player_names = list(dict.fromkeys(player_names))
+    result_ratings = []
+    for player in unique_player_names:
+        player_team_ratings = averaged_ratings[averaged_ratings['displayName'] == player]
+        if not player_team_ratings.empty:
+            result_ratings.append(player_team_ratings['final_weighted_rating'].iloc[0])
+        else:
+            result_ratings.append(None)
+
+    missing_players = set(player_names) - set(averaged_ratings['displayName'])
     if missing_players:
         st.warning(f"Ratings not found for: {', '.join(missing_players)}")
-    return merged_ratings['final_weighted_rating'].tolist()
+
+    return result_ratings
+
 
 
 def predict_yard_bins_sorted(game_scenario, model, cat_features, cat_mapping, numerical_features, scaler, y_labels):
