@@ -269,15 +269,6 @@ with st.container(border=True):
         )
 
 
-pre_snap, post_snap = st.columns(2)
-
-with pre_snap:
-    with st.container(border=True):
-        st.image("assets/images/pre_snap.png",caption="Pre-Snap Situation")
-
-with post_snap:
-    with st.container(border=True):
-        st.image("assets/images/post_snap.png",caption="Post-Snap Results")
 
 
 file_ = open("assets/images/animation.gif", "rb")
@@ -289,6 +280,19 @@ st.markdown(
     f'<img src="data:image/gif;base64,{data_url}">',
     unsafe_allow_html=True,
 )
+
+pre_snap, post_snap = st.columns(2)
+
+with pre_snap:
+    with st.container(border=True):
+        st.image("assets/images/pre_snap.png",caption="Pre-Snap Situation")
+
+with post_snap:
+    with st.container(border=True):
+        st.image("assets/images/post_snap.png",caption="Post-Snap Results")
+
+st.markdown("**Note**: When interpreting the pre/post-snap visual, consider them as a mirrored version—if a player appears on the left side in the data, assume their position is on the right side on the field.")
+
 
 with st.container(border=True):
     st.markdown("**2.. :violet[Dink] & :violet[Dunk] Guide**")
