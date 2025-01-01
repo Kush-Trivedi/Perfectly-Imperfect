@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery on Scenario Game Play Simulation, Dink-Dunk Insights, & QB’s Radar")
 st.divider()
@@ -278,10 +279,16 @@ with post_snap:
     with st.container(border=True):
         st.image("assets/images/post_snap.png",caption="Post-Snap Results")
 
-st.image("assets/images/animation.gif",caption="When interpreting the pre/post-snap visual, consider them as a mirrored version—if a player appears on the left side in the data, assume their position is on the right side on the field.")
-# st.markdown("**Note**: When interpreting the pre/post-snap visual, consider them as a mirrored version—if a player appears on the left side in the data, assume their position is on the right side on the field.")
 
+file_ = open("assets/images/animation.gif", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
 
+st.markdown(
+    f'<img src="data:image/gif;base64,{data_url}">',
+    unsafe_allow_html=True,
+)
 
 with st.container(border=True):
     st.markdown("**2.. :violet[Dink] & :violet[Dunk] Guide**")
