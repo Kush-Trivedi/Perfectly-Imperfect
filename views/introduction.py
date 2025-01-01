@@ -240,6 +240,7 @@ with st.container(border=True):
         """
     )
 
+st.divider()
 st.markdown(
 """
 **:violet[Model Prediction]** vs. **:orange[Actual Outcome]**: The scenario described above comes from **Week 9** of the 2022 NFL season, specifically ***gameId: 2022110606*** and ***playId: 1531***. Our model, at this point, was not trained on this specific situation. For reference, the actual play can be viewed in the game footage here: [Video Link](https://youtu.be/-mMjBSavIzk?si=IqdidYEO4xxCFJJG&t=248). In this game, the New York Jets (NYJ) gained **:orange[24 yards]** with a **:orange[short pass down the middle]**. Our model, when calculating its prediction, estimated that the offense would gain **:violet[21-30 yards]** in this scenario and predicted a **:violet[middle pass]** strategy as a *second choice*. While this is a positive result, it highlights areas for further improvement in the model's ability to predict offensive strategies with greater precision. 
@@ -290,7 +291,7 @@ with st.container(border=True):
         st.image("assets/images/dink_dunk.png",use_container_width=True, caption="Ridgeline Chart")
 
     with col_8:
-         st.image("assets/images/dink_dunk_3.png",use_container_width=True)
+         st.image("assets/images/dink_dunk_table.png",use_container_width=True)
         
     st.markdown(
         """
