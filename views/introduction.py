@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery with Dink & Dunk, QB’s Radar, and Scenario Game Play Simulation ")
+st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery on Scenario Game Play Simulation, Dink-Dunk Insights, & QB’s Radar")
 st.divider()
 st.markdown(
     """
