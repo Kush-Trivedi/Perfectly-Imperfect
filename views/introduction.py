@@ -314,25 +314,25 @@ f1, f2, = st.columns(2)
 
 with f1:
     with st.container(border=True):
-        st.image("assets/images/nfl-big-data-bowl-2025/fold_1.png")
+        st.image("assets/images/fold_1.png")
 
 with f2:
     with st.container(border=True):
-        st.image("assets/images/nfl-big-data-bowl-2025/fold_2.png")
+        st.image("assets/images/fold_2.png")
 
 
 f3, f4, f5 = st.columns(3)
 with f3:
     with st.container(border=True):
-        st.image("assets/images/nfl-big-data-bowl-2025/fold_3.png",caption="Fold - 3")
+        st.image("assets/images/fold_3.png",caption="Fold - 3")
 
 with f4:
     with st.container(border=True):
-        st.image("assets/images/nfl-big-data-bowl-2025/fold_4.png",caption="Fold - 4")
+        st.image("assets/images/fold_4.png",caption="Fold - 4")
 
 with f5:
     with st.container(border=True):
-        st.image("assets/images/nfl-big-data-bowl-2025/fold_5.png",caption="Fold - 5")
+        st.image("assets/images/fold_5.png",caption="Fold - 5")
 
 st.markdown(
     """
