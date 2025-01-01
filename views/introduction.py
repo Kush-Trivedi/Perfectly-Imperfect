@@ -131,7 +131,6 @@ with col_6:
 
 st.divider()
 
-
 st.markdown(
     """
 
@@ -279,7 +278,8 @@ with post_snap:
     with st.container(border=True):
         st.image("assets/images/post_snap.png",caption="Post-Snap Results")
 
-st.markdown("**Note**: When interpreting the pre/post-snap visual, consider them as a mirrored version—if a player appears on the left side in the data, assume their position is on the right side on the field.")
+st.image("assests/images/animation.gif",caption="When interpreting the pre/post-snap visual, consider them as a mirrored version—if a player appears on the left side in the data, assume their position is on the right side on the field.")
+# st.markdown("**Note**: When interpreting the pre/post-snap visual, consider them as a mirrored version—if a player appears on the left side in the data, assume their position is on the right side on the field.")
 
 
 
