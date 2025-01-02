@@ -414,7 +414,7 @@ st.markdown(
     #### Acknowledgements
     Big thanks to the DFO (DeMarkco Butler) for all the help & support also I'm really thankful to Coach Lamberson for the live college football game insights they were super helpful for this project. 
 
-    Thanks to Dr. Sam Ramanujan, Ryan Peterson, Shreya Raval, Kayla Baer, Shrey Raval, Rushabh Shah & Harsh Patel for their guidance & support.
+    Thanks to Dr. Sam Ramanujan, Ryan Peterson, Shreya Raval, Seth Kelly, Kayla Baer, Shrey Raval, Rushabh Shah & Harsh Patel for their guidance & support.
 
     #### Appendix
 
