@@ -269,17 +269,21 @@ with st.container(border=True):
         )
 
 
+@st.cache_data(ttl=86400)
+def load_gif(file_path):
+    """Load a GIF file and return its base64-encoded data."""
+    with open(file_path, "rb") as file_:
+        contents = file_.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+    return data_url
 
-
-file_ = open("assets/images/animation.gif", "rb")
-contents = file_.read()
-data_url = base64.b64encode(contents).decode("utf-8")
-file_.close()
+gif_data_url = load_gif("assets/images/animation.gif")
 
 st.markdown(
-    f'<img src="data:image/gif;base64,{data_url}">',
+    f'<img src="data:image/gif;base64,{gif_data_url}">',
     unsafe_allow_html=True,
 )
+
 
 pre_snap, post_snap = st.columns(2)
 
