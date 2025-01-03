@@ -168,13 +168,14 @@ def get_weighted_player_rating(player_df, player_names, quarter, down):
         if not player_team_ratings.empty:
             result_ratings.append(player_team_ratings['final_weighted_rating'].iloc[0])
         else:
-            result_ratings.append(None)
+            result_ratings.append(1)
 
     missing_players = set(player_names) - set(averaged_ratings['displayName'])
     if missing_players:
-        st.warning(f"Ratings not found for: {', '.join(missing_players)}")
+        st.warning(f"Ratings not found for: {', '.join(missing_players)}. Default rating of 1 assigned.")
 
     return result_ratings
+
 
 
 
