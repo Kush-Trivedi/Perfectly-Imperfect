@@ -170,10 +170,6 @@ def get_weighted_player_rating(player_df, player_names, quarter, down):
         else:
             result_ratings.append(1)
 
-    missing_players = set(player_names) - set(averaged_ratings['displayName'])
-    if missing_players:
-        st.warning(f"Ratings not found for: {', '.join(missing_players)}. Default rating of 1 assigned.")
-
     return result_ratings
 
 
