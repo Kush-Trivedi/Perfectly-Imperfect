@@ -516,13 +516,28 @@ all_data = load_all_offense_data("assets/data/offense-data")
 logo_folder = Path("assets/logo")
 
 
+if "team_order" not in st.session_state:
+    st.session_state["team_order"] = {}
+
+
 selected_teams = st.multiselect(
     "Select Teams:",
-     list(all_data.keys()),
+    list(all_data.keys()),
     placeholder="Choose Teams",
     default=["PHI"]
 )
+
 if selected_teams:
+    for team in selected_teams:
+        if team not in st.session_state["team_order"]:
+            st.session_state["team_order"][team] = len(st.session_state["team_order"]) + 1
+
+    selected_teams = sorted(
+        selected_teams,
+        key=lambda x: st.session_state["team_order"][x],
+        reverse=True
+    )
+
     require_df = pd.DataFrame()
     for team in selected_teams:
         pbp_df, routes_df, pass_receiver_df = all_data[team]
@@ -534,15 +549,13 @@ if selected_teams:
         logo_path = logo_folder / f"{team}.png"
 
         display_team_info(
-            routes_df = pass_receiver_df, pass_receiver_df =routes_df ,
+            routes_df=pass_receiver_df,
+            pass_receiver_df=routes_df,
             bullet_text_summary=bullet_text_summary,
             fig=fig,
             team_name=team,
             logo_path=logo_path
         )
-
-    
-
 
     
 
