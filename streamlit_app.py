@@ -62,7 +62,7 @@ game_play_simulator = st.Page(
 # Game Play Page
 qb_passing_guide_page = st.Page(
     page="views/qb_radar.py",
-    title="Quarterback's Radar",
+    title="QB's Radar (Optional)",
     icon=":material/target:"
 )
 
