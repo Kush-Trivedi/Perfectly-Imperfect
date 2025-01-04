@@ -414,16 +414,14 @@ st.markdown(
     #### Acknowledgements
     Big thanks to the DFO (DeMarkco Butler) for all the help & support also I'm really thankful to Coach Lamberson for the live college football game insights they were super helpful for this project. 
 
-    Thanks to Dr. Sam Ramanujan, Ryan Peterson, Shreya Raval, Seth Kelly, Kayla Baer, Shrey Raval, Rushabh Shah & Harsh Patel for their guidance & support.
+    Thanks to Dr. Sam Ramanujan, Ryan Peterson, Kayla Baer, Seth Kelly, Shrey Raval, Rushabh Shah & Harsh Patel for their guidance & support.
 
     #### Appendix
 
-    - Source Code can be found [**here**](https://github.com/Kush-Trivedi/NFL-Big-Data-Bowl-2025)
-    - Kaggle Notebook can be found [**here**](https://www.kaggle.com/code/kushtrivedi14728/perfectly-imperfect)
-    - A dashboard with comprehensive visuals and detailed player tendencies reports can be found [**here**](https://perfectly-imperfect.streamlit.app)
-    - Professional LinkedIn [**profile**](https://www.linkedin.com/in/kush-trivedi/)
-
-    Additionally, I understand that it might not be practical to navigate through all the links given the time constraints. While we were ***limited to submitting 20 slides, we still have 13 slides available***, so why not use them? These additional slides, though optional, include a **comprehensive scenario and a detailed 'Dink & Dunk' report**, presenting everything in a single, cohesive view. Feel free to review the following slides at your convenience. Thank you for taking the time to go through our work and for considering our submission.
-
+    - [**Source Code**](https://github.com/Kush-Trivedi/NFL-Big-Data-Bowl-2025)
+    - [**Detailed Kaggle Notebook**](https://www.kaggle.com/code/kushtrivedi14728/perfectly-imperfect)
+    - A Visual [**Dashboard**](https://perfectly-imperfect.streamlit.app) & Detailed Player Tendency Reports
+    - LinkedIn: [**Kush Trivedi**](https://www.linkedin.com/in/kush-trivedi/), [**Shreya Raval**](https://www.linkedin.com/in/ba-sraval1)
+         
     """
 )
