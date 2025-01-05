@@ -2,6 +2,17 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+st.sidebar.markdown(
+    """
+    <div style='display: flex; align-items: center; justify-content: flex-start; margin-top: 5px; margin-left: 5px;'>
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" style="width:20px; height:20px; margin-right: 10px;">
+        <a href="https://github.com/Kush-Trivedi/NFL-Big-Data-Bowl-2025" target="_blank" style="text-decoration: none; font-size: 18px; color: #333;">
+            Source Code
+        </a>
+    </div>
+    """, unsafe_allow_html=True
+)
+
 st.markdown(
     r"""
     <style>
