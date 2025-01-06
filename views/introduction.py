@@ -280,7 +280,7 @@ def load_gif(file_path):
 gif_data_url = load_gif("assets/images/animation.gif")
 
 st.markdown(
-    f'<img src="data:image/gif;base64,{gif_data_url}">',
+    f'<img src="data:image/gif;base64,{gif_data_url}" loading="lazy">',
     unsafe_allow_html=True,
 )
 
