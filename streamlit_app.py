@@ -10,6 +10,12 @@ st.sidebar.markdown(
             Source Code
         </a>
     </div>
+    <div style='display: flex; align-items: center; justify-content: flex-start; margin-top: 15px; margin-left: 5px;'>
+        <img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/data-512.png" alt="Kaggle" style="width:20px; height:20px; margin-right: 10px;">
+        <a href="https://www.kaggle.com/datasets/kushtrivedi14728/perfectly-imperfect-coaching-presentation-track" target="_blank" style="text-decoration: none; font-size: 18px; color: #333;">
+             Kaggle Submission
+        </a>
+    </div>
     """, unsafe_allow_html=True
 )
 
