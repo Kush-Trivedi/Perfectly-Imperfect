@@ -7,7 +7,7 @@ st.markdown(
     """
     #### Introduction
     To begin with, I am very thankful to **DFO** ([**DeMarkco Butler**](https://ucmathletics.com/staff-directory/demarkco-butler/388)) for all his support throughout this project & 
-    I truly appreciate the live game valuable insights from [**Coach Josh Lamberson's**](https://themiaa.com/news/2023/12/6/football-josh-lamberson-named-afca-division-ii-super-region-coach-of-the-year.aspx), who is the ***AFCA Super Region II Coach of the Year 2023*** and the ***2023 MIAA Coach of the Year***.
+    I truly appreciate the live game valuable insights from [**Coach Josh Lamberson's**](https://themiaa.com/news/2023/12/6/football-josh-lamberson-named-afca-division-ii-super-region-coach-of-the-year.aspx), who was the ***AFCA Super Region II Coach of the Year 2023*** and the ***2023 MIAA Coach of the Year***.
 
     **Objective 1**: Scouting players is arguably the most crucial task for NFL teams in their quest to acquire top talent. The 32 teams meticulously evaluate and compare players by stacking them against each other, such as ***"this player vs. that player"***. Traditionally, this process involves extensive analysis of player performance, character assessment, and data evaluation.
     **Bottom Line**: Make smarter decisions, faster—with data we can trust. While film study remains important, this scenario gameplay simulator is the icing on the cake, providing clear insights more quickly than traditional methods, showing you exactly how your football strategy will play out—all before we even step on the field.
@@ -16,14 +16,13 @@ st.markdown(
     With defenses emphasizing pressure and coverage schemes to limit deep balls, offenses are responding by capitalizing on quick, efficient passes **DINKING** & **DUNKING** their way to dominance. **The numbers back it up**: Short passes, particularly to the *middle*, *right*, and *left* have consistently shown higher success rates in sustaining drives and avoiding costly turnovers. 
     Teams that master these plays gain an edge in controlling the *clock*, converting key *downs*, and maximizing *Expected Points Added (EPA)* per play. 
 
-    **Makes Smatter decisions! → The numbers back it up! → For real? → Yes**
+    **Make Smatter decisions? → The numbers back it up! → For real? → Yes**
     
     - *But can we use this for Scouting? How it will help for Scouting?*
-    - *How pre-snap formations and tendencies could predict post-snap outcomes? What relation it has with Scouting?*
+    - *How pre-snap formations and tendencies could predict post-snap outcomes? What relation it has with scouting?*
     - *How can we predict yard gains and determine the most effective offensive strategies in different scenarios? How can we leverage scouting for individual players?*
    
-    This project provides answers to such questions in to **3 main playgrounds** by visualizes the *trends*, analyzing *quaterbacks-receivers patterns*, *strategies*, hands on with *real time game play scenario simulator* & revealing not only what happens but also why.
-    
+    This project provides answers to such questions by visualizing the trends, *quaterbacks-receivers patterns, and the *team strategies8, and by using real time game play scenario simulator to reveal what happens and why?
     """
 )
 
@@ -68,8 +67,8 @@ st.divider()
 
 st.markdown("""
     #### Methodology
-    The Gameplay Simulator requires extensively engineering and transforming of raw tracking data data to definie game situations like quarter, down, and yards to go, then analyzing offensive and defensive player data to train machine learning models that predict yard gains and strategies with high accuracy where we used **8 weeks data for training** and **tested on 9th week** and achieved above 80% accurate results.
-       
+    The Gameplay simulator requires extensively engineered data and transformed raw tracking data to define game situations, like quarter, down, and yards to go. Then, offensive and defensive player data is used to train high accuracy  machine learning models that predict yard gains and strategies. The machine learning models used **8 weeks of data for training**, then was **tested on the 9th week**. The model achieved above 80% accuracy.
+
     Dink & Dunk Report requires extensively engineering and transforming raw players-play data to extract meaningful insights. For the Dink & Dunk Report, we identified pass plays and categorized them into short & deep pass strategies by analyzing formations, down and distance, player routes, receiver alignment, and defensive coverage, despite the tracking data not providing explicit details. 
     
   
@@ -101,15 +100,15 @@ with col_5:
         """
         :violet[**Dink & Dunk**] **Pipeline**
 
-        Developing the Dink & Dunk Report required extensive data engineering to analyze short-pass strategies for all **32 NFL teams**. We began by identifying pass plays from raw tracking data, distinguishing between short and deep passes. 
+        Developing the Dink & Dunk Report required extensive data engineering to analyze short-pass strategies for all **32 NFL teams**. We began by identifying pass plays from raw tracking data, which involved distinguishing between short and deep passes. 
         
         1. For short passes, we categorized them into types such as **Singleback Balanced Short Pass**, **Short Middle, Right, & Left Pass**, **Red Zone Short Pass**, **Short Yardage Pass**, **Midfield Short Pass** & **MANY OTHER such pass**. 
         
-        2. This classification was based on factors like ***receiver alignment, offense formation, quater, down and distance, yards to go, play direction, player routes, and defensive coverage*** etc. 
+        2. This classification was based on factors like ***receiver alignment, offense formation, quater, down and distance, yards to go, play direction, player routes, then we defensive coverage*** etc. 
         
-        3. Since the tracking data did not provide explicit details that require for Dink & Dunk, we transformed and categorized the data by analyzing route patterns, first downs, EPA's and other relevant metrics and stored the processed data. 
+        3. Since the tracking data did not provide explicit details that were required for Dink & Dunk, we transformed and categorized the data by analyzing route patterns, first downs, EPA's and other relevant metrics and stored the processed data. 
         
-        4. This processed data allows users to drill down into individual team statistics with a detailed breakdown of short-pass strategies.
+        4. This processed data allows users to drill down into individual team's statistics with a detailed breakdown of short-pass strategies.
         """
     )
 
@@ -144,11 +143,11 @@ with st.container(border=True):
     st.markdown("**1. :violet[Gameplay Simulator] Guide**")
     st.markdown(
         """
-        After running the Gameplay Simulator Pipeline methodology, focusing on player tracking and play details. In this process, we added new information that wasn't included in the tracking dataset, such as different defense 
-        formations(***4-3 Defense, Big Nickel*** and ***many other***) and offensive strategies(***Short Middle, Left, RIght, Pistol Quick Pass, Shotgun Deep Attack***, & many more other strategies which can be found in code section).
-        We also filled in gaps by adding routes for players who didn't have any listed, like ***Pass, Run, Lead, Kneel***, and ***Quick Block***, with help from a coach and friends who guided me on football terminology. 
+        After running the Gameplay Simulator Pipeline methodology, we focused on player tracking and play details. In this process, we added new information that wasn't included in the tracking dataset, such as different defense 
+        formations(***4-3 Defense, Big Nickel*** and ***many other***) and offensive strategies(***Short Middle, Left, RIght, Pistol Quick Pass, Shotgun Deep Attack***, & many more strategies which can be found in code section).
+        We also filled in gaps by adding routes for players who didn't have any listed, like ***Pass, Run, Lead, Kneel***, and ***Quick Block***, with help from a coach and friends who guided me on football terminology and strategy. 
         Similarly, we created new defensive coverages for players without assigned coverage assignment. Additionally, we incorporated extra data from the [NFLverse dataset](https://www.nflfastr.com/articles/field_descriptions.html) and performed feature 
-        engineering to identify correlations, which led us to develop new features for better accuracy. Not only but also to evaluate player performance, we introduced a rating system on a scale of ***1 to 10***, assessing their effectiveness on each down, quarter, 
+        engineering to identify correlations, which led us to develop new features for better accuracy also to evaluate player performance, we introduced a rating system on a scale of ***1 to 10***, assessing their effectiveness on each down, quarter, 
         and overall in the game. Finally, we leveraged this comprehensive data—including player ratings, offensive and defensive statistics, and game situations—to predict yards gained and potential offensive strategies. 
         
         """
@@ -187,7 +186,7 @@ with st.container(border=True):
     with off:
         st.markdown(
             """
-            The Jets have **decided to pass the ball**, which makes sense since they need to move the ball quickly to catch up. Their quarterback, Zach Wilson, is in a **shotgun formation**, meaning he's standing a few steps behind the center when he gets the ball and given that they have **22.15% win probability**.
+            The Jets have **decided to pass the ball**, which makes sense since they need to move the ball quickly to catch up. Their quarterback, Zach Wilson, is in a **shotgun formation**, meaning he's standing a few steps behind the center when he gets the ball. They have a 22.15% win probability.
             """
         )
 
@@ -351,7 +350,7 @@ with f5:
 
 st.markdown(
     """
-    Above 5-fold cross-validation result shows us that we have achieved above 80% accuracy & log-loss of 0.5 in predicting yards gained and strategy used. The average performance during training and validation further supports the model's robustness shown bellow
+    Above 5-fold cross-validation result shows us that we have achieved above 80% accuracy & log-loss of 0.5 in predicting yards gained and strategy used. The average performance during training and validation further supports the model's robustness shown below
 
     **Training and Validation Performance**:
         → :violet[Average Training Loss]: ***0.5253***
@@ -405,14 +404,14 @@ st.markdown(
     #### Conclusion
     Based on the two playgrounds discussed above:
 
-    1. :violet[**Gameplay Scenario**]: We achieved 80% accuracy on Week 9's unseen data, which shows that we can rely on this initial model and the best part is that we can explore any player across 32 NFL teams or even within the same team to see if our game plan will work out or not. Moreover, video film is mandatory for scouting a player, but having this simulator is like the icing on the cake which makes things faster for us and helping us make decisions based on data.
+    1. :violet[**Gameplay Scenario**]: We achieved 80% accuracy on Week 9's unseen data, which shows that we can rely on this initial model and the best part is that we can explore any player across 32 NFL teams or even within the same team to see if our game plan will work out or not. Moreover, video film is mandatory for scouting a player, but having this simulator is like the icing on the cake that makes things faster for us and helps us make decisions based on data.
 
-    2. :violet[**Dink & Dunk Strategy**]: Regarding this strategy, the 2022 data indicates that more yards were gained in the middle location across all teams with higher pass completion rate, higher first down conversion rate and all this claims are backed up with the EPA median favoring short middle passes. So, consider using short middle passes to create pressure on defesne and gain more yards. However, it’s also important to analyze pass-receivers preferred locations and routes provided in the Dink and Dunk strategy report.
+    2. :violet[**Dink & Dunk Strategy**]: Regarding this strategy, the 2022 data indicates that more yards were gained in the middle location across all teams with higher pass completion rate, higher first down conversion rate and these claims are backed up with the EPA median favoring short middle passes. So, consider using short middle passes to create pressure on defesne and gain more yards. However, it’s also important to analyze pass-receivers preferred locations and routes provided in the Dink and Dunk strategy report.
 
     Lastly, while I'd love to dive deeper, space constraints and the small sample size limit me. However, to sum it up, we have a comprehensive [**dashboard**](https://perfectly-imperfect.streamlit.app/) that breaks everything down in detail. It lets us explore custom players and game scenarios to determine if an offensive plan will work and understand which strategies might be used. With trends and patterns for both offense and defense, we can also filter data at the individual team level with ridge charts and tables that highlight tendencies and patterns, making data-driven decisions much easier.
 
     #### Acknowledgements
-    Big thanks to the DFO (DeMarkco Butler) for all the help & support also I'm really thankful to Coach Lamberson for the live college football game insights they were super helpful for this project. 
+    Big thanks to the DFO (DeMarkco Butler) for all the help & support. Also I'm really thankful to Coach Lamberson for the live college football game insights they were super helpful for this project. 
 
     Thanks to Dr. Sam Ramanujan, Ryan Peterson, Kayla Baer, Seth Kelly, Shrey Raval, Rushabh Shah & Harsh Patel for their guidance & support.
 
