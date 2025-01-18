@@ -559,6 +559,19 @@ class NFLAdvancedPlaygroundSimulator:
             seconds = game_sec % 60
             st.markdown(f"Time left in Game: **{minutes:02d}:{seconds:02d}**")
 
+        if quarter in [1, 2, 3, 4]:
+            if quarter_seconds < 0 or quarter_seconds > 900:
+                st.warning(f"Quarter time (Q{quarter}) must be between 0 and 900 seconds.")
+
+        if quarter in [1, 2]: 
+            if half_seconds < 0 or half_seconds > 1800:
+                st.warning("Half time for Q1/Q2 must be between 0 and 1800 seconds.")
+        elif quarter in [3, 4]: 
+            if half_seconds < 0 or half_seconds > 1800:
+                st.warning("Half time for Q3/Q4 must be between 0 and 1800 seconds.")
+        else:
+            pass
+
         if quarter == 1:
             if game_seconds < 2700 or game_seconds > 3600:
                 st.warning("Game time for the first quarter should be between 2700 and 3600 seconds.")
@@ -572,7 +585,7 @@ class NFLAdvancedPlaygroundSimulator:
             if game_seconds < 0 or game_seconds > 900:
                 st.warning("Game time for the fourth quarter should be between 0 and 900 seconds.")
         else:
-            st.warning("Invalid quarter number. Please choose a quarter between 1 and 4.")
+            pass
 
 
         return (
@@ -1279,6 +1292,11 @@ class NFLAdvancedPlaygroundSimulator:
             half_sec = st.session_state.half_seconds_remaining
             game_sec = st.session_state.game_seconds_remaining
 
+            if q == 5:
+                st.session_state.quarter_seconds_remaining = 0
+                st.session_state.half_seconds_remaining = 0
+                st.session_state.game_seconds_remaining = 0
+
             if q in [1, 2]:
                 current_half = "Half1"
             elif q in [3, 4]:
@@ -1330,6 +1348,10 @@ class NFLAdvancedPlaygroundSimulator:
 
         def quarter_changed():
             st.session_state.last_updated = "quarter"
+            if st.session_state.quarter == 5:
+                st.session_state.quarter_seconds_remaining = 0
+                st.session_state.half_seconds_remaining = 0
+                st.session_state.game_seconds_remaining = 0
             sync_times()
 
         def half_changed():
@@ -1397,8 +1419,10 @@ class NFLAdvancedPlaygroundSimulator:
         if clicked and input_valid:
             st.session_state.submit_button = True
 
-        whole_offense_ratings = round(np.mean(offense_ratings), 6)
-        whole_defense_ratings = round(np.mean(defense_ratings), 6)
+        offense_ratings_clean = [x for x in offense_ratings if x is not None]
+        whole_offense_ratings = round(np.mean(offense_ratings_clean), 6)
+        defense_ratings_clean = [x for x in defense_ratings if x is not None]
+        whole_defense_ratings = round(np.mean(defense_ratings_clean), 6)
 
         if st.session_state.submit_button and input_valid:
             pay_load = self.genrate_payload(
