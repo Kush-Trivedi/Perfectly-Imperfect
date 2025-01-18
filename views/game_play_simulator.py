@@ -533,7 +533,8 @@ class NFLAdvancedPlaygroundSimulator:
                 min_value=0,
                 max_value=1800, 
                 key="half_seconds_remaining",
-                on_change=half_callback
+                on_change=half_callback,
+                disabled=True
             )
             half_sec = half_seconds
             minutes = half_sec // 60
@@ -552,7 +553,8 @@ class NFLAdvancedPlaygroundSimulator:
                 min_value=0,
                 max_value=3600, 
                 key="game_seconds_remaining",
-                on_change=game_callback
+                on_change=game_callback,
+                disabled=True
             )
             game_sec = game_seconds
             minutes = game_sec // 60
