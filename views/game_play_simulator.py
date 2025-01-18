@@ -559,14 +559,20 @@ class NFLAdvancedPlaygroundSimulator:
             seconds = game_sec % 60
             st.markdown(f"Time left in Game: **{minutes:02d}:{seconds:02d}**")
 
-        if quarter == 1 and game_seconds <= 2700:
-            st.warning("Game time for the first quarter should be greater than 2700 seconds.")
-        elif quarter == 2 and (game_seconds <= 1800 or game_seconds > 2700):
-            st.warning("Game time for the second quarter should be between 1800 and 2700 seconds.")
-        elif quarter == 3 and (game_seconds <= 900 or game_seconds > 1800):
-            st.warning("Game time for the third quarter should be between 900 and 1800 seconds.")
-        elif quarter == 4 and game_seconds > 900:
-            st.warning("Game time for the fourth quarter should be 900 seconds or less.")
+        if quarter == 1:
+            if game_seconds < 2700 or game_seconds > 3600:
+                st.warning("Game time for the first quarter should be between 2700 and 3600 seconds.")
+        elif quarter == 2:
+            if game_seconds < 1800 or game_seconds > 2700:
+                st.warning("Game time for the second quarter should be between 1800 and 2700 seconds.")
+        elif quarter == 3:
+            if game_seconds < 900 or game_seconds > 1800:
+                st.warning("Game time for the third quarter should be between 900 and 1800 seconds.")
+        elif quarter == 4:
+            if game_seconds < 0 or game_seconds > 900:
+                st.warning("Game time for the fourth quarter should be between 0 and 900 seconds.")
+        else:
+            st.warning("Invalid quarter number. Please choose a quarter between 1 and 4.")
 
 
         return (
