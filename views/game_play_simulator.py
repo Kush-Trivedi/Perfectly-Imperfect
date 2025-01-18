@@ -450,21 +450,38 @@ class NFLAdvancedPlaygroundSimulator:
 
         return game_scenario
     
-    def game_situation_components(self):
+    def game_situation_components(self,quarter_callback=None,half_callback=None,game_callback=None):
         yards_to_go_options = list(range(1, 31))
         yards_to_endzone_options = list(range(1, 101))
+
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            quarter = st.selectbox("Quarter", options=[1, 2, 3, 4, 5],index=[1, 2, 3, 4].index(2) if 2 in [1, 2, 3, 4, 5] else 0, key="quarter")
-            st.markdown(
-                """
-                    <style> div[data-baseweb="segmented-control"] { } div[data-baseweb="segmented-control"] button { } </style>
-                """,
-                unsafe_allow_html=True
+            quarter = st.selectbox(
+                "Quarter",
+                options=[1, 2, 3, 4, 5],
+                key="quarter",
+                on_change=quarter_callback
             )
+
+            if quarter in [1, 2]:
+                derived_half = "Half1"
+            elif quarter in [3, 4]:
+                derived_half = "Half2"
+            else:
+                derived_half = "Overtime"
+
             option_map = {0: ":material/hourglass_top: ", 1: ":material/hourglass_bottom: ", 2: ":material/more_time: "}
-            game_half = st.segmented_control( "Game Time Segment", options=option_map.keys(), format_func=lambda option: option_map[option], default=0)
+
+            if quarter in [1, 2]:
+                default_half = 0
+            elif quarter in [3, 4]:
+                default_half = 1
+            else:
+                default_half = 2
+
+            game_half = st.segmented_control("Game Time Segment",options=list(option_map.keys()),format_func=lambda x: option_map[x],default=default_half)
+
             if game_half == 0:
                 selected_half = f"{option_map[game_half]} Half - 1"
             elif game_half == 1:
@@ -477,30 +494,92 @@ class NFLAdvancedPlaygroundSimulator:
             st.markdown(f"Phase of Play: **{selected_half}**")
             selected_half = selected_half.split(":")[-1].strip()
             game_half = "Half1" if selected_half == "Half - 1" else ("Half2" if selected_half == "Half - 2" else "Overtime")
-            is_second_half = 1 if game_half == "Half2" else 0
-            
-        with col2:    
-            down = st.selectbox("Down", options=[1, 2, 3, 4], index=[0, 1, 2, 3].index(1) if 2 in [1, 2, 3, 4] else 0, key="down")
-            quarter_seconds_remaining = st.slider("Seconds Remaining in a Quarter", min_value=0, max_value=900,step=1, value=264)
-            minutes = quarter_seconds_remaining // 60
-            seconds = quarter_seconds_remaining % 60
-            st.markdown(f"Time left in Qtr: **{minutes:02}:{seconds:02}** (*MM:SS*)")
-            
+
+            is_second_half = 1 if derived_half == "Half2" else 0
+
+            if (quarter in [1, 2] and game_half != "Half1") or \
+            (quarter in [3, 4] and game_half != "Half2") or \
+            (quarter == 5 and game_half != "Overtime"):
+                st.warning("Selected half does not match the quarter.")
+
+        with col2:
+            down = st.selectbox(
+                "Down",
+                options=[1, 2, 3, 4],
+                key="down"
+            )
+            quarter_seconds = st.slider(
+                "Seconds Remaining (Quarter)",
+                min_value=0,
+                max_value=900, 
+                step=1,
+                key="quarter_seconds_remaining",
+                on_change=quarter_callback
+            )
+            q_sec = quarter_seconds
+            minutes = q_sec // 60
+            seconds = q_sec % 60
+            st.markdown(f"Time left in Q: **{minutes:02d}:{seconds:02d}**")
+
         with col3:
-            yards_to_go = st.selectbox("Yards to Go", options=yards_to_go_options, index=10-1 if 10 in yards_to_go_options else 0, key="yards_to_go")
-            half_seconds_remaining = st.slider("Seconds Remaining in a Half", min_value=0, max_value=1800, value=264)
-            minutes = half_seconds_remaining // 60
-            seconds = half_seconds_remaining % 60
-            st.markdown(f"Half time left: **{minutes:02}:{seconds:02}** (*MM:SS*)")
+            yards_to_go = st.selectbox(
+                "Yards to Go",
+                options=yards_to_go_options,
+                index=9,  
+                key="yards_to_go"
+            )
+            half_seconds = st.slider(
+                "Seconds Remaining (Half)",
+                min_value=0,
+                max_value=1800, 
+                key="half_seconds_remaining",
+                on_change=half_callback
+            )
+            half_sec = half_seconds
+            minutes = half_sec // 60
+            seconds = half_sec % 60
+            st.markdown(f"Time left in Half: **{minutes:02d}:{seconds:02d}**")
 
         with col4:
-            yards_to_endzone = st.selectbox("Yards to Endzone", options=yards_to_endzone_options,index=65-1 if 65 in yards_to_endzone_options else 0, key="yards_endzone")
-            game_seconds_remaining = st.slider("Seconds Remaining in the Game", min_value=0, max_value=3600, value=2064)
-            minutes = game_seconds_remaining // 60
-            seconds = game_seconds_remaining % 60
-            st.markdown(f"Game time left: **{minutes:02}:{seconds:02}** (*MM:SS*)")
+            yards_to_endzone = st.selectbox(
+                "Yards to Endzone",
+                options=yards_to_endzone_options,
+                index=64,  
+                key="yards_endzone"
+            )
+            game_seconds = st.slider(
+                "Seconds Remaining (Game)",
+                min_value=0,
+                max_value=3600, 
+                key="game_seconds_remaining",
+                on_change=game_callback
+            )
+            game_sec = game_seconds
+            minutes = game_sec // 60
+            seconds = game_sec % 60
+            st.markdown(f"Time left in Game: **{minutes:02d}:{seconds:02d}**")
 
-        return quarter, down, yards_to_go, yards_to_endzone, game_half, is_second_half, quarter_seconds_remaining, half_seconds_remaining, game_seconds_remaining
+        if quarter == 1 and game_seconds <= 2700:
+            st.warning("Game time for the first quarter should be greater than 2700 seconds.")
+        elif quarter == 2 and (game_seconds <= 1800 or game_seconds > 2700):
+            st.warning("Game time for the second quarter should be between 1800 and 2700 seconds.")
+        elif quarter == 3 and (game_seconds <= 900 or game_seconds > 1800):
+            st.warning("Game time for the third quarter should be between 900 and 1800 seconds.")
+        elif quarter == 4 and game_seconds > 900:
+            st.warning("Game time for the fourth quarter should be 900 seconds or less.")
+
+
+        return (
+            quarter,
+            down,
+            yards_to_go,
+            yards_to_endzone,
+            game_half,
+            is_second_half,
+            quarter_seconds,
+            half_seconds,
+            game_seconds,
+        )
     
     def offense_details(self, offense_col, quarter, down):
         offense_selected_players = []
@@ -1176,6 +1255,85 @@ class NFLAdvancedPlaygroundSimulator:
 
 
     def run_streamlit_app(self):
+        if "quarter" not in st.session_state:
+            st.session_state.quarter = 2
+        if "quarter_seconds_remaining" not in st.session_state:
+            st.session_state.quarter_seconds_remaining = 264  
+        if "half_seconds_remaining" not in st.session_state:
+            st.session_state.half_seconds_remaining = 264     
+        if "game_seconds_remaining" not in st.session_state:
+            st.session_state.game_seconds_remaining = 2064   
+        if "last_updated" not in st.session_state:
+            st.session_state.last_updated = None
+
+        def sync_times():
+            changed = st.session_state.last_updated
+            q = st.session_state.quarter
+            q_sec = st.session_state.quarter_seconds_remaining
+            half_sec = st.session_state.half_seconds_remaining
+            game_sec = st.session_state.game_seconds_remaining
+
+            if q in [1, 2]:
+                current_half = "Half1"
+            elif q in [3, 4]:
+                current_half = "Half2"
+            else:
+                current_half = "Overtime"
+
+            if changed == "quarter":
+                if q == 1:
+                    st.session_state.half_seconds_remaining = q_sec + 900
+                    st.session_state.game_seconds_remaining = (q_sec + 900) + 1800
+                elif q == 2:
+                    st.session_state.half_seconds_remaining = q_sec
+                    st.session_state.game_seconds_remaining = q_sec + 1800
+                elif q == 3:
+                    st.session_state.half_seconds_remaining = q_sec + 900
+                    st.session_state.game_seconds_remaining = q_sec + 900
+                elif q == 4:
+                    st.session_state.half_seconds_remaining = q_sec
+                    st.session_state.game_seconds_remaining = q_sec
+                else:
+                    st.session_state.half_seconds_remaining = q_sec
+                    st.session_state.game_seconds_remaining = q_sec
+
+            elif changed == "half":
+                half_sec = st.session_state.half_seconds_remaining
+
+                if current_half == "Half1":
+                    st.session_state.quarter_seconds_remaining = min(half_sec, 900)
+                    st.session_state.game_seconds_remaining = half_sec + 1800
+                elif current_half == "Half2":
+                    st.session_state.quarter_seconds_remaining = min(half_sec, 900)
+                    st.session_state.game_seconds_remaining = half_sec
+                else:
+                    st.session_state.quarter_seconds_remaining = half_sec
+                    st.session_state.game_seconds_remaining = half_sec
+
+            elif changed == "game":
+                game_sec = st.session_state.game_seconds_remaining
+                if current_half == "Half1":
+                    st.session_state.half_seconds_remaining = min(game_sec, 1800)
+                    st.session_state.quarter_seconds_remaining = min(st.session_state.half_seconds_remaining, 900)
+                elif current_half == "Half2":
+                    st.session_state.half_seconds_remaining = game_sec
+                    st.session_state.quarter_seconds_remaining = min(game_sec, 900)
+                else:
+                    st.session_state.half_seconds_remaining = game_sec
+                    st.session_state.quarter_seconds_remaining = game_sec
+
+        def quarter_changed():
+            st.session_state.last_updated = "quarter"
+            sync_times()
+
+        def half_changed():
+            st.session_state.last_updated = "half"
+            sync_times()
+
+        def game_changed():
+            st.session_state.last_updated = "game"
+            sync_times()
+
         st.title("Scenario :orange[Gameplay Simulator]")  
         with st.container(border=True):
             col1,col2 = st.columns([3,7])
@@ -1184,7 +1342,12 @@ class NFLAdvancedPlaygroundSimulator:
             with col2:
                 pass
 
-            quarter, down, yards_to_go, yards_to_endzone, game_half, is_second_half, quarter_seconds_remaining, half_seconds_remaining, game_seconds_remaining = self.game_situation_components()
+            quarter, down, yards_to_go, yards_to_endzone, game_half, is_second_half, \
+                quarter_seconds_remaining, half_seconds_remaining, game_seconds_remaining = self.game_situation_components(
+                    quarter_changed,
+                    half_changed,
+                    game_changed
+                )
         
         offense_col, defense_col = st.columns(2)
         offense_play_type, offense_teaam_name, off_score, off_timeout_remaining, offense_wp, offense_formation, offense_selected_players, offense_selected_positions, offense_selected_routes, offense_ratings, offense_team_name = self.offense_details(offense_col, quarter, down)
