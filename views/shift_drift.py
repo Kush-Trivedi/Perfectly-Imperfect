@@ -187,7 +187,7 @@ selected_teams = st.multiselect(
             'GB', 'BUF', 'PHI', 'IND', 'NE', 'TB'
         ] ,
     placeholder="Choose Teams",
-    default=["PHI"]
+    default=["NE"]
 )
 
 if selected_teams:
