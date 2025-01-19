@@ -94,7 +94,7 @@ dink_dunck = st.Page(
 # Shift & Drift
 shift_drift = st.Page(
     page="views/shift_drift.py",
-    title="Shift & Drift Report",
+    title="Shift & Drift Report (Overdue)",
     icon=":material/sprint:"
 )
 
