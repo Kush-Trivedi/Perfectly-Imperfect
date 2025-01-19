@@ -91,13 +91,20 @@ dink_dunck = st.Page(
     icon=":material/inventory:"
 )
 
+# Shift & Drift
+shift_drift = st.Page(
+    page="views/shift_drift.py",
+    title="Shift & Drift Report",
+    icon=":material/sprint:"
+)
+
 
 
 # Navigation Setup
 pg = st.navigation(
     {
         "Intoduction": [introduction_page],
-        "Playground": [game_play_simulator, dink_dunck, qb_passing_guide_page]
+        "Playground": [game_play_simulator, dink_dunck, shift_drift, qb_passing_guide_page]
     }
 )
 
