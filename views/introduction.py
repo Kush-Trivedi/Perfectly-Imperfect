@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 
-st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery on Scenario Game Play Simulation, Dink-Dunk Insights, & QB’s Radar")
+st.title(":violet[Perfectly-Imperfect]: Pre-Snap Mastery on Scenario Game Play Simulation, Dink-Dunk Insights, Shift-Drift, & QB’s Radar")
 st.divider()
 st.markdown(
     """
