@@ -80,7 +80,7 @@ game_play_simulator = st.Page(
 # Game Play Page
 qb_passing_guide_page = st.Page(
     page="views/qb_radar.py",
-    title="QB's Radar (Optional)",
+    title="QB's Radar",
     icon=":material/target:"
 )
 
@@ -94,7 +94,7 @@ dink_dunck = st.Page(
 # Shift & Drift
 shift_drift = st.Page(
     page="views/shift_drift.py",
-    title="Shift & Drift Report (Overdue)",
+    title="Shift & Drift Report",
     icon=":material/sprint:"
 )
 
