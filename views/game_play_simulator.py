@@ -506,7 +506,8 @@ class NFLAdvancedPlaygroundSimulator:
             down = st.selectbox(
                 "Down",
                 options=[1, 2, 3, 4],
-                key="down"
+                key="down",
+                index=[0, 1, 2, 3].index(1) if 2 in [1, 2, 3, 4] else 0
             )
             quarter_seconds = st.slider(
                 "Seconds Remaining (Quarter)",
